@@ -1514,8 +1514,7 @@ border-radius: 1vw;
   width: fit-content;
   background-color: #252525;
   border-radius:4vw;
-  /* border-top-right-radius:8vw;
-  border-top-left-radius:8vw; */
+
  
 }
 .songName::after{
@@ -1583,18 +1582,7 @@ border-radius: 1vw;
 .songDescriptionCont{
   position: relative;
 }
-/* .songDescriptionContbefore::before{
-  content: '';
-  left:-20%;
-  top:0;
-  
-  background-image: linear-gradient(to right,#252525 50%,transparent);
-  height:100%;
-  width:30%;
-  position: absolute;
-  z-index: 1;
 
-} */
 .songDescriptionContbefore::after{
   content: '';
 right:-20%;
@@ -1710,17 +1698,6 @@ overflow: hidden;
   color:white;
 }
 
-/* .musicBar{
-  width:33vw;
-  overflow: hidden;
-  padding-left:2vw;
-  padding-left:2vw;
-  
-} */
-
-/* .currentSong{
-  gap: 3vw;
-} */
 
 #barsCurrentSong{
   height:6vw;
@@ -1861,73 +1838,6 @@ overflow: hidden;
 }
 
 
-
-
-
-/*<---musicPlayerStyling--->*/
-
-/* .wrapperForMusicBar{
-  bottom:0;
-  height:100vh;
-}
-
-.musicBar{
-width:100vw;
-height:100vh;
-}
-.currentSong{
-  flex-direction:column ;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left:2%;
-  gap:5vw;
-  color: transparent;
- 
-}
-.currentSong img{
-height:95vw;
-width:95vw;
-border-radius: 0;
-}
-.currentMusic-Player{
-  
-  overflow: visible;
-}
-.currentMusic-Player p{
-  font-size:4vw;
-}
-
-#crrSongNameInPTag{
-  font-size:6vw;
-}
-  .currentMusic-Player div::before{
-    display:none;
-  }
-  .currentMusic-Player div{
-    width: fit-content;
-   margin-left: 4%;
-   width:78vw;
-   overflow: hidden;
-
-  
-  }
-  #likeicon{
-    margin:0;
-  }
-  .like_SongDetailsCont{
-    display: flex;
-    gap:6vw;
-    align-items: center;
-    margin-top:5vw;
-
-  }
-  .mainControls{
-    display:flex;
-  } */
-  /* #crrSongArtistInPTag{
-  } */
-}
-
 #sideControls-sound::before{
   color:white;
   font-size:2vh;
@@ -1952,20 +1862,6 @@ border-radius: 0;
 #homeicon{
   padding-top:2vmin;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*<--Scrollbar Styling bellow-->*/
 
