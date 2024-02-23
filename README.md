@@ -40,7 +40,7 @@
 My project is an improved version of a Spotify clone, with the vision of making it the best of all. It focuses on enhancing the user experience (UX) and ensuring full responsiveness across devices. This clone offers a wide range of features designed to emulate the functionality of Spotify while introducing additional enhancements for a seamless user experience.
 <br>
 <br>
-<img src="icon/screenshot.png" alt="Logo" width="200" height="400">
+<img src="icon/screenshot.png" alt="Logo"  height="400">
 <br>
 <br>
 <br>
