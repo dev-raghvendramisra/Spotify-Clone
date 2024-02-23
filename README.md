@@ -9,19 +9,18 @@
 
   <h3 align="center">Spotify Clone-by Raghvendra Misra</h3>
 
-  <div align="center">
-    [![website](icon/twitter-light.svg)](https://twitter.com/raghvendra_001#gh-light-mode-only)
-[![website](icon/twitter-dark.svg)](https://twitter.com/raghvendra_001#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](icon/linkedin-light.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-light-mode-only)
-[![website](icon/linkedin-dark.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](icon/instagram-light.svg)](https://instagram.com/xeno.dz#gh-light-mode-only)
-[![website](icon/instagram-dark.svg)](https://instagram.com/xeno.dz#gh-dark-mode-only)
-&nbsp;&nbsp;
-[![website](icon/mail-light.svg)](mailto:itsraghav12@gmail.com#gh-light-mode-only)
-[![website](icon/mail-dark.svg)](mailto:itsraghav12@gmail.com#gh-dark-mode-only)
-  </div>
+ <p align="center">
+    Best one you'll ever find!
+    <br />
+    <a href="https://spotifyclonebyrv.freewebhostmost.com"><strong>Veiw Live Project»</strong></a>
+    <br />
+    <br />
+    <a href="linkedin.com/in/raghvendra-misra-424803262">linkedIn</a>
+    ·
+    <a href="https://twitter.com/raghvendra_001">Twitter</a>
+    ·
+    <a href="https://instagram.com/xeno.dz">Instagram</a>
+  </p>
 </div>
 
 <br>
