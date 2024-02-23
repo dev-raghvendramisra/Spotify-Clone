@@ -10,17 +10,17 @@
   <h3 align="center">Spotify Clone-by Raghvendra Misra</h3>
 
   <div align="center">
-    [![website](twitter-light.svg)](https://twitter.com/raghvendra_001#gh-light-mode-only)
-[![website](twitter-dark.svg)](https://twitter.com/raghvendra_001#gh-dark-mode-only)
+    [![website](./icon/twitter-light.svg)](https://twitter.com/raghvendra_001#gh-light-mode-only)
+[![website](./icon/twitter-dark.svg)](https://twitter.com/raghvendra_001#gh-dark-mode-only)
 &nbsp;&nbsp;
-[![website](linkedin-light.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-light-mode-only)
-[![website](linkedin-dark.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-dark-mode-only)
+[![website](./icon/linkedin-light.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-light-mode-only)
+[![website](./icon/linkedin-dark.svg)](https://linkedin.com/in/raghvendra-misra-424803262#gh-dark-mode-only)
 &nbsp;&nbsp;
-[![website](instagram-light.svg)](https://instagram.com/xeno.dz#gh-light-mode-only)
-[![website](instagram-dark.svg)](https://instagram.com/xeno.dz#gh-dark-mode-only)
+[![website](./icon/instagram-light.svg)](https://instagram.com/xeno.dz#gh-light-mode-only)
+[![website](./icon/instagram-dark.svg)](https://instagram.com/xeno.dz#gh-dark-mode-only)
 &nbsp;&nbsp;
-[![website](mail-light.svg)](mailto:itsraghav12@gmail.com#gh-light-mode-only)
-[![website](mail-dark.svg)](mailto:itsraghav12@gmail.com#gh-dark-mode-only)
+[![website](./icon/mail-light.svg)](mailto:itsraghav12@gmail.com#gh-light-mode-only)
+[![website](./icon/mail-dark.svg)](mailto:itsraghav12@gmail.com#gh-dark-mode-only)
   </div>
 </div>
 
