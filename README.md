@@ -40,7 +40,7 @@
 My project is an improved version of a Spotify clone, with the vision of making it the best of all. It focuses on enhancing the user experience (UX) and ensuring full responsiveness across devices. This clone offers a wide range of features designed to emulate the functionality of Spotify while introducing additional enhancements for a seamless user experience.
 <br>
 <br>
-<img src="icon/screenshot.png" alt="Logo"  height="400">
+<img src="icon/screenshot.png" alt="Logo" width="1113" height="575">
 <br>
 <br>
 <br>
@@ -62,6 +62,15 @@ My project is an improved version of a Spotify clone, with the vision of making 
 * 🔥 **Volume Control:** A volume bar allows users to adjust the volume level according to their preferences, providing a customizable listening experience.
 
 * 🔥 And much more..
+
+<br></br>
+
+
+
+## Current progress
+
+Working on **Responsiveness**, thus its best suited for bigger screens currently!
+
 
 <h3>Planned Backend Integration:</h3>
 The application is planned to integrate with a typical backend soon, enabling features such as user authentication, playlist management, and personalized recommendations based on user preferences and listening history.
