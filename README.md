@@ -36,7 +36,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][screenshot]]([https://example.com](https://spotifyclonebyrv.freewebhostmost.com/))
+[![Product Name Screen Shot][icon/screenshot]]([https://example.com](https://spotifyclonebyrv.freewebhostmost.com/))
 
 My project is an improved version of a Spotify clone, with the vision of making it the best of all. It focuses on enhancing the user experience (UX) and ensuring full responsiveness across devices. This clone offers a wide range of features designed to emulate the functionality of Spotify while introducing additional enhancements for a seamless user experience.
 <br>
