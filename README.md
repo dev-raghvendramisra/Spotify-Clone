@@ -42,6 +42,7 @@ My project is an improved version of a Spotify clone, with the vision of making 
 <br>
 <img src="icon/screenshot.png" alt="Logo" style="width:100vw">
 <br>
+<img src="icon/screenshot1.png" alt="Logo" style="width:100vw">
 <br>
 <br>
 
