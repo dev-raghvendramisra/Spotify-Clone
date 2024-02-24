@@ -21,7 +21,6 @@ const nowPlayingSongArtist = document.querySelector(".nowPlayingSongArtist");
 const inQueueSongsCont = document.querySelector(".inQueueSongs");
 const nowPlayingVeiwBtn = document.querySelector("#sideControls-veiw");
 let wrapperForMusicBar = document.querySelector(".wrapperForMusicBar");
-// let playerCrrSongThumb;
 const widthForMobileCardsCluttering = 740;
 let musicBarBg;
 
@@ -41,207 +40,7 @@ let nowPlayingOpened = false;
 let openedInMobile = false;
 let isConstructed = false;
 let isMusicBarOpened = false;
-const playlist = [
-  "satranga.mp3",
-  "chaleya.mp3",
-  "4.10.mp3",
-  "kesariya.mp3",
-  "wohRaat.mp3",
-  "thodaThodaPyaar.mp3",
-  "malang.mp3",
-  "duniyaa.mp3",
-  "labonKo.mp3",
-  "lovely.mp3",
-  "stay.mp3",
-  "jannateinKahan.mp3",
-  "sometimes.mp3",
-  "seedheMaut.mp3",
-  "tuHaiKahan.mp3",
-  "arjanVailly.mp3",
-  "ranjha.mp3",
-  "ratanLambiyan.mp3",
-  "manjha.mp3",
-  "chaleya.mp3",
-  "satranga.mp3",
-  "phirMohobbat.mp3",
-  "hothonSeChulo.mp3",
-  "noMercy.mp3",
-  "blowingUp.mp3",
-  "prarthna.mp3",
-  "athmaRama.mp3",
-  "ben10.mp3",
-];
 
-const songDetails = [
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271",
-    name: "Satranga",
-    description: "Arijit Singh, Shreyas Puranik",
-    fullName: 'Satranga (From "Animal")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2",
-    name: "Chaleya",
-    description: "Arijit Singh, Anirudh Ravichander",
-    fullName: 'Chaleya (From "Jawan")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02333548f23189291acdee787d",
-    name: "4.10",
-    description: "DIVINE, Lal Chand Yamla Jatt",
-    fullName: "4.10",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b273c08202c50371e234d20caf62",
-    name: "Kesariya",
-    description: "Pritam, Arijit Singh, Amitabh Bhattacharya",
-    fullName: 'Kesariya ("From Bhramastra")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e028eeefdbfd14ad10510ba6c86",
-    name: "Woh Raat",
-    description: "Raftaar, KR$NA",
-    fullName: "Woh Raat",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02bb52f4d0546656ebcf9ed925",
-    name: "Thoda Thoda Pyaar",
-    description: "Nilesh Ahuja, Stebin Ben",
-    fullName: "Thoda Thoda Pyaar",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e0299655481a2151203ed89351d",
-    name: "Malang(Title Track)",
-    description: "Ved Sharma, Kunal Vermaa",
-    fullName: 'Malang (From "Malang")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e027b93fd8b0ade33ceb9d536de",
-    name: "Duniyaa",
-    description: "Akhil, Dhvani Bhanushali",
-    fullName: 'Duniya (From "Lukka Chuppi")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b2734cfe2d352da6d7910961377f",
-    name: "Labon Ko",
-    description: "Pritam, KK",
-    fullName: "Labon Ko",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e028a3f0a3ca7929dea23cd274c",
-    name: "Lovely (with Khalid)",
-    description: "Billi Eilish, Khalid",
-    fullName: "Lovely (with Khalid)",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b27341e31d6ea1d493dd77933ee5",
-    name: "STAY (with Justin Bieber)",
-    description: "The Kid LARAOI,Justin Bieber",
-    fullName: "STAY (with Justin Bieber)",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b27371da5e89467bd75d2ed9f1fa",
-    name: "Jannatein Kahan",
-    description: "Pritam, KK",
-    fullName: "Jannatein Kahan",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e029ad4c5b52effc242984def78",
-    name: "Sometimes",
-    description: "AUR",
-    fullName: "Sometimes",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02f5a66f7c0126268d45cda1b6",
-    name: "Namastute",
-    description: "Seedhe Maut",
-    fullName: "Namastute",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b2733fb3fb3086a40c2c5062501d",
-    name: "Tu Hai Kahan",
-    description: "AUR",
-    fullName: "Tu Hai Kahan",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b2735f3ede47954a93aa03efe5f9",
-    name: "Arjan Vailly",
-    description: "Manan Bharadwaj, Bhupinder Babbal",
-    fullName: 'Arjan Vailly (From "ANIMAL")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e0209426d9ae9d8d981735ebc5e",
-    name: "Ranjha",
-    description: "B Praak, Jasleen Royal",
-    fullName: 'Ranjha (From "Shershaah")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b273a75c2f26913099a420050f01",
-    name: "Ratan Lambiyan",
-    description: "Tanishq Bagchi, Jubin Nautiyal",
-    fullName: 'Ratan Lambiyan (From "Shershaah")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02dea88e870d30a4da51065bf5",
-    name: "Manjha",
-    description: "Vishal Mishra",
-    fullName: "Manjha",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2",
-    name: "Chaleya",
-    description: "Arijit Singh, Anirudh Ravichander",
-    fullName: 'Chaleya (From "Jawan")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271",
-    name: "Satranga",
-    description: "Arijit Singh, Shreyas Puranik",
-    fullName: 'Satranga ("From Animal")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b",
-    name: "Phir Mohobbat",
-    description: "Md.Irfan, Arijit Singh, Saim Bhat",
-    fullName: 'Phir Mohobbat (From "Murder 2")',
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b273b5eba194cd2f743be9a0f87b",
-    name: "Hothon Se Chu Lo Tum",
-    description: "Jagjit Singh",
-    fullName: "Hothon Se Chu Lo Tum",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b27300221eaa504574172c617504",
-    name: "No Mercy",
-    description: "Deep Kalsi, Raftaar, KR$NA, KARMA",
-    fullName: "No Mercy",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b273f8c35169d5bab01327f87e5a",
-    name: "Blowing Up",
-    description: "KR$NA",
-    fullName: "Blowing Up",
-  },
-  {
-    src: "https://i.scdn.co/image/ab67616d0000b273843596e5677ecc71fee1c340",
-    name: "Prarthna",
-    description: "KR$NA",
-    fullName: "Prarthna",
-  },
-  {
-    src: "https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg",
-    name: "Athma Rama",
-    description: "Agam Aggrawal",
-    fullName: "Athma Rama",
-  },
-  {
-    src: "https://m.media-amazon.com/images/M/MV5BZjg2ZjViMTktNWQ1Yy00ODZiLWE1OTgtNDY3MjI0OGUyNjNhXkEyXkFqcGdeQXVyNTk4NDI4NTE@._V1_.jpg",
-    name: "BEN 10-Theme Song",
-    description: "Sunidhi Chauhan",
-    fullName: "BEN 10-Theme Song",
-  },
-];
 
 function updatePbar() {
   pbar.forEach((bar)=>{
@@ -265,14 +64,7 @@ if(!isMusicBarOpened){
     bar.style.justifyContent="flex-end";
       
   }
-}
-
-
-
-
- 
-  })
-}
+}})}
 
 function setDuration(evt) {
   let pbarTargetAreaWidth = evt.target.getBoundingClientRect().width;
@@ -426,17 +218,7 @@ function crrSongDetailsUpdate() {
         wrapperForNameinthis.setAttribute("id", null)
       }
     }
-    //<--condition to apply animation to elements for current execution-->//
-    // if (crrSongArtists.scrollWidth > crrSongArtists.clientWidth) {
-    //   crrSongArtists.style.animation = "scroll  linear 5s infinite forwards";
-    // } else if (crrSongArtists.scrollWidth == crrSongArtists.clientWidth) {
-    //   crrSongArtists.style.animation = "scrollNo linear 8s infinite forwards";
-    // }
-    // if (namePTag.scrollWidth > namePTag.clientWidth) {
-    //   namePTag.style.animation = "scroll 5s linear 5s infinite forwards";
-    // } else if (namePTag.scrollWidth == namePTag.clientWidth) {
-    //   namePTag.style.animation = "scrollNo linear 5s infinite forwards";
-    // }
+    
   }
 }
 
@@ -556,7 +338,7 @@ function clutterCards() {
 
     //  playApeended.a
     updateAnimation();
-    updateMusicBarBg();
+    // updateMusicBarBg();
   } else if (currentWidth > widthForMobileCardsCluttering) {
     let descriptions = document.querySelectorAll(".songDescription");
     let newParents = document.querySelectorAll(".songCard");
@@ -841,15 +623,7 @@ nextIconFunction(nextBtn);
 
 
 loopIconFunction(loopBtn);
-// loopBtn.addEventListener("click", () => {
-//   isLooping = !isLooping;
-//   if (isLooping) {
-//     loopingSong = crrSong;
-//     loopBtn.style.color = "#15ff5b";
-//   } else if (!isLooping) {
-//     loopBtn.style.color = "#ffffff";
-//   }
-// });
+
 
 songCards.forEach((card, idx) => {
   playByCard(card, idx);
@@ -941,115 +715,3 @@ window.addEventListener("resize", clutterCards);
 
 
 applyFullScreenPlayerStyling();
-
-
-
-// playBtn.addEventListener("click", () => {
-//   isPlaying = !isPlaying;
-//   if (!openedInMobile) {
-//     if (isPlaying) {
-//       audio.play();
-//       playBtn.innerText = "pause_circle";
-//       // updateNowPlayingWindow();
-//     } 
-//     else if (!isPlaying) {
-//       audio.pause();
-//       playBtn.innerText = "play_circle";
-//       // updateNowPlayingWindow();
-//     }
-//     // crrSongDetailsUpdate();
-//     // updateMeta();
-//   }
-//   if (openedInMobile) {
-//     if(isPlaying){
-//       audio.play();
-//       if(isMusicBarOpened){
-//         playBtn.innerText = "pause_circle";
-//         playBtn.setAttribute("class","material-symbols-outlined");
-
-//       }
-//       else if(!isMusicBarOpened){
-//         playBtn.innerText = "pause";
-//         playBtn.setAttribute("class","material-symbols-rounded");
-
-//       }
-//     }
-//     else if(!isPlaying){
-//       audio.pause();
-//       if(isMusicBarOpened){
-//         playBtn.innerText = "play_circle";
-//         playBtn.setAttribute("class","material-symbols-outlined");
-
-//       }
-//       else if(!isMusicBarOpened){
-//         playBtn.innerText = "play_arrow";
-//         playBtn.setAttribute("class","material-symbols-rounded");
-
-//       }
-//     }
-
-//     }
-//     updateNowPlayingWindow();
-//     cardBtnUpdate();
-//     crrSongDetailsUpdate();
-//     updateMeta();
-//   }
-// );
-
-// pbarTargetArea.addEventListener("click", (evt) => {
-//   setDuration(evt);
-// });
-// pbarTargetArea.addEventListener("mouseup", () => {
-//   // evt.preventDefault();
-//   isDragging = false;
-// });
-// prevBtn.addEventListener("click", () => {
-//   prevSong = crrSong;
-//   crrSong--;
-//   if (crrSong < 0) {
-//     crrSong = 0;
-//   }
-//   audio.src = playlist[crrSong];
-//   audio.play();
-//   if (!openedInMobile) {
-//     playBtn.innerText = "pause_circle";
-//   }
-//   if (openedInMobile) {
-//     if (isMusicBarOpened) {
-//       playBtn.setAttribute("class", "material-symbols-outlined");
-//       playBtn.innerText = "pause_circle";
-//     }
-//   }
-
-//   isLooping = false;
-//   isPlaying = true;
-//   crrSongDetailsUpdate();
-//   cardBtnUpdate();
-//   updateNowPlayingWindow();
-//   updateMeta();
-// });
-// nextBtn.addEventListener("click", () => {
-//   prevSong = crrSong;
-//   crrSong++;
-//   if (crrSong === playlist.length) {
-//     crrSong = 0;
-//   }
-//   audio.src = playlist[crrSong];
-//   audio.play();
-//   if (!openedInMobile) {
-//     playBtn.innerText = "pause_circle";
-//   }
-//   if (openedInMobile) {
-//     if (isMusicBarOpened) {
-//       playBtn.setAttribute("class", "material-symbols-outlined");
-//       playBtn.innerText = "pause_circle";
-//     }
-//   }
-
-//   isLooping = false;
-//   isPlaying = true;
-//   crrSongDetailsUpdate();
-//   cardBtnUpdate();
-//   updateNowPlayingWindow();
-//   updateMeta();
-// });
