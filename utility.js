@@ -1,5 +1,9 @@
 function playIconFunction(playBtn) {
-  playBtn.forEach((btn) => {
+  playBtn.forEach((btn,idx) => {
+    if( idx===1){
+      return;
+      
+    }
     btn.addEventListener("click", () => {
       isPlaying = !isPlaying;
       if (!openedInMobile) {
@@ -8,7 +12,7 @@ function playIconFunction(playBtn) {
           btn.innerText = "pause_circle";
         } else if (!isPlaying) {
           audio.pause();
-          console.log("listeningpaused");
+          
           btn.innerText = "play_circle";
         }
       }
@@ -28,6 +32,7 @@ function playIconFunction(playBtn) {
             btn.innerText = "play_circle";
             btn.setAttribute("class", "material-symbols-outlined");
           } else if (!isMusicBarOpened) {
+            // console.log("listeningpaused");
             btn.innerText = "play_arrow";
             btn.setAttribute("class", "material-symbols-rounded");
           }
@@ -37,7 +42,10 @@ function playIconFunction(playBtn) {
       cardBtnUpdate();
       crrSongDetailsUpdate();
       updateMeta();
-    });
+      
+    }
+   );
+  ;
   });
 }
 

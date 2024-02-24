@@ -1961,7 +1961,11 @@ body {
     border-radius: 4vw;
 }
 #loadingMusicBar{
-  z-index:3;
+  z-index:5;
+}
+.musicBar #controlicon-play{
+    position: relative;
+    z-index:4;
 }
 }
 

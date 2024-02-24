@@ -372,14 +372,17 @@ function musicBarWrapperConstruct(isConstructed) {
 }
 
 function applyFullScreenPlayerStyling() {
+
   document
-    .querySelector(".currentMusic-Player")
-    .addEventListener("click", () => {
+    .querySelector(".currentSong")
+    .addEventListener("click", (evt) => {
+      if(evt.target.getAttribute("id")!=="controlicon-play"){
       if (!isMusicBarOpened) {
+        if(openedInMobile){
         let styling = document.createElement("style");
         styling.innerText = musicPlayerOpenedStyling;
         document.querySelector("head").append(styling);
-
+        openedInMobile = true;
         let playIcon = document.querySelector("#controlicon-play");
         if (isPlaying) { playIcon.innerText = "pause_circle"; }
         else if (!isPlaying) { playIcon.innerText = "play_circle"; }
@@ -389,7 +392,7 @@ function applyFullScreenPlayerStyling() {
         fullScreenPlayer();
         crrSongDetailsUpdate();
 
-        document.querySelector(".headerForPlayer").addEventListener("click",()=>{
+        document.querySelector("#trigger").addEventListener("click",()=>{
 
           document.querySelector("body").append(document.querySelector(".headerForPlayer"))
           if (isPlaying) { playIcon.innerText = "pause"; }
@@ -401,6 +404,7 @@ function applyFullScreenPlayerStyling() {
         } catch (error) {
       
         }
+        isMusicBarOpened=false;
           playBtn = document.querySelectorAll("#controlicon-play");
           prevBtn = document.querySelectorAll("#controlicon-prev");
           nextBtn = document.querySelectorAll("#controlicon-next");
@@ -409,20 +413,12 @@ function applyFullScreenPlayerStyling() {
           pbar = document.querySelectorAll(".progressBarFill");
           durationDisplay = document.querySelectorAll("#totalDuration");
          crrDisplay = document.querySelectorAll("#currentTime");
-          loopIconFunction(loopBtn);
-          prevIconFunction(prevBtn);
-          nextIconFunction(nextBtn);
-        playIconFunction(playBtn);
 
-       
-          
-           
           document.querySelector("head").lastChild.remove();
-          isMusicBarOpened=false;
-
+          
         })
       }
-    });
+    } }});
 }
 
 
@@ -468,7 +464,7 @@ function fullScreenPlayer() {
   mainControls.append(playIcon);
   mainControls.append(nextBtnInPLayer);
   mainControls.append(loopBtnInPLayer);
-
+  isMusicBarOpened = true;
   playBtn = document.querySelectorAll("#controlicon-play");
   prevBtn = document.querySelectorAll("#controlicon-prev");
   nextBtn = document.querySelectorAll("#controlicon-next");
@@ -477,14 +473,10 @@ function fullScreenPlayer() {
   pbar = document.querySelectorAll(".progressBarFill");
    durationDisplay = document.querySelectorAll("#totalDuration");
  crrDisplay = document.querySelectorAll("#currentTime");
-   
-  
-
+ 
   loopIconFunction(loopBtn);
   prevIconFunction(prevBtn);
-  nextIconFunction(nextBtn);
-  openedInMobile = true;
-  isMusicBarOpened = true;
+  nextIconFunction(nextBtn); 
   pbarFunctionality(pbarTargetArea);
   playIconFunction(playBtn);
   mainPlayIconUpdate(playBtn);
