@@ -720,5 +720,10 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
 
 window.addEventListener("resize", ()=>{location.reload();clutterCards();});
 
+if(!isMusicBarOpened){
+  document.querySelector("#followme").addEventListener("click",()=>{
+    location.href="https://www.instagram.com/__raghvendra__001/";
+  })
+}
 
 applyFullScreenPlayerStyling();
