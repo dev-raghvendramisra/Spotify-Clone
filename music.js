@@ -336,9 +336,8 @@ function clutterCards() {
       }
     }
 
-    //  playApeended.a
     updateAnimation();
-    // updateMusicBarBg();
+    
   } else if (currentWidth > widthForMobileCardsCluttering) {
     let descriptions = document.querySelectorAll(".songDescription");
     let newParents = document.querySelectorAll(".songCard");
@@ -390,12 +389,17 @@ function applyFullScreenPlayerStyling() {
         crrSongDetailsUpdate();
 
         document.querySelector(".headerForPlayer").addEventListener("click",()=>{
+
           document.querySelector("body").append(document.querySelector(".headerForPlayer"))
           if (isPlaying) { playIcon.innerText = "pause"; }
         else if (!isPlaying) { playIcon.innerText = "play_arrow"; }
           playIcon.classList.remove("material-symbols-outlined");
           playIcon.classList.add("material-symbols-rounded");
-          document.querySelector(".fullScreenPlayer").remove();
+          try {
+            document.querySelector(".fullScreenPlayer").remove();
+        } catch (error) {
+      
+        }
           playBtn = document.querySelectorAll("#controlicon-play");
           prevBtn = document.querySelectorAll("#controlicon-prev");
           nextBtn = document.querySelectorAll("#controlicon-next");
@@ -408,11 +412,13 @@ function applyFullScreenPlayerStyling() {
           prevIconFunction(prevBtn);
           nextIconFunction(nextBtn);
         playIconFunction(playBtn);
+
        
           
            
           document.querySelector("head").lastChild.remove();
           isMusicBarOpened=false;
+
         })
       }
     });

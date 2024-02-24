@@ -41,8 +41,6 @@ function playIconFunction(playBtn) {
   });
 }
 
-
-
 function nextIconFunction(nextBtn) {
   nextBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -64,11 +62,14 @@ function nextIconFunction(nextBtn) {
   });
 }
 
-
-
-
 function loopIconFunction(loopBtn) {
   loopBtn.forEach((btn) => {
+    if (isLooping) {
+      btn.style.color = "#15ff5b";
+    }
+    if (!isLooping) {
+      btn.style.color = "#ffffff";
+    }
     btn.addEventListener("click", () => {
       isLooping = !isLooping;
       if (isLooping) {
@@ -80,9 +81,6 @@ function loopIconFunction(loopBtn) {
     });
   });
 }
-
-
-
 
 function prevIconFunction(prevBtn) {
   prevBtn.forEach((btn) => {
@@ -105,10 +103,7 @@ function prevIconFunction(prevBtn) {
   });
 }
 
-
-
 function shuffleIconFunction() {}
-
 
 function mainPlayIconUpdate(playBtn) {
   playBtn.forEach((btn) => {
@@ -147,39 +142,30 @@ function mainPlayIconUpdate(playBtn) {
   });
 }
 
-
-function pbarFunctionality(pbarTargetArea){
-  
-    pbarTargetArea.forEach((bar)=>{
-      bar.addEventListener("click", (evt) => {
-        setDuration(evt);
-      });
-    })
-  
-  
-
+function pbarFunctionality(pbarTargetArea) {
+  pbarTargetArea.forEach((bar) => {
+    bar.addEventListener("click", (evt) => {
+      setDuration(evt);
+    });
+  });
 }
 
-function vwChecker(){
-  testDiv=document.createElement("div");
-  testDiv.style.height="1vw";
-  testDiv.style.width="1vw";
+function vwChecker() {
+  testDiv = document.createElement("div");
+  testDiv.style.height = "1vw";
+  testDiv.style.width = "1vw";
   document.querySelector("body").append(testDiv);
-  vw= testDiv.clientWidth;
-  
+  vw = testDiv.clientWidth;
 }
 
-
-function startTouching(){
-  
-  pbarTargetArea.forEach((bar)=>{
-    bar.addEventListener("touchmove",(evt)=>{
-        let totalWidth = bar.clientWidth;
-        let draggedposition=Math.floor(evt.touches[0].clientX);
-        let percentage=draggedposition/totalWidth*100;
-        let totalTimeforHere=audio.duration;
-        audio.currentTime=totalTimeforHere*percentage/100;
-      
-    })
-  })
+function startTouching() {
+  pbarTargetArea.forEach((bar) => {
+    bar.addEventListener("touchmove", (evt) => {
+      let totalWidth = bar.clientWidth;
+      let draggedposition = Math.floor(evt.touches[0].clientX);
+      let percentage = (draggedposition / totalWidth) * 100;
+      let totalTimeforHere = audio.duration;
+      audio.currentTime = (totalTimeforHere * percentage) / 100;
+    });
+  });
 }

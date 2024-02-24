@@ -129,7 +129,7 @@ padding-left:29%;
   }
  `;
 
- const musicPlayerOpenedStyling=`.fullScreenPlayer{
+const musicPlayerOpenedStyling = `.fullScreenPlayer{
   height:100vh;
   width:100vw;
   position: absolute;
@@ -272,8 +272,7 @@ padding-left:29%;
   z-index:1;
   box-shadow: -3px 0px 10px -3px black;
 }
-  `
-
+  `;
 
 const mainWindowBg = [
   "linear-gradient(to top, rgba(18,18,18,1) 40%, rgb(13, 54, 22))",
@@ -583,135 +582,146 @@ function displayLoadedContent() {
   }, 1000);
 }
 
-function updateMusicBarBg(){
-  if(openedInMobile){
+function updateMusicBarBg() {
+  if (openedInMobile) {
+    const img = document.querySelector(".currentSong").querySelector("img");
+    const colorThief = new ColorThief();
 
-  
-  const img = document.querySelector('.currentSong').querySelector("img");
-  const colorThief = new ColorThief();
-  
-  img.onload = function() {
-    const accentColor = getColor(img);
-    const accentcolor2= getColor2(img);
-    applyAccentColor(accentColor,accentcolor2);
-  }
-  
-  function getColor(img) {
-    const dominantColor = colorThief.getColor(img);
-    // You can also use colorThief.getPalette(img, colorCount) to get a palette of colors
-    
-    // Adjust saturation and luminance of the accent color
-    return adjustColor(dominantColor, 1, 0.2); // Set desired saturation and luminance levels//0.16
-  }
-  
-  function adjustColor(color, saturation, luminance) {
-    const hslColor = rgbToHsl(color[0], color[1], color[2]);
-    
-    // Adjust saturation and luminance
-    hslColor[1] = saturation; // Set desired saturation level
-    hslColor[2] = luminance; // Set desired luminance level
-    
-    // Convert HSL back to RGB
-    const rgbColor = hslToRgb(hslColor[0], hslColor[1], hslColor[2]);
-    
-    return rgbColor;
-  }
-  
-function  applyAccentColor  (color,color2) {
-       document.querySelector('.musicBar').style.backgroundColor = `rgba(${color[0]}, ${color[1]}, ${color[2]},1)`;
-   
-     if(isMusicBarOpened){
-  
-     document.querySelector('.fullScreenPlayer').style.backgroundColor = `rgba(${color2[0]}, ${color2[1]}, ${color2[2]},1)`;
-     document.documentElement.style.setProperty("--colorForBeforePLayer",`rgba(${color2[0]}, ${color2[1]}, ${color2[2]},1)`);
-    }    
+    img.onload = function () {
+      const accentColor = getColor(img);
+      const accentcolor2 = getColor2(img);
+      applyAccentColor(accentColor, accentcolor2);
+    };
 
-    document.documentElement.style.setProperty("--colorForBefore",`rgba(${color[0]}, ${color[1]}, ${color[2]},1)`);
-     if(color[0]>color[1]){
-      if(color[0]>color[2]){
-        color[0]=color[0]+color[0]/2;
+    function getColor(img) {
+      const dominantColor = colorThief.getColor(img);
+      // You can also use colorThief.getPalette(img, colorCount) to get a palette of colors
+
+      // Adjust saturation and luminance of the accent color
+      return adjustColor(dominantColor, 1, 0.2); // Set desired saturation and luminance levels//0.16
+    }
+
+    function adjustColor(color, saturation, luminance) {
+      const hslColor = rgbToHsl(color[0], color[1], color[2]);
+
+      // Adjust saturation and luminance
+      hslColor[1] = saturation; // Set desired saturation level
+      hslColor[2] = luminance; // Set desired luminance level
+
+      // Convert HSL back to RGB
+      const rgbColor = hslToRgb(hslColor[0], hslColor[1], hslColor[2]);
+
+      return rgbColor;
+    }
+
+    function applyAccentColor(color, color2) {
+      document.querySelector(
+        ".musicBar"
+      ).style.backgroundColor = `rgba(${color[0]}, ${color[1]}, ${color[2]},1)`;
+
+      if (isMusicBarOpened) {
+        document.querySelector(
+          ".fullScreenPlayer"
+        ).style.backgroundColor = `rgba(${color2[0]}, ${color2[1]}, ${color2[2]},1)`;
+        document.documentElement.style.setProperty(
+          "--colorForBeforePLayer",
+          `rgba(${color2[0]}, ${color2[1]}, ${color2[2]},1)`
+        );
+      }
+
+      document.documentElement.style.setProperty(
+        "--colorForBefore",
+        `rgba(${color[0]}, ${color[1]}, ${color[2]},1)`
+      );
+      if (color[0] > color[1]) {
+        if (color[0] > color[2]) {
+          color[0] = color[0] + color[0] / 2;
+        }
+      } else if (color[1] > color[2]) {
+        color[1] = color[1] + color[1] / 2;
+      } else {
+        color[2] = color[2] + color[2] / 2;
+      }
+
+      document.querySelector(
+        ".musicBar"
+      ).style.border = `1px solid rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+
+      if (isMusicBarOpened) {
+        document.querySelector(
+          ".fullScreenPlayer"
+        ).style.border = `0px solid rgb(${color[0]}, ${color[1]}, ${color[2]})`;
       }
     }
-     else if(color[1]>color[2]){
-      color[1]=color[1]+color[1]/2;
-    }
-    else{
-      color[2]=color[2]+color[2]/2;
+
+    function rgbToHsl(r, g, b) {
+      r /= 255;
+      g /= 255;
+      b /= 255;
+
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+
+      let h,
+        s,
+        l = (max + min) / 2;
+
+      if (max === min) {
+        h = s = 0; // achromatic
+      } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r:
+            h = (g - b) / d + (g < b ? 6 : 0);
+            break;
+          case g:
+            h = (b - r) / d + 2;
+            break;
+          case b:
+            h = (r - g) / d + 4;
+            break;
+        }
+        h /= 6;
+      }
+
+      return [h, s, l];
     }
 
-    if(!isMusicBarOpened){document.querySelector('.musicBar').style.border = `1px solid rgb(${color[0]}, ${color[1]}, ${color[2]})`;}
-    if(isMusicBarOpened){document.querySelector('.musicBar').style.border = `0px solid rgb(${color[0]}, ${color[1]}, ${color[2]})`;}
-  
-    
-  }
-  
-  function rgbToHsl(r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
-  
-    const max = Math.max(r, g, b);
-    const min = Math.min(r, g, b);
-    
-    let h, s, l = (max + min) / 2;
-    
-    if (max === min) {
-      h = s = 0; // achromatic
-    } else {
-      const d = max - min;
-      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-      switch (max) {
-        case r:
-          h = (g - b) / d + (g < b ? 6 : 0);
-          break;
-        case g:
-          h = (b - r) / d + 2;
-          break;
-        case b:
-          h = (r - g) / d + 4;
-          break;
+    function hslToRgb(h, s, l) {
+      let r, g, b;
+
+      if (s === 0) {
+        r = g = b = l; // achromatic
+      } else {
+        const hue2rgb = function hue2rgb(p, q, t) {
+          if (t < 0) t += 1;
+          if (t > 1) t -= 1;
+          if (t < 1 / 6) return p + (q - p) * 6 * t;
+          if (t < 1 / 2) return q;
+          if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+          return p;
+        };
+
+        const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        const p = 2 * l - q;
+
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
       }
-      h /= 6;
+
+      return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
     }
-    
-    return [h, s, l];
-  }
-  
-  function hslToRgb(h, s, l) {
-    let r, g, b;
-  
-    if (s === 0) {
-      r = g = b = l; // achromatic
-    } else {
-      const hue2rgb = function hue2rgb(p, q, t) {
-        if (t < 0) t += 1;
-        if (t > 1) t -= 1;
-        if (t < 1 / 6) return p + (q - p) * 6 * t;
-        if (t < 1 / 2) return q;
-        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-        return p;
-      };
-      
-      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-      const p = 2 * l - q;
-      
-      r = hue2rgb(p, q, h + 1 / 3);
-      g = hue2rgb(p, q, h);
-      b = hue2rgb(p, q, h - 1 / 3);
+    function getColor2(img) {
+      const dominantColor = colorThief.getColor(img);
+      // You can also use colorThief.getPalette(img, colorCount) to get a palette of colors
+
+      // Adjust saturation and luminance of the accent color
+      return adjustColor(dominantColor, 1, 0.09); // Set desired saturation and luminance levels//0.16
     }
-  
-    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-  }
-  function getColor2(img) {
-    const dominantColor = colorThief.getColor(img);
-    // You can also use colorThief.getPalette(img, colorCount) to get a palette of colors
-    
-    // Adjust saturation and luminance of the accent color
-    return adjustColor(dominantColor, 1, 0.09); // Set desired saturation and luminance levels//0.16
-  }
   }
 }
-
 
 // Main code block, statements written in the sequence of execution.
 
@@ -724,12 +734,12 @@ btn.addEventListener("click", () => {
     document.head.append(styling);
     icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
     btnclicked = true;
-    document.querySelector(".logo").src="logo1.png";
+    document.querySelector(".logo").src = "logo1.png";
   } else if (btnclicked == true) {
     styling.innerHTML = "";
     icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
     btnclicked = false;
-    document.querySelector(".logo").src="logo.png";
+    document.querySelector(".logo").src = "logo.png";
   }
   for (divs of divIds) {
     document.getElementById(`${divs}`).style.display = "flex";
@@ -787,4 +797,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 mainWindow.addEventListener("scroll", navBgSet);
 
-window.addEventListener("load",displayLoadedContent);
+window.addEventListener("load", displayLoadedContent);
