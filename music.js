@@ -313,6 +313,7 @@ function clutterCards() {
   let currentWidth = window.innerWidth;
 
   if (currentWidth <= widthForMobileCardsCluttering) {
+    audio.volume = 1;
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
@@ -717,7 +718,7 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   crrSongDetailsUpdate();
 });
 
-window.addEventListener("resize", clutterCards);
+window.addEventListener("resize", ()=>{location.reload();clutterCards();});
 
 
 applyFullScreenPlayerStyling();
