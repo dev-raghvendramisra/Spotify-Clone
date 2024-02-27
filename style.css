@@ -50,7 +50,7 @@ body {
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"400, "GRAD"0, "opsz"24;
 }
 
 .material-symbols-outlined {
@@ -94,7 +94,7 @@ body {
   margin-top: 1vmin;
 }
 
-#searchicon:hover > #searchicon-text {
+#searchicon:hover>#searchicon-text {
   color: white;
 }
 
@@ -102,7 +102,7 @@ body {
   color: rgb(167, 166, 166);
 }
 
-#searchicon:hover > #searchicons-svg {
+#searchicon:hover>#searchicons-svg {
   color: white;
 }
 
@@ -118,11 +118,11 @@ body {
   color: rgb(167, 166, 166);
 }
 
-#libraryicon:hover > #libraryicon-text {
+#libraryicon:hover>#libraryicon-text {
   color: white;
 }
 
-#libraryicon:hover > #libraryicon-svg {
+#libraryicon:hover>#libraryicon-svg {
   color: white;
 }
 
@@ -132,11 +132,11 @@ body {
 }
 
 #plusiconsvg {
-  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"200, "GRAD"0, "opsz"24;
 }
 
 #leftarrowiconsvg {
-  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"200, "GRAD"0, "opsz"24;
 }
 
 #plusiconsvg,
@@ -191,7 +191,7 @@ body {
 }
 
 #recenticon-svg {
-  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"200, "GRAD"0, "opsz"24;
 }
 
 #recenticon {
@@ -223,11 +223,11 @@ body {
   color: white;
 }
 
-.recenticon-cont:hover > .recenticon-text {
+.recenticon-cont:hover>.recenticon-text {
   color: white;
 }
 
-.recenticon-cont:hover > #recenticon-svg {
+.recenticon-cont:hover>#recenticon-svg {
   color: white;
 }
 
@@ -449,7 +449,7 @@ form {
   content: "";
   position: fixed;
   width: 26%;
-  top: 50vh;
+  top: 49.5vh;
   height: 2vmin;
   box-shadow: 0 2vmin 3vmin rgba(0, 0, 0, 1);
   opacity: 1;
@@ -476,7 +476,7 @@ nav {
 }
 
 #bell-icon {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"0, "wght"300, "GRAD"0, "opsz"24;
   margin-left: 1.5vw;
   background-color: #1212128c;
   border-radius: 5vmin;
@@ -484,7 +484,7 @@ nav {
 }
 
 #chev {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"0, "wght"300, "GRAD"0, "opsz"24;
   background-color: #121212bd;
   border-radius: 5vmin;
   padding: 0.7vmin;
@@ -512,7 +512,7 @@ nav img {
 }
 
 #chev1 {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"0, "wght"300, "GRAD"0, "opsz"24;
   background-color: #12121279;
   border-radius: 5vmin;
   padding: 0.7vmin;
@@ -582,6 +582,7 @@ nav img {
   pointer-events: none;
   scale: 0;
   transition: all 0.2s ease;
+  z-index:3;
 }
 
 #libraryicon:hover::before {
@@ -860,22 +861,22 @@ nav img {
 
 #controlicon-next {
   font-size: 1.8rem;
-  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"300, "GRAD"0, "opsz"24;
 }
 
 #controlicon-prev {
   font-size: 1.8rem;
-  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"300, "GRAD"0, "opsz"24;
 }
 
 #controlicon-loop {
   font-size: 1.4rem;
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"100, "GRAD"0, "opsz"24;
 }
 
 #controlicon-shuffle {
   font-size: 1.4rem;
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"100, "GRAD"0, "opsz"24;
 }
 
 .mainControls {
@@ -921,12 +922,12 @@ nav img {
 
 #sideControls-veiw {
   font-size: 1.6rem;
-  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"0, "wght"200, "GRAD"0, "opsz"24;
 }
 
 #sideControls-sound {
   font-size: 2rem;
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"100, "GRAD"0, "opsz"24;
 }
 
 .volumeBar {
@@ -1032,7 +1033,7 @@ nav img {
 }
 
 #sideControls-sound {
-  font-variation-settings: "fill" 1, "wght" 200;
+  font-variation-settings: "fill"1, "wght"200;
   transition: all ease 0.2s;
 }
 
@@ -1065,12 +1066,12 @@ nav img {
 
 #controlicon-shuffle {
   color: #116e33;
-  font-variation-settings: "wght" 300;
+  font-variation-settings: "wght"300;
 }
 
 #controlicon-loop:hover {
   color: white;
-  font-variation-settings: "wght" 250;
+  font-variation-settings: "wght"250;
 }
 
 #controlicon-loop:active {
@@ -1537,7 +1538,7 @@ body {
 }
 
 #controlicon-play {
-  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL"1, "wght"700, "GRAD"0, "opsz"24;
 }
 
 #sideControls-sound::before {
@@ -1742,15 +1743,15 @@ body {
     margin-bottom: 0;
   }
 
-  .songCard:hover > .songDescriptionContbefore::after {
+  .songCard:hover>.songDescriptionContbefore::after {
     background-image: linear-gradient(to left, #333333 50%, transparent);
   }
 
-  .songCard:hover > .songDescriptionContbefore::before {
+  .songCard:hover>.songDescriptionContbefore::before {
     background-image: linear-gradient(to right, #333333 50%, transparent);
   }
 
-  .songCard:hover > .songName::after {
+  .songCard:hover>.songName::after {
     background-image: linear-gradient(to left, #333333 25%, transparent);
   }
 
@@ -1758,12 +1759,12 @@ body {
     opacity: 1;
     font-size: 9vw;
     z-index: 2;
-    font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+    font-variation-settings: "FILL"1, "wght"200, "GRAD"0, "opsz"24;
   }
 
   .musicBar {
     display: initial;
-    width:94vw;
+    width: 94vw;
     position: static;
     border-radius: 1vh;
     backdrop-filter: blur(12px);
@@ -1796,7 +1797,7 @@ body {
 
   #controlicon-play {
     display: initial;
-    font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+    font-variation-settings: "FILL"1, "wght"300, "GRAD"0, "opsz"24;
     color: white;
     font-size: 11vw;
     height: fit-content;
@@ -1894,7 +1895,7 @@ body {
 
   .headerForPlayer span:nth-child(3) {
     font-size: 7vw;
-    font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+    font-variation-settings: "FILL"1, "wght"300, "GRAD"0, "opsz"24;
   }
 
   #controlicon-play {
@@ -1912,15 +1913,18 @@ body {
     gap: 4vw;
     padding-left: 4vw;
   }
+
   .loadingElMainwindowCardCont div:nth-child(6) {
     margin-bottom: 0;
   }
+
   .loadingElMainwindowCardCont div {
     height: 50vw;
     border-radius: 4vw;
     width: 50vw;
     flex-shrink: 0;
   }
+
   .loadingElMainwindowCardCont::-webkit-scrollbar {
     display: none;
   }
@@ -1932,6 +1936,7 @@ body {
     width: 100%;
     transform: rotateZ(296deg);
   }
+
   .loadingElSidebar2::before {
     top: -51px;
     left: -90%;
@@ -1939,36 +1944,119 @@ body {
     width: 90%;
     transform: rotateZ(-66deg);
   }
-  .loadingMusicbarEl::after{
+
+  .loadingMusicbarEl::after {
     height: 49%;
     width: 213%;
     transform: rotateZ(294deg);
   }
-  .loadingElMusicbar div:nth-last-child(2)::after{
+
+  .loadingElMusicbar div:nth-last-child(2)::after {
     height: 327%;
 
   }
-  .loadingElSidebar1{
-    border-radius: 10vw;
-  }
-  .loadingElSidebar2{
-    border-radius: 10vw;
-  }
-  .loadingElMainwindow{
-    border-radius: 10vw;
-  }
-  .loadingMusicbarEl{
-    border-radius: 4vw;
-}
-#loadingMusicBar{
-  z-index:5;
-}
-.musicBar #controlicon-play{
-    position: relative;
-    z-index:4;
-}
-}
 
+  .loadingElSidebar1 {
+    border-radius: 10vw;
+  }
+
+  .loadingElSidebar2 {
+    border-radius: 10vw;
+  }
+
+  .loadingElMainwindow {
+    border-radius: 10vw;
+  }
+
+  .loadingMusicbarEl {
+    border-radius: 4vw;
+  }
+
+  #loadingMusicBar {
+    z-index: 5;
+  }
+
+  .musicBar #controlicon-play {
+    position: relative;
+    z-index: 4;
+  }
+  .nowPlayingVeiw{
+    z-index:5;
+    width:100vw;
+    font-size:4vw;
+    padding:0;
+  }
+  .nowplayingHeader{
+   
+    padding:3vh 5vw;
+    padding-top:20vw;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 40px 80px -8px;
+    background-color:#171717;
+    position: sticky;
+    top:0;
+    z-index:1;
+  }
+  .nowPlayingVeiw::-webkit-scrollbar{
+    display: none;
+  }
+  #nowPlayingClose{
+    font-size:7vw;
+  }
+  .nowPlayingVeiw img {
+    height:80vw;
+    width:80vw;
+    margin:0 10vw;
+    border-radius:5vw;
+  }
+  .inQueueSongs img{
+     height:20vw;
+     width:20vw;
+     padding:0;
+     margin:0;
+     border-radius: 3vw;
+     background-size: 20% 20%;
+  }
+  .nowPlayingSongName{
+    font-size:6vw;  
+    padding-left:10vw;
+  }
+  .nowPlayingSongArtist{
+    font-size:3.5vw;
+    padding-left:10vw;
+  }
+  .inQueueSong1{
+    width: 80vw;
+    margin:2vh auto;
+    border-radius: 4vw;
+    padding:4vw;
+    gap:4vw;
+    border: 4px solid rgba(128, 128, 128, 0.329);
+  }
+  .queueSongName{
+    font-size:5vw;
+  }
+  .queueSongArtist{
+    font-size:4vw;
+  }
+  #nowPlayingPlayIcon{
+    font-size:8vw;
+  }
+  .bars {
+    gap: 0.8vw;
+    height: 6vw;
+   padding-right:2vw;
+}
+.bars__item{
+  width:0.85vw;
+}
+.inQueueSongs{
+  margin-bottom:3vh;
+}
+.nextInQueue{
+  padding-left:6vw;
+}
+}
 /*<--Scrollbar Styling bellow-->*/
 
 ::-webkit-scrollbar {

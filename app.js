@@ -89,7 +89,7 @@ padding-left:15%;
 }
 .defaultlistings::before {
   width: 4%;
-  top: 32%;
+  top: 31%;
   height: 2vmin;
   box-shadow: 0 2vmin 3vmin rgba(0, 0, 0, 1);
 }
@@ -731,6 +731,7 @@ const originalListings = document.querySelector(".defaultlistings").innerHTML;
 btn.addEventListener("click", () => {
   if (btnclicked == false) {
     styling.innerHTML = sideBarCollapsedStyling;
+    if(isResized){styling.append(".defaultlistings::before{top:29%}")}
     document.head.append(styling);
     icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
     btnclicked = true;

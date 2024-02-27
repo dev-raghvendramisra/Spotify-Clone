@@ -11,7 +11,9 @@ let pbarTargetArea = document.querySelectorAll(".pbarTargetArea");
 const vbarTargetArea = document.querySelector(".vbarTargetArea");
 const vbar = document.querySelector(".volumeBarFill");
 const volumeBtn = document.querySelector("#sideControls-sound");
-let crrSongThumb = document.querySelector(".musicBar").querySelector(".main-window-playlist-thumb");
+let crrSongThumb = document
+  .querySelector(".musicBar")
+  .querySelector(".main-window-playlist-thumb");
 const crrSongName = document.querySelector(".currentMusic-Player");
 const songCards = document.querySelectorAll(".songCard");
 const nowPlayingWindow = document.querySelector(".nowPlayingVeiw");
@@ -22,8 +24,11 @@ const inQueueSongsCont = document.querySelector(".inQueueSongs");
 const nowPlayingVeiwBtn = document.querySelector("#sideControls-veiw");
 let wrapperForMusicBar = document.querySelector(".wrapperForMusicBar");
 const widthForMobileCardsCluttering = 740;
+const initialWindowWidth = window.innerWidth;
+const initialWindowHeight = window.innerHeight;
+let resizedStyling;
+let isResized = false;
 let musicBarBg;
-
 
 let isPlaying = false;
 let crrSong = 0;
@@ -41,49 +46,46 @@ let openedInMobile = false;
 let isConstructed = false;
 let isMusicBarOpened = false;
 
-
 function updatePbar() {
-  pbar.forEach((bar)=>{
-bar.style.width = `${(crrDuration / songDuration) * 100}%`;
-if(isMusicBarOpened){
-  if(bar.clientWidth<vw*4){
-    bar.style.justifyContent="flex-start";
-    
-  }
-  else if(bar.clientWidth>=vw*4){
-    bar.style.justifyContent="flex-end";
-      
-  }
+  pbar.forEach((bar) => {
+    bar.style.width = `${(crrDuration / songDuration) * 100}%`;
+    if (isMusicBarOpened) {
+      if (bar.clientWidth < vw * 4) {
+        bar.style.justifyContent = "flex-start";
+      } else if (bar.clientWidth >= vw * 4) {
+        bar.style.justifyContent = "flex-end";
+      }
+    }
+    if (!isMusicBarOpened) {
+      if (bar.clientWidth < vw * 0.9) {
+        bar.style.justifyContent = "flex-start";
+      } else if (bar.clientWidth >= vw * 0.9) {
+        bar.style.justifyContent = "flex-end";
+      }
+    }
+  });
 }
-if(!isMusicBarOpened){
-  if(bar.clientWidth<vw*0.9){
-    bar.style.justifyContent="flex-start";
-    
-  }
-  else if(bar.clientWidth>=vw*0.9){
-    bar.style.justifyContent="flex-end";
-      
-  }
-}})}
 
 function setDuration(evt) {
   let pbarTargetAreaWidth = evt.target.getBoundingClientRect().width;
   let clikedPosition = evt.offsetX;
-  let pbarWidth = `${Math.floor((clikedPosition / pbarTargetAreaWidth) * 100) + 2
-    }`;
-
+  let pbarWidth = `${
+    Math.floor((clikedPosition / pbarTargetAreaWidth) * 100) + 2
+  }`;
 
   audio.currentTime = (parseInt(pbarWidth) * songDuration) / 100;
   updatePbar();
 }
 
 function startDragging() {
-  pbarTargetArea.forEach((bar)=>{bar.addEventListener("mousemove", (evt) => {
-    // evt.preventDefault();
-    if (isDragging == true) {
-      setDuration(evt);
-    }
-  });})
+  pbarTargetArea.forEach((bar) => {
+    bar.addEventListener("mousemove", (evt) => {
+      // evt.preventDefault();
+      if (isDragging == true) {
+        setDuration(evt);
+      }
+    });
+  });
 }
 
 function startVDragging() {
@@ -107,11 +109,10 @@ function setVolume(evt) {
   }
 
   vbar.style.width = `${finalWidth}%`;
-  if(vbar.clientWidth<vw*0.9){
-    vbar.style.justifyContent="flex-start";
-  }
-  else if(vbar.clientWidth>=vw*0.9){
-    vbar.style.justifyContent="flex-end";
+  if (vbar.clientWidth < vw * 0.9) {
+    vbar.style.justifyContent = "flex-start";
+  } else if (vbar.clientWidth >= vw * 0.9) {
+    vbar.style.justifyContent = "flex-end";
   }
   volumeValue = audio.volume;
 }
@@ -121,7 +122,6 @@ function volumeIconUpdate() {
     // volumeBtn.innerText = "volume_off";
     volumeBtn.setAttribute("class", "fa-solid fa-volume-xmark");
     volumeBtn.innerText = "";
-
   } else if (audio.volume >= 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-high");
     volumeBtn.innerText = "";
@@ -175,7 +175,6 @@ function crrSongDetailsUpdate() {
     crrSongArtists = document.querySelectorAll("#crrSongArtistInPTag");
     namePTag = document.querySelectorAll("#crrSongNameInPTag");
 
-
     crrSongArtists.forEach((elem) => {
       elem.innerText = songDetails[crrSong].description;
       if (elem.scrollWidth > elem.clientWidth) {
@@ -183,7 +182,7 @@ function crrSongDetailsUpdate() {
       } else if (elem.scrollWidth == elem.clientWidth) {
         elem.style.animation = "scrollNo linear 8s infinite forwards";
       }
-    })
+    });
     namePTag.forEach((elem) => {
       elem.textContent = songDetails[crrSong].fullName;
       if (elem.scrollWidth > elem.clientWidth) {
@@ -191,34 +190,40 @@ function crrSongDetailsUpdate() {
       } else if (elem.scrollWidth == elem.clientWidth) {
         elem.style.animation = "scrollNo linear 5s infinite forwards";
       }
-    })
-
-
-
-
+    });
 
     if (isMusicBarOpened) {
-      document.querySelector(".headerForPlayer").querySelector("p").innerText = songDetails[crrSong].fullName;
-      let playerCrrSongThumb = document.querySelector(".fullScreenPlayer").querySelector(".main-window-playlist-thumb");
+      document.querySelector(".headerForPlayer").querySelector("p").innerText =
+        songDetails[crrSong].fullName;
+      let playerCrrSongThumb = document
+        .querySelector(".fullScreenPlayer")
+        .querySelector(".main-window-playlist-thumb");
       playerCrrSongThumb.src = songDetails[crrSong].src;
       //  document.querySelector(".fullScreenPlayer").querySelector("#crrSongNameInPTag").parentElement.setAttribute("class",null);
-      document.querySelector(".fullScreenPlayer").querySelector("#crrSongNameInPTag").addEventListener("animationiteration", (evt) => {
-        evt.target.parentElement.setAttribute("class", null);
-
-      })
-      document.querySelector(".fullScreenPlayer").querySelector("#crrSongNameInPTag").addEventListener("animationstart", (evt) => {
-        evt.target.parentElement.setAttribute("class", "coverafter");
-
-      })
-      let wrapperForNameinthis = document.querySelector(".fullScreenPlayer").querySelector(".currentMusic-Player").firstChild;
-      if (wrapperForNameinthis.firstChild.scrollWidth > wrapperForNameinthis.firstChild.clientWidth) {
+      document
+        .querySelector(".fullScreenPlayer")
+        .querySelector("#crrSongNameInPTag")
+        .addEventListener("animationiteration", (evt) => {
+          evt.target.parentElement.setAttribute("class", null);
+        });
+      document
+        .querySelector(".fullScreenPlayer")
+        .querySelector("#crrSongNameInPTag")
+        .addEventListener("animationstart", (evt) => {
+          evt.target.parentElement.setAttribute("class", "coverafter");
+        });
+      let wrapperForNameinthis = document
+        .querySelector(".fullScreenPlayer")
+        .querySelector(".currentMusic-Player").firstChild;
+      if (
+        wrapperForNameinthis.firstChild.scrollWidth >
+        wrapperForNameinthis.firstChild.clientWidth
+      ) {
         wrapperForNameinthis.setAttribute("id", "cover");
-      }
-      else {
-        wrapperForNameinthis.setAttribute("id", null)
+      } else {
+        wrapperForNameinthis.setAttribute("id", null);
       }
     }
-    
   }
 }
 
@@ -338,7 +343,6 @@ function clutterCards() {
     }
 
     updateAnimation();
-    
   } else if (currentWidth > widthForMobileCardsCluttering) {
     let descriptions = document.querySelectorAll(".songDescription");
     let newParents = document.querySelectorAll(".songCard");
@@ -352,7 +356,6 @@ function clutterCards() {
       oldParent.style.display = "none";
     });
   }
-
 }
 
 function musicBarWrapperConstruct(isConstructed) {
@@ -366,64 +369,63 @@ function musicBarWrapperConstruct(isConstructed) {
       );
     wrapperForMusicBar.setAttribute("class", "wrapperForMusicBar");
     wrapperForMusicBar.append(document.querySelector(".musicBar"));
-
-   
   }
 }
 
 function applyFullScreenPlayerStyling() {
-
-  document
-    .querySelector(".currentSong")
-    .addEventListener("click", (evt) => {
-      if(evt.target.getAttribute("id")!=="controlicon-play"){
+  document.querySelector(".currentSong").addEventListener("click", (evt) => {
+    if (evt.target.getAttribute("id") !== "controlicon-play") {
       if (!isMusicBarOpened) {
-        if(openedInMobile){
-        let styling = document.createElement("style");
-        styling.innerText = musicPlayerOpenedStyling;
-        document.querySelector("head").append(styling);
-        openedInMobile = true;
-        let playIcon = document.querySelector("#controlicon-play");
-        if (isPlaying) { playIcon.innerText = "pause_circle"; }
-        else if (!isPlaying) { playIcon.innerText = "play_circle"; }
-        playIcon.classList.add("material-symbols-outlined");
-        playIcon.classList.remove("material-symbols-rounded");
-        isMusicBarOpened = true;
-        fullScreenPlayer();
-        crrSongDetailsUpdate();
+        if (openedInMobile) {
+          let styling = document.createElement("style");
+          styling.innerText = musicPlayerOpenedStyling;
+          document.querySelector("head").append(styling);
+          openedInMobile = true;
+          let playIcon = document.querySelector("#controlicon-play");
+          if (isPlaying) {
+            playIcon.innerText = "pause_circle";
+          } else if (!isPlaying) {
+            playIcon.innerText = "play_circle";
+          }
+          playIcon.classList.add("material-symbols-outlined");
+          playIcon.classList.remove("material-symbols-rounded");
+          isMusicBarOpened = true;
+          fullScreenPlayer();
+          crrSongDetailsUpdate();
 
-        document.querySelector("#trigger").addEventListener("click",()=>{
+          document.querySelector("#trigger").addEventListener("click", () => {
+            document
+              .querySelector("body")
+              .append(document.querySelector(".headerForPlayer"));
+            if (isPlaying) {
+              playIcon.innerText = "pause";
+            } else if (!isPlaying) {
+              playIcon.innerText = "play_arrow";
+            }
+            playIcon.classList.remove("material-symbols-outlined");
+            playIcon.classList.add("material-symbols-rounded");
+            try {
+              document.querySelector(".fullScreenPlayer").remove();
+            } catch (error) {}
+            isMusicBarOpened = false;
+            playBtn = document.querySelectorAll("#controlicon-play");
+            prevBtn = document.querySelectorAll("#controlicon-prev");
+            nextBtn = document.querySelectorAll("#controlicon-next");
+            loopBtn = document.querySelectorAll("#controlicon-loop");
+            pbarTargetArea = document.querySelectorAll(".pbarTargetArea");
+            pbar = document.querySelectorAll(".progressBarFill");
+            durationDisplay = document.querySelectorAll("#totalDuration");
+            crrDisplay = document.querySelectorAll("#currentTime");
 
-          document.querySelector("body").append(document.querySelector(".headerForPlayer"))
-          if (isPlaying) { playIcon.innerText = "pause"; }
-        else if (!isPlaying) { playIcon.innerText = "play_arrow"; }
-          playIcon.classList.remove("material-symbols-outlined");
-          playIcon.classList.add("material-symbols-rounded");
-          try {
-            document.querySelector(".fullScreenPlayer").remove();
-        } catch (error) {
-      
+            document.querySelector("head").lastChild.remove();
+          });
         }
-        isMusicBarOpened=false;
-          playBtn = document.querySelectorAll("#controlicon-play");
-          prevBtn = document.querySelectorAll("#controlicon-prev");
-          nextBtn = document.querySelectorAll("#controlicon-next");
-          loopBtn = document.querySelectorAll("#controlicon-loop");
-          pbarTargetArea = document.querySelectorAll(".pbarTargetArea");
-          pbar = document.querySelectorAll(".progressBarFill");
-          durationDisplay = document.querySelectorAll("#totalDuration");
-         crrDisplay = document.querySelectorAll("#currentTime");
-
-          document.querySelector("head").lastChild.remove();
-          
-        })
       }
-    } }});
+    }
+  });
 }
 
-
 function fullScreenPlayer() {
-
   let fullScreenPlayer = document.querySelector(".musicBar").cloneNode(true);
   fullScreenPlayer.querySelector("#loadingMusicBar").remove();
   document.querySelector(".wrapperForMusicBar").prepend(fullScreenPlayer);
@@ -442,25 +444,21 @@ function fullScreenPlayer() {
   let mainControls = fullScreenPlayer.querySelector(".mainControls");
   let loopBtnInPLayer = mainControls.querySelector("#controlicon-loop");
   let nextBtnInPLayer = mainControls.querySelector("#controlicon-next");
- 
-
   parentOfAllControls.prepend(centerControles);
   containerForTimings.append(currentTime);
   containerForTimings.append(totalTime);
   centerControles.append(containerForTimings);
   containerForTimings.setAttribute("class", "timingsContainer");
 
-
   likeAndCrrSongContainer.setAttribute("class", "likeAndCrrSongContainer");
   fullScreenPlayer.setAttribute("class", "fullScreenPlayer");
   likeAndCrrSongContainer.append(crrSongContainer);
   likeAndCrrSongContainer.append(likeIcon);
   crrSongMainBox.append(likeAndCrrSongContainer);
- 
-  
+
   crrSongMainBox.prepend(headerOfPlayer);
   crrSongMainBox.append(parentOfAllControls);
-  
+
   mainControls.append(playIcon);
   mainControls.append(nextBtnInPLayer);
   mainControls.append(loopBtnInPLayer);
@@ -471,22 +469,27 @@ function fullScreenPlayer() {
   loopBtn = document.querySelectorAll("#controlicon-loop");
   pbarTargetArea = document.querySelectorAll(".pbarTargetArea");
   pbar = document.querySelectorAll(".progressBarFill");
-   durationDisplay = document.querySelectorAll("#totalDuration");
- crrDisplay = document.querySelectorAll("#currentTime");
- 
+  durationDisplay = document.querySelectorAll("#totalDuration");
+  crrDisplay = document.querySelectorAll("#currentTime");
+  document.getElementById("triggerView").addEventListener("click", (evt) => {
+    document.querySelector(".wrapperForMusicBar").append(nowPlayingWindow);
+
+    setTimeout(() => {
+      nowPlayingWindow.style.transform = "translate(0,0%)";
+      console.log("executed");
+    }, 0);
+    nowPlayingOpened = true;
+  });
   loopIconFunction(loopBtn);
   prevIconFunction(prevBtn);
-  nextIconFunction(nextBtn); 
+  nextIconFunction(nextBtn);
   pbarFunctionality(pbarTargetArea);
   playIconFunction(playBtn);
   mainPlayIconUpdate(playBtn);
   updateMusicBarBg();
   crrSongDetailsUpdate();
-  startTouching()
-
+  startTouching();
 }
-
-
 
 songsInQueueClutter();
 
@@ -535,9 +538,9 @@ audio.addEventListener("loadedmetadata", () => {
   if (songDurationInSec < 10) {
     songDurationInSec = `0${songDurationInSec}`;
   }
-  durationDisplay.forEach((display)=>{
+  durationDisplay.forEach((display) => {
     display.innerText = `${songDurationInMin}:${songDurationInSec}`;
-  })
+  });
 });
 
 audio.addEventListener("timeupdate", () => {
@@ -551,29 +554,28 @@ audio.addEventListener("timeupdate", () => {
   if (actualCrrDurationInSec < 10) {
     actualCrrDurationInSec = `0${actualCrrDurationInSec}`;
   }
-  crrDisplay.forEach((display)=>{
+  crrDisplay.forEach((display) => {
     display.innerText = `${actualCrrDurationInMin}:${actualCrrDurationInSec}`;
-  })
+  });
   updatePbar();
 });
 
 pbarFunctionality(pbarTargetArea);
 
+pbarTargetArea.forEach((bar) => {
+  bar.addEventListener("mousedown", () => {
+    // evt.preventDefault();
+    isDragging = true;
+    startDragging();
+  });
+});
 
-
-pbarTargetArea.forEach((bar)=>{bar.addEventListener("mousedown", () => {
-  // evt.preventDefault();
-  isDragging = true;
-  startDragging();
-});})
-
-pbarTargetArea.forEach((bar)=>{bar.addEventListener("mouseup", () => {
-  // evt.preventDefault();
-  isDragging = false;
-  
-});})
-
-
+pbarTargetArea.forEach((bar) => {
+  bar.addEventListener("mouseup", () => {
+    // evt.preventDefault();
+    isDragging = false;
+  });
+});
 
 vbarTargetArea.addEventListener("click", (evt) => {
   setVolume(evt);
@@ -591,14 +593,11 @@ vbarTargetArea.addEventListener("mouseup", () => {
 });
 
 volumeBtn.addEventListener("click", () => {
-
   if (audio.volume !== 0.0) {
-
     audio.volume = 0.0;
     vbar.style.width = `${Math.floor(audio.volume) * 10}%`;
   } else if (audio.volume === 0.0) {
     if (volumeValue === 0.0) {
-
       audio.volume = 0.1;
       vbar.style.width = `${Math.floor(audio.volume) * 10}%`;
     } else {
@@ -606,7 +605,6 @@ volumeBtn.addEventListener("click", () => {
       volumeValue = audio.volume;
 
       vbar.style.width = `${Math.floor(volumeValue * 100)}%`;
-
     }
   }
 });
@@ -616,13 +614,9 @@ audio.addEventListener("volumechange", () => {
 
 prevIconFunction(prevBtn);
 
-
 nextIconFunction(nextBtn);
 
-
-
 loopIconFunction(loopBtn);
-
 
 songCards.forEach((card, idx) => {
   playByCard(card, idx);
@@ -679,7 +673,6 @@ navigator.mediaSession.setActionHandler("pause", function () {
   audio.pause();
   isPlaying = false;
   mainPlayIconUpdate(playBtn);
-
 });
 
 navigator.mediaSession.setActionHandler("previoustrack", function () {
@@ -710,12 +703,44 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   crrSongDetailsUpdate();
 });
 
-window.addEventListener("resize", ()=>{location.reload();clutterCards();});
+window.addEventListener("resize", () => {
+  if (initialWindowWidth <= widthForMobileCardsCluttering) {
+    if (
+      mainWindow.addEventListener("scroll", () => {
+        return true;
+      })
+    ) {
+    } else {
+      location.reload();
+      clutterCards();
+    }
+  } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
+    if (window.innerWidth <= widthForMobileCardsCluttering) {
+      location.reload();
+    }
+  }
+  if (!initialWindowWidth <= widthForMobileCardsCluttering) {
+    isResized = !isResized;
+    if (isResized) {
+      resizedStyling = document.createElement("style");
+      resizedStyling.innerHTML = ".defaultlistings::before{top:49vh}";
+      document.querySelector("head").append(resizedStyling);
+    } else if (!isResized) {
+      if (btnclicked == true) {
+        styling.append(".defaultlistings::before{top:31%}");
+      }
 
-if(!isMusicBarOpened){
-  document.querySelector("#followme").addEventListener("click",()=>{
+      resizedStyling.remove();
+    }
+  }
+});
+
+if (!isMusicBarOpened) {
+  document.querySelector("#followme").addEventListener("click", () => {
     window.open("https://www.instagram.com/__raghvendra__001/");
-  })
+  });
 }
 
 applyFullScreenPlayerStyling();
+
+function nowPLayingForMobile() {}
