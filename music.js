@@ -644,6 +644,7 @@ nowPlayingSongs.forEach((queueSong, idx) => {
     audio.src = playlist[crrSong];
     audio.play();
     isPlaying = true;
+    mainPlayIconUpdate(playBtn);
     updateNowPlayingWindow();
     cardBtnUpdate();
     crrSongDetailsUpdate();
