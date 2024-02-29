@@ -87,12 +87,7 @@ padding-left:15%;
 .defaultlistings:hover .artistsideblock1{
   padding-left: 14%;
 }
-.defaultlistings::before {
-  width: 4%;
-  top: 31%;
-  height: 2vmin;
-  box-shadow: 0 2vmin 3vmin rgba(0, 0, 0, 1);
-}
+
 #libraryicon,#homeicon{
   padding-left:29%;
 }
@@ -502,6 +497,7 @@ let mainWindow = document.querySelector(".mainwindow");
 let upperCardList = document.querySelectorAll(".uppercard");
 let mainWindowBgColor = "none";
 let minScrollVal = 40;
+let isFocused=false;
 
 // function definitions.
 
@@ -751,7 +747,10 @@ btn.addEventListener("click", () => {
 
 searchBtn.addEventListener("click", (evt) => {
   evt.preventDefault();
-  if (searchBoxOpen == false) {
+  if(openedInMobile) return;
+  searchBoxOpen = !searchBoxOpen;
+  
+  if (searchBoxOpen) {
     searchBox.style.display = "initial";
 
     searchBox.addEventListener("input", () => {
@@ -770,11 +769,16 @@ searchBtn.addEventListener("click", (evt) => {
           document.getElementById(`${divs}`).style.opacity = "1";
         }
         elemsOriginalOrder();
-      });
+        crossIcon.style.display = "none";});
     });
     searchBtn.classList.add("buttonclicked");
   }
-  searchBoxOpen = true;
+  else if(!searchBoxOpen){
+    searchBox.style.display = "none";
+    searchBtn.classList.remove("buttonclicked");
+    
+  }
+  
 });
 
 upperCardList.forEach((value, idx) => {
@@ -799,3 +803,44 @@ document.addEventListener("DOMContentLoaded", () => {
 mainWindow.addEventListener("scroll", navBgSet);
 
 window.addEventListener("load", displayLoadedContent);
+
+searchBox.addEventListener("focus",()=>{
+  if(!openedInMobile) return;
+  searchBoxOpen = !searchBoxOpen;
+  document.querySelector(".failedtosearch").style.justifyContent="flex-start";
+    document.querySelector(".failedtosearch").style.paddingTop="2vh";
+  // evt.preventDefault();
+  if (searchBoxOpen) {
+    searchBox.style.display = "initial";
+
+    searchBox.addEventListener("input", () => {
+      if (searchBox.value != "") {
+        crossIcon.style.display = "initial";
+      } else {
+        crossIcon.style.display = "none";
+      }
+      showResults();
+
+      crossIcon.addEventListener("click", () => {
+        document.querySelector(".failedtosearch").style.display = "none";
+        searchBox.value = "";
+        for (divs of divIds) {
+          document.getElementById(`${divs}`).style.display = "flex";
+          document.getElementById(`${divs}`).style.opacity = "1";
+        }
+        elemsOriginalOrder();
+        crossIcon.style.display = "none";});
+    });
+    searchBtn.classList.add("buttonclicked");
+  }
+
+  
+
+  isFocused=true;
+  searchBox.addEventListener("blur",()=>{
+    document.querySelector(".failedtosearch").style.justifyContent="center";
+    document.querySelector(".failedtosearch").style.paddingTop="0";
+    setTimeout(()=>{ isFocused=false;},500)
+   
+  })
+});

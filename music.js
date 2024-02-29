@@ -318,7 +318,7 @@ function clutterCards() {
   let currentWidth = window.innerWidth;
 
   if (currentWidth <= widthForMobileCardsCluttering) {
-    audio.volume = 1;
+    audio.volume = 0.2;
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
@@ -334,6 +334,8 @@ function clutterCards() {
     openedInMobile = true;
     musicBarWrapperConstruct(isConstructed);
     isConstructed = true;
+    searchBtn.classList.add("buttonclicked");
+    // searchBoxOpen=true;
     if (!isMusicBarOpened) {
       if (!isPlaying) {
         playApeended.innerText = "play_arrow";
@@ -360,15 +362,42 @@ function clutterCards() {
 
 function musicBarWrapperConstruct(isConstructed) {
   if (!isConstructed) {
+    let wrapperForHeader = document.createElement("div");
+    let hamburger = document.createElement("span");
+    let loader = document.querySelector(".loadingMainWindow");
+    let charts = document.getElementById("charts");
     let wrapperForMusicBar = document.createElement("div");
+    let logo= document.querySelector(".logo");
+    let wrapperForLogo = document.createElement("div");
+    let crossIconForSidebar = document.createElement("span");
+    let sideBarUpper = document.querySelector(".sidebaruppersection");
+    crossIconForSidebar.setAttribute("class","material-symbols-rounded");
+    crossIconForSidebar.setAttribute("id","sideBarCrossIcon");
+    crossIconForSidebar.innerText="close";
+    wrapperForLogo.setAttribute("class","wrapperForlogo");
+    wrapperForLogo.append(logo);
+    wrapperForLogo.append(crossIconForSidebar);
+    sideBarUpper.prepend(wrapperForLogo);
     document
       .querySelector(".maincontainer")
       .insertBefore(
         wrapperForMusicBar,
         document.querySelector(".nowPlayingVeiw")
       );
+      hamburger.classList.add("material-symbols-rounded");
+      hamburger.setAttribute("id","hamburger");
+      hamburger.addEventListener("click",()=>{sideBarForMobile(crossIconForSidebar)});
+      
+      hamburger.innerText="menu";
+      wrapperForHeader.append(charts);
+      wrapperForHeader.append(hamburger);
+    
+      document.querySelector(".mainwindow").prepend(wrapperForHeader);
+      document.querySelector(".mainwindow").prepend(loader);
+      wrapperForHeader.setAttribute("class","wrapperForHeader");
     wrapperForMusicBar.setAttribute("class", "wrapperForMusicBar");
     wrapperForMusicBar.append(document.querySelector(".musicBar"));
+
   }
 }
 
@@ -712,26 +741,16 @@ window.addEventListener("resize", () => {
       })
     ) {
     } else {
-      location.reload();
-      clutterCards();
+      if(!isFocused){
+        location.reload();
+        clutterCards();
+      }
+      
+     
     }
   } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
     if (window.innerWidth <= widthForMobileCardsCluttering) {
       location.reload();
-    }
-  }
-  if (!initialWindowWidth <= widthForMobileCardsCluttering) {
-    isResized = !isResized;
-    if (isResized) {
-      resizedStyling = document.createElement("style");
-      resizedStyling.innerHTML = ".defaultlistings::before{top:49vh}";
-      document.querySelector("head").append(resizedStyling);
-    } else if (!isResized) {
-      if (btnclicked == true) {
-        styling.append(".defaultlistings::before{top:31%}");
-      }
-
-      resizedStyling.remove();
     }
   }
 });
@@ -744,4 +763,26 @@ if (!isMusicBarOpened) {
 
 applyFullScreenPlayerStyling();
 
-function nowPLayingForMobile() {}
+function sideBarForMobile(cross){
+
+  console.log("fired")
+  document.querySelector(".sidebar").style.transform="translate(0,0)";
+  cross.style.transform="rotateZ(0deg)";
+  cross.addEventListener("click",()=>{
+    cross.style.transform="rotateZ(600deg)";
+    setTimeout(()=>{cross.style.transform="rotateZ(0deg)"},1000)
+    document.querySelector(".sidebar").style.transform="translate(-100%,0)";
+  })
+  
+}
+
+document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
+  if(evt.target.scrollTop>10){
+    evt.target.classList.add("displayForBefore");
+  }
+  else if(evt.target.scrollTop<=10){
+    evt.target.classList.remove("displayForBefore");
+  }
+})
+
+//<-----setup button to close sidebar and further functionality and styling for mobile-->
