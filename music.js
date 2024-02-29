@@ -505,7 +505,6 @@ function fullScreenPlayer() {
 
     setTimeout(() => {
       nowPlayingWindow.style.transform = "translate(0,0%)";
-      console.log("executed");
     }, 0);
     nowPlayingOpened = true;
   });
@@ -764,8 +763,6 @@ if (!isMusicBarOpened) {
 applyFullScreenPlayerStyling();
 
 function sideBarForMobile(cross){
-
-  console.log("fired")
   document.querySelector(".sidebar").style.transform="translate(0,0)";
   cross.style.transform="rotateZ(0deg)";
   cross.addEventListener("click",()=>{
