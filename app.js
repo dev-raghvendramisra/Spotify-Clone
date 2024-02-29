@@ -473,7 +473,7 @@ const songDetails = [
     fullName: "Athma Rama",
   },
   {
-    src: "https://m.media-amazon.com/images/M/MV5BZjg2ZjViMTktNWQ1Yy00ODZiLWE1OTgtNDY3MjI0OGUyNjNhXkEyXkFqcGdeQXVyNTk4NDI4NTE@._V1_.jpg",
+    src: "https://i.scdn.co/image/ab67656300005f1f4de6e598c36e4476af554a64",
     name: "BEN 10-Theme Song",
     description: "Sunidhi Chauhan",
     fullName: "BEN 10-Theme Song",
@@ -804,11 +804,11 @@ mainWindow.addEventListener("scroll", navBgSet);
 
 window.addEventListener("load", displayLoadedContent);
 
-searchBox.addEventListener("focus",()=>{
-  if(!openedInMobile) return;
+searchBox.addEventListener("focus", () => {
+  if (!openedInMobile) return;
   searchBoxOpen = !searchBoxOpen;
-  document.querySelector(".failedtosearch").style.justifyContent="flex-start";
-    document.querySelector(".failedtosearch").style.paddingTop="2vh";
+  document.querySelector(".failedtosearch").style.justifyContent = "flex-start";
+  document.querySelector(".failedtosearch").style.paddingTop = "2vh";
   // evt.preventDefault();
   if (searchBoxOpen) {
     searchBox.style.display = "initial";
@@ -829,18 +829,19 @@ searchBox.addEventListener("focus",()=>{
           document.getElementById(`${divs}`).style.opacity = "1";
         }
         elemsOriginalOrder();
-        crossIcon.style.display = "none";});
+        crossIcon.style.display = "none";
+      });
     });
     searchBtn.classList.add("buttonclicked");
   }
 
-  
 
-  isFocused=true;
-  searchBox.addEventListener("blur",()=>{
-    document.querySelector(".failedtosearch").style.justifyContent="center";
-    document.querySelector(".failedtosearch").style.paddingTop="0";
-    setTimeout(()=>{ isFocused=false;},500)
-   
+
+  isFocused = true;
+  searchBox.addEventListener("blur", () => {
+    document.querySelector(".failedtosearch").style.justifyContent = "center";
+    document.querySelector(".failedtosearch").style.paddingTop = "0";
+    setTimeout(() => { isFocused = false; }, 500)
+
   })
 });

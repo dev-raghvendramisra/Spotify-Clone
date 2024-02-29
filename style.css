@@ -1737,19 +1737,6 @@ body {
     display: initial;
     margin-bottom: 0;
   }
-
-  .songCard:hover>.songDescriptionContbefore::after {
-    background-image: linear-gradient(to left, #333333 50%, transparent);
-  }
-
-  .songCard:hover>.songDescriptionContbefore::before {
-    background-image: linear-gradient(to right, #333333 50%, transparent);
-  }
-
-  .songCard:hover>.songName::after {
-    background-image: linear-gradient(to left, #333333 25%, transparent);
-  }
-
   #cardplayicon {
     opacity: 1;
     font-size: 9vw;
@@ -2213,9 +2200,22 @@ border-radius:50vw;
   padding:0 2vw;
   margin-bottom:0;
 }
+.songCard:hover{
+  background-color:#252525 ;
+}
+.songCard:active {
+  background-color: #333333;
+}
 
+.songCard:active>.songName::after {
+  background-image: linear-gradient(to left, #333333 25%, transparent);
+}
+.songCard:active>.songDescriptionContbefore::after {
+  background-image: linear-gradient(to left, #333333 50%, transparent);
+}
 
 }
+
 .defaultlistings::before {
   content: "";
   width: 100%;
