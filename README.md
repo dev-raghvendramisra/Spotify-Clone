@@ -12,7 +12,7 @@
  <p align="center">
     Best one you'll ever find!
     <br />
-    <a href="https://spotifyclonebyrv.freewebhostmost.com"><strong>Veiw Live Project»</strong></a>
+    <a href="https://spotifyclonebyrv.vercel.app"><strong>Veiw Live Project»</strong></a>
     <br />
     <br />
     <a href="linkedin.com/in/raghvendra-misra-424803262">linkedIn</a>
