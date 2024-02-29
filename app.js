@@ -279,34 +279,34 @@ const mainWindowBg = [
 ];
 
 const playlist = [
-  "satranga.mp3",
-  "chaleya.mp3",
-  "4.10.mp3",
-  "kesariya.mp3",
-  "wohRaat.mp3",
-  "thodaThodaPyaar.mp3",
-  "malang.mp3",
-  "duniyaa.mp3",
-  "labonKo.mp3",
-  "lovely.mp3",
-  "stay.mp3",
-  "jannateinKahan.mp3",
-  "sometimes.mp3",
-  "seedheMaut.mp3",
-  "tuHaiKahan.mp3",
-  "arjanVailly.mp3",
-  "ranjha.mp3",
-  "ratanLambiyan.mp3",
-  "manjha.mp3",
-  "chaleya.mp3",
-  "satranga.mp3",
-  "phirMohobbat.mp3",
-  "hothonSeChulo.mp3",
-  "noMercy.mp3",
-  "blowingUp.mp3",
-  "prarthna.mp3",
-  "athmaRama.mp3",
-  "ben10.mp3",
+  "tracks/satranga.mp3",
+  "tracks/chaleya.mp3",
+  "tracks/4.10.mp3",
+  "tracks/kesariya.mp3",
+  "tracks/wohRaat.mp3",
+  "tracks/thodaThodaPyaar.mp3",
+  "tracks/malang.mp3",
+  "tracks/duniyaa.mp3",
+  "tracks/labonKo.mp3",
+  "tracks/lovely.mp3",
+  "tracks/stay.mp3",
+  "tracks/jannateinKahan.mp3",
+  "tracks/sometimes.mp3",
+  "tracks/seedheMaut.mp3",
+  "tracks/tuHaiKahan.mp3",
+  "tracks/arjanVailly.mp3",
+  "tracks/ranjha.mp3",
+  "tracks/ratanLambiyan.mp3",
+  "tracks/manjha.mp3",
+  "tracks/chaleya.mp3",
+  "tracks/satranga.mp3",
+  "tracks/phirMohobbat.mp3",
+  "tracks/hothonSeChulo.mp3",
+  "tracks/noMercy.mp3",
+  "tracks/blowingUp.mp3",
+  "tracks/prarthna.mp3",
+  "tracks/athmaRama.mp3",
+  "tracks/ben10.mp3",
 ];
 
 const songDetails = [
@@ -731,12 +731,12 @@ btn.addEventListener("click", () => {
     document.head.append(styling);
     icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
     btnclicked = true;
-    document.querySelector(".logo").src = "logo1.png";
+    document.querySelector(".logo").src = "meta/logo1.png";
   } else if (btnclicked == true) {
     styling.innerHTML = "";
     icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
     btnclicked = false;
-    document.querySelector(".logo").src = "logo.png";
+    document.querySelector(".logo").src = "meta/logo.png";
   }
   for (divs of divIds) {
     document.getElementById(`${divs}`).style.display = "flex";
