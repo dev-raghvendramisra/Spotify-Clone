@@ -32,6 +32,6 @@ searchTabBtn.addEventListener("click",()=>{
 
 homeTabBtn.addEventListener("click",()=>{
     tabUpdateForHome();
-    history.pushState({},null,"");
+    history.pushState({},"","");
 
 })
