@@ -318,7 +318,7 @@ function clutterCards() {
   let currentWidth = window.innerWidth;
 
   if (currentWidth <= widthForMobileCardsCluttering) {
-    audio.volume = 0.2;
+    audio.volume = 1;
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;

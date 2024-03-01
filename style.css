@@ -2214,6 +2214,9 @@ border-radius:50vw;
 .songCard:active>.songDescriptionContbefore::after {
   background-image: linear-gradient(to left, #333333 50%, transparent);
 }
+  .songcontainer1{
+    gap:6vw;
+  }
 
 }
 
