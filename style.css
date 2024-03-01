@@ -1567,6 +1567,16 @@ body {
   cursor: pointer;
 }
 
+
+.material-symbols-rounded {
+  color:white;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {
@@ -2216,6 +2226,14 @@ border-radius:50vw;
 }
   .songcontainer1{
     gap:6vw;
+  }
+  #searchicons-svg{
+    font-size:6vw;
+  
+  }
+  #searchicon{
+    padding-left:6.3vw;
+    padding-top:1.5vh;
   }
 
 }

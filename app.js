@@ -1,14 +1,5 @@
 // Variable declarations.
-const sideBarCollapsedStyling = `.secondarysidebarsection{
-  height:100%;
-  width:100%;
-  position: absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  background-color:#928b8b00;
-}
+const sideBarCollapsedStyling = `
 .playlist-thumb{
  height:45px;
 }
@@ -48,6 +39,10 @@ const sideBarCollapsedStyling = `.secondarysidebarsection{
 #homeicon-svg,#libraryicon-svg,#searchicons-svg{
   font-size:30px;
 }
+#searchicons-svg{
+  font-size:24px;
+}
+
 .sidebar{
   width:4.5vw;
 }
@@ -92,7 +87,7 @@ padding-left:15%;
   padding-left:29%;
 }
 #searchicon{
-  padding-left:29%;
+  padding-left:33%;
   padding-bottom:5%;
 }
 .mainwindow{
