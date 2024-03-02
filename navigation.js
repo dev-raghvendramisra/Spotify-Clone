@@ -45,3 +45,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     tabUpdateForHome();
   }
 })
+
+window.addEventListener("popstate",(evt)=>{
+  if(evt.state.page==="home"){
+    tabUpdateForSearch();
+  }
+  else if(evt.state.page==="search"){
+    tabUpdateForHome();
+  }
+})
