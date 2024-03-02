@@ -11,6 +11,9 @@ function tabUpdateForSearch() {
   searchTabBtn.querySelector("span").style.color = "white";
   searchTabBtn.querySelector("p").style.color = "white";
   stylingForTabs.innerText = stylingForSearchTab;
+  if(openedInMobile){
+    document.querySelector(".sidebar").style.transform="translate(-100%,0)";
+  }
 }
 function tabUpdateForHome() {
   stylingForTabs.innerText = "";
@@ -19,6 +22,9 @@ function tabUpdateForHome() {
   searchTabBtn.querySelector("span").style.color = " grey";
   searchTabBtn.querySelector("p").style.color = " grey";
   stylingForTabs.innerText = stylingForHomeTab;
+  if(openedInMobile){
+    document.querySelector(".sidebar").style.transform="translate(-100%,0)";
+  }
 }
 
 searchTabBtn.addEventListener("click", () => {

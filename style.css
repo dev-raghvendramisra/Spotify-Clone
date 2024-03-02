@@ -1576,6 +1576,13 @@ body {
   'GRAD' 0,
   'opsz' 24
 }
+#homeicon-svg,#searchicons-svg{
+  transition: all .2s ease-in;
+
+}
+.icontext{
+  transition: all .2s ease-in;
+}
 
 /*<---media queries-->*/
 @media (max-width: 740px) {
@@ -2076,6 +2083,8 @@ body {
   z-index:6;
   width:100vw;
   height:100vh;
+  transform: translate(-100%,0);
+ transition: transform 0.6s cubic-bezier(1, 0.07, 0, 1.02);
 
 }
 .defaultlistings{
@@ -2086,12 +2095,13 @@ body {
 }
 #homeicon-svg,#searchicons-svg{
   font-size:8vw;
-  transition: all .5s ease;
+  transition: all .3s ease;
 
 }
 .icontext{
   font-size:5vw;
   font-weight:500;
+  transition: all .3s ease;
 }
 #searchicon-text{
   font-weight:500;
@@ -2141,10 +2151,7 @@ form{
   color: white;
 
 }
-.sidebar{
- transform: translate(-100%,0);
- transition: transform 0.5s ease;
-}
+
 .wrapperForlogo{
 padding:3vh 4vw;
 display: flex;
