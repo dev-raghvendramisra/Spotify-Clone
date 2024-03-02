@@ -29,10 +29,19 @@ function tabUpdateForHome() {
 
 searchTabBtn.addEventListener("click", () => {
   tabUpdateForSearch();
-  history.pushState({}, null, "/search");
+  history.pushState({page:"search"}, null, "/search");
 });
 
 homeTabBtn.addEventListener("click", () => {
   tabUpdateForHome();
-  history.pushState({}, "", "/");
+  history.pushState({page:"home"}, "", "/");
 });
+
+document.addEventListener("load",()=>{
+  if(history.state && history.state.page==="search"){
+    tabUpdateForSearch();
+  }
+  else{
+    tabUpdateForHome();
+  }
+})
