@@ -39,7 +39,7 @@ homeTabBtn.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded",()=>{
   if(history.state && history.state.page==="search"){
-    tabUpdateForSearch();
+    if(!openedInMobile)tabUpdateForSearch();
   }
   else{
     tabUpdateForHome();
