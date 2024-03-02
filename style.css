@@ -2086,6 +2086,7 @@ body {
 }
 #homeicon-svg,#searchicons-svg{
   font-size:8vw;
+  transition: all .5s ease;
 
 }
 .icontext{
