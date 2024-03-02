@@ -37,7 +37,7 @@ homeTabBtn.addEventListener("click", () => {
   history.pushState({page:"home"}, "", "/");
 });
 
-document.addEventListener("load",()=>{
+document.addEventListener("DOMContentLoaded",()=>{
   if(history.state && history.state.page==="search"){
     tabUpdateForSearch();
   }
