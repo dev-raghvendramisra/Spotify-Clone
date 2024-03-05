@@ -262,6 +262,9 @@ const musicPlayerOpenedStyling = `.fullScreenPlayer{
   z-index:1;
   box-shadow: -3px 0px 10px -3px black;
 }
+nav{
+  padding-left:1.5%;
+}
   `;
 
 const mainWindowBg = [
