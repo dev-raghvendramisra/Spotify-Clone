@@ -87,7 +87,7 @@ function navIconUpdate() {
     prevNavBtn.style.cursor = "pointer";
   }
 
-  if(statesCovered==history.length-2){
+  if(statesCovered>=history.length-2){
     nextNavBtn.style.color = "rgba(255, 255, 255, 0.425)";
    nextNavBtn.style.cursor = "not-allowed";
   }
