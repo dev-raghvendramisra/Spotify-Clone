@@ -93,9 +93,6 @@ padding-left:15%;
 .mainwindow{
   width:95vw;
 }
-#followme{
-  margin-left:72vw;
-}
 #libraryicon::before{
   content:"Expand your library";
  } 
@@ -116,6 +113,9 @@ padding-left:15%;
   }
   .logo{
 padding-left:29%;
+  }
+  .mainNav{
+    width:95.4vw;
   }
  `;
 
