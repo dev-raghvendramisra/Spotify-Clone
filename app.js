@@ -117,6 +117,9 @@ padding-left:29%;
   .mainNav{
     width:95.4vw;
   }
+  nav{
+    padding-left:1.5%;
+  }
  `;
 
 const musicPlayerOpenedStyling = `.fullScreenPlayer{
@@ -262,9 +265,7 @@ const musicPlayerOpenedStyling = `.fullScreenPlayer{
   z-index:1;
   box-shadow: -3px 0px 10px -3px black;
 }
-nav{
-  padding-left:1.5%;
-}
+
   `;
 
 const mainWindowBg = [
