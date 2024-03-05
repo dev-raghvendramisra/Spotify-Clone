@@ -461,18 +461,19 @@ form {
 
 nav {
   padding-top: 3.5vmin;
-  padding-left: 4vmin;
+  padding-left: 3%;
   padding-bottom: 3.5vmin;
   color: white;
   font-size: 1vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  width:95%;
 }
 
 #bell-icon {
   font-variation-settings: "FILL"0, "wght"300, "GRAD"0, "opsz"24;
-  margin-left: 1.5vw;
+  /* margin-left: 1.5vw; */
   background-color: #1212128c;
   border-radius: 5vmin;
   padding: 0.7vmin;
@@ -494,11 +495,11 @@ nav img {
   height: 1.8vw;
   border: 3px solid #1212128c;
   border-radius: 5vmin;
-  margin-left: 1.5vw;
+  /* margin-left: 1.5vw; */
 }
 
 #followme {
-  margin-left: 51.4vw;
+  /* margin-left: 51.4vw; */
   padding: 1vmin 1.5vmin;
   background-color: #ffffff;
   border-radius: 54vmin;
@@ -557,6 +558,12 @@ nav img {
 #libraryicon {
   position: relative;
  
+}
+.wrapper2ndInNav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1.5vw;
 }
 
 #libraryicon::before {
