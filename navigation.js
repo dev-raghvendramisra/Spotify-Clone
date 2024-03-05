@@ -49,6 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
     tabUpdateForHome();
   }
   navIconUpdate();
+
+  if(sessionStorage.getItem("isSidebarCollapsed")!==null){
+    let stateOfSidebar=sessionStorage.getItem("isSidebarCollapsed");
+    if(stateOfSidebar=="true"){
+      btnclicked=false;
+      sidebarOpenClose();
+    }
+    else if(stateOfSidebar=="false"){
+      btnclicked=true;
+      sidebarOpenClose();
+    }
+   
+  };
 });
 
 window.addEventListener("popstate", (evt) => {
