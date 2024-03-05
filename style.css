@@ -484,7 +484,8 @@ nav {
   border-radius: 5vmin;
   padding: 0.7vmin;
   margin-left: 0.5vw;
-  cursor: not-allowed;
+  cursor: pointer;
+  pointer-events: all;
   background-color: #12121286;
   color: rgba(255, 255, 255, 0.425);
 }
@@ -511,8 +512,9 @@ nav img {
   background-color: #12121279;
   border-radius: 5vmin;
   padding: 0.7vmin;
-  color: rgba(255, 255, 255, 0.425);
-  cursor: not-allowed;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  pointer-events: all;
 }
 
 .musictag,
@@ -554,6 +556,7 @@ nav img {
 
 #libraryicon {
   position: relative;
+ 
 }
 
 #libraryicon::before {
