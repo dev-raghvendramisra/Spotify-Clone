@@ -783,3 +783,5 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
 })
 
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
+
+
