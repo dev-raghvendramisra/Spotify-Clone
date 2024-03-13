@@ -12,11 +12,19 @@ const stylingForSearchTab=`
       'wght' 400,   
       'GRAD' 0,
       'opsz' 24;
-    }
     
 }
+.mainSearchBarCont{
+  display:flex;
+}
+#searchicons-svg{
+  color:white;
+}
+#searchicon-text{
+  color:white;
+}
 `
-const stylingForHomeTab=`
+const stylingForHomeTab=`'
 #homeicon-text{
     color:white;
 }
@@ -30,6 +38,15 @@ const stylingForHomeTab=`
       'opsz' 24;
     }
     
+
+.mainSearchBarCont{
+  display:none;
+}
+#searchicons-svg{
+  color:grey;
+}
+#searchicon-text{
+  color:grey;
 }
 `
 

@@ -1594,6 +1594,75 @@ body {
   transition: all .2s ease-in;
 }
 
+
+
+
+.wrapperForSearchBar-Chev{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1.5vw;
+}
+.mainSearchBarCont{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  display:none;
+}
+#mainSearchBar{
+  padding:1.01vw 0;
+  width:15vw;
+  font-size:0.8vw;
+  background-color: #2A2A2A;
+  outline:none;
+  border: none;
+  color:white;
+  border-bottom:1px solid rgba(255, 255, 255,0);
+  border-top:1px solid rgba(255, 255, 255,0);
+}
+#mainSearchBar::placeholder{
+  font-size:1vw;
+  
+}
+#mainSearchBtn{
+  color:rgba(255, 255, 255, 0.459);
+  padding:1vw;
+ border-top-left-radius: 5vw;
+ border-bottom-left-radius: 5vw;
+  background-color: #2A2A2A;
+  
+  border:1px solid rgba(255, 255, 255,0);
+}
+#mainSearchCancelBtn{
+  color:rgba(255, 255, 255, 0);
+  padding:0.8vw;
+  border-top-right-radius: 5vw;
+ border-bottom-right-radius: 5vw;
+  background-color: #2A2A2A;
+
+  border:1px solid rgba(255, 255, 255,0);
+ 
+}
+.mainSearchBarCont:hover #mainSearchBar{
+  border-bottom:1px solid rgba(255, 255, 255,0.2);
+  border-top:1px solid rgba(255, 255, 255, 0.2);
+  background-color: #2e2e2e;
+}
+.mainSearchBarCont:hover #mainSearchCancelBtn{
+  border:1px solid rgba(255, 255, 255,0.2);
+  border-left:0px solid rgba(255, 255, 255,0.2);
+  background-color: #2e2e2e;
+ 
+}.mainSearchBarCont:hover #mainSearchBtn{
+  border:1px solid rgba(255, 255, 255,0.2);
+  border-right:0px solid rgba(255, 255, 255,0.2);
+  background-color: #2e2e2e;
+  color:white;
+  
+}
+
+
+
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {

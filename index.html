@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@NaN,300,0,0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="style1sheet" href="style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="meta/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="meta/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="meta/favicon-16x16.png">
@@ -23,6 +23,7 @@
 <meta name="theme-color" content="#ffffff">
 <script src="https://kit.fontawesome.com/30ba74ff6e.js" crossorigin="anonymous"></script>
   <title>Spotify Clone-by Raghvendra Misra</title>
+  
 </head>
 
 <body >
@@ -375,6 +376,7 @@
       <nav class="mainNav">
         
         <nav>
+          <div class="wrapperForSearchBar-Chev">
           <div class="wrapper1stInNav">
           <span id="chev1" class="material-symbols-outlined">
             arrow_back_ios_new
@@ -383,6 +385,13 @@
             arrow_forward_ios
           </span>
         </div>
+          <div class="mainSearchBarCont">
+            <span class="fa-solid fa-magnifying-glass" id="mainSearchBtn"></span>
+            <input type="text" placeholder="What do you want to play?" id="mainSearchBar">
+            <span class="material-symbols-rounded" id="mainSearchCancelBtn">close</span>
+          </div>
+        
+      </div>
           <div class="wrapper2ndInNav">
           <span id="followme" style="pointer-events: all; cursor: pointer;">Follow Me!</span>
           <span id="bell-icon" class="material-symbols-outlined">
