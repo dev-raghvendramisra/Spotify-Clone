@@ -718,6 +718,24 @@ function updateMusicBarBg() {
   }
 }
 
+function sidebarOpenClose(){
+  if (btnclicked == false) {
+    styling.innerHTML = sideBarCollapsedStyling;
+    if(isResized){styling.append(".defaultlistings::before{top:29%}")}
+    document.head.append(styling);
+    icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
+    btnclicked = true;
+    document.querySelector(".logo").src = "meta/logo1.png";
+    sessionStorage.setItem("isSidebarCollapsed",true)
+  } else if (btnclicked == true) {
+    styling.innerHTML = "";
+    icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
+    btnclicked = false;
+    document.querySelector(".logo").src = "meta/logo.png";
+    sessionStorage.setItem("isSidebarCollapsed",false)
+  }
+}
+
 // Main code block, statements written in the sequence of execution.
 
 assignId();
@@ -833,20 +851,3 @@ searchBox.addEventListener("focus", () => {
   })
 });
 
-function sidebarOpenClose(){
-  if (btnclicked == false) {
-    styling.innerHTML = sideBarCollapsedStyling;
-    if(isResized){styling.append(".defaultlistings::before{top:29%}")}
-    document.head.append(styling);
-    icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
-    btnclicked = true;
-    document.querySelector(".logo").src = "meta/logo1.png";
-    sessionStorage.setItem("isSidebarCollapsed",true)
-  } else if (btnclicked == true) {
-    styling.innerHTML = "";
-    icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
-    btnclicked = false;
-    document.querySelector(".logo").src = "meta/logo.png";
-    sessionStorage.setItem("isSidebarCollapsed",false)
-  }
-}
