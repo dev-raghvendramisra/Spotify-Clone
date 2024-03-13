@@ -1630,7 +1630,7 @@ body {
  border-top-left-radius: 5vw;
  border-bottom-left-radius: 5vw;
   background-color: #2A2A2A;
-  
+  font-size:1vw;
   border:1px solid rgba(255, 255, 255,0);
 }
 #mainSearchCancelBtn{
@@ -1639,7 +1639,7 @@ body {
   border-top-right-radius: 5vw;
  border-bottom-right-radius: 5vw;
   background-color: #2A2A2A;
-
+font-size:1.4vw;
   border:1px solid rgba(255, 255, 255,0);
  
 }
