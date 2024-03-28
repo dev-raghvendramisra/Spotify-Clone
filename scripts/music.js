@@ -29,6 +29,7 @@ const initialWindowHeight = window.innerHeight;
 let resizedStyling;
 let isResized = false;
 let musicBarBg;
+let initialClutter=false;
 
 let isPlaying = false;
 let crrSong = 0;
@@ -346,6 +347,9 @@ function clutterCards() {
 
     updateAnimation();
   } else if (currentWidth > widthForMobileCardsCluttering) {
+    if(initialClutter){
+      return;
+    }
     let descriptions = document.querySelectorAll(".songDescription");
     let newParents = document.querySelectorAll(".songCard");
     descriptions.forEach((description, idx) => {
@@ -357,6 +361,7 @@ function clutterCards() {
       newParent.append(wrapper);
       oldParent.style.display = "none";
     });
+   initialClutter=true;
   }
 }
 

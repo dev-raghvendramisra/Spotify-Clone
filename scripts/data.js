@@ -49,8 +49,6 @@ const stylingForHomeTab=`'
   color:grey;
 }
 `
-//deployement purpose
-
 
 
 
