@@ -354,7 +354,7 @@ function clutterCards() {
       openedInMobile = false;
       let wrapper = document.createElement("div");
       wrapper.appendChild(description);
-      newParent.insertBefore(wrapper, oldParent);
+      newParent.append(wrapper);
       oldParent.style.display = "none";
     });
   }
