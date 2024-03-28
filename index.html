@@ -11,15 +11,19 @@
     rel="stylesheet" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@NaN,300,0,0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="meta/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="meta/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="meta/favicon-16x16.png">
+<link rel="manifest" href="meta/site.webmanifest">
+<link rel="mask-icon" href="meta/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<script src="https://kit.fontawesome.com/30ba74ff6e.js" crossorigin="anonymous"></script>
   <title>Spotify Clone-by Raghvendra Misra</title>
+  
 </head>
 
 <body >
@@ -37,17 +41,15 @@
         <div class="loadingElSidebar"></div>
 
       </div>
-      <div class="secondarysidebarsection"></div>
       <div class="sidebaruppersection">
-      <img class="logo" src="logo.png">
-        
+        <img class="logo" src="meta/logo.png">
         <div class="icon" id="homeicon">
-          <span id="homeicon-svg" class="material-symbols-outlined" >Home</span>
+          <span id="homeicon-svg" class="material-symbols-rounded" >Home</span>
         <p class="icontext" id="homeicon-text">Home</p> 
         </div>
      
         <div  id="searchicon" class="icon">
-          <span  id="searchicons-svg" class="material-symbols-outlined">search</span>
+          <span  id="searchicons-svg" class="fa-solid fa-magnifying-glass"></span>
           <p class="icontext" id="searchicon-text">Search</p>
         </div>
       </div>
@@ -89,7 +91,7 @@
             <img src="https://misc.scdn.co/liked-songs/liked-songs-64.png" class="playlist-thumb" />
             <div class="textforplaylist">
               <p class="playlistname">Default Songs</p>
-              <p class="thumbnaillabel">Playlist &#8226; 20 songs</p>
+              <p class="thumbnaillabel">Playlist &#8226; 25 songs</p>
             </div>
           </div>
           <div class="artistsideblock1">
@@ -209,9 +211,9 @@
       </div>
       <div class="currentSong">
         <img src="https://i.scdn.co/image/ab67616d000048512432edc97b465e6db54d356b"
-        class="main-window-playlist-thumb" />
+        class="main-window-playlist-thumb" crossorigin="anonymous" />
         <div class="currentMusic-Player">
-      Phir Mohobbat <br><p>Md.Irfan, Arijit Singh, Saim Bhat</p>
+        <div contenteditable=""><p></p></div>
         </div>
         <span id="likeicon"
             class="material-symbols-outlined">
@@ -271,7 +273,7 @@
         </div>
       </div>
     </div>
-    <div class="nowPlayingVeiw">
+    <div class="nowPlayingVeiw" >
       <div class="nowplayingHeader"><h3 class="NowPlaying">Now Playing</h3><span id="nowPlayingClose" class="material-symbols-outlined">
         close
         </span></div>
@@ -374,19 +376,31 @@
       <nav class="mainNav">
         
         <nav>
-          <span id="chev1" class="material-symbols-outlined">
+          <div class="wrapperForSearchBar-Chev">
+          <div class="wrapper1stInNav">
+          <span id="chev1" title="Previous page" class="material-symbols-outlined">
             arrow_back_ios_new
           </span>
-          <span id="chev" class="material-symbols-outlined">
+          <span id="chev" title="Next page" class="material-symbols-outlined">
             arrow_forward_ios
           </span>
-          <span id="followme">Follow Me!</span>
+        </div>
+          <div class="mainSearchBarCont">
+            <span class="fa-solid fa-magnifying-glass" id="mainSearchBtn"></span>
+            <input type="text" placeholder="What do you want to play?" id="mainSearchBar">
+            <span class="material-symbols-rounded" id="mainSearchCancelBtn">close</span>
+          </div>
+        
+      </div>
+          <div class="wrapper2ndInNav">
+          <span id="followme" style="pointer-events: all; cursor: pointer;">Follow Me!</span>
           <span id="bell-icon" class="material-symbols-outlined">
             notifications
           </span>
           <img
             src="https://lh3.googleusercontent.com/a/ACg8ocJhyjBqGFbQGs9SYJUCevspX0GwSJKbYSCdbpjUrakHr4g=s288-c-no" />
-        </nav>
+          </div>
+          </nav>
         <div class="tagcontainer2">
           <span id="crossicontag-svg" class="material-symbols-outlined">close</span>
           <span class="alltag">All</span>
@@ -394,7 +408,8 @@
           <span class="playlisttag">Playlists</span>
         </div>
       </nav>
-
+      <div class="mainwindow-cont-wrapper">
+      <div class="mainwindow-cont-wrapper-home">
       <div class="uppersection1-mainwindow">
         <div class="uppercard">
           <img src="https://misc.scdn.co/liked-songs/liked-songs-64.png" class="main-window-playlist-thumb" />Liked
@@ -441,67 +456,80 @@
         </div>
       </div>
 
-      <h3 >Weekly top charts</h3>
+      <h3 id="charts">Weekly top charts</h3>
       <div class="songcontainer1">
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271"
             class="cardImage" />
           <p class="songName">Satranga</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "ANIMAL" <br />(Arijit Singh, Shreyas..
           </p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2"
             class="cardImage" />
           <p class="songName">Chaleya</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "Jawan" <br />(Anirudh Ravichander..
           </p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02333548f23189291acdee787d"
             class="cardImage" />
           <p class="songName">4.10</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">DIVINE, Lal Chand Yamla Jatt</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b273c08202c50371e234d20caf62"
             class="cardImage" />
           <p class="songName">Kesariya</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "Bhramastra" (Pritam, Arijit Singh)
           </p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e028eeefdbfd14ad10510ba6c86"
             class="cardImage" />
           <p class="songName">Woh Raat</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            Raftaar, KR$NA <br />
-            &nbsp;
+            Raftaar, KR$NA <br />&nbsp;
           </p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02bb52f4d0546656ebcf9ed925"
             class="cardImage" />
           <p class="songName">Thoda Thoda Pyaar</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">Nilesh Ahuja, Stebin Ben</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e0299655481a2151203ed89351d"
             class="cardImage" />
           <p class="songName">Malang(Title Track)</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "Malang" <br />(Ved Sharma, Kunal V..
           </p>
+        </div>
         </div>
       </div>
       <h3>Listed from playlist</h3>
@@ -511,63 +539,69 @@
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e027b93fd8b0ade33ceb9d536de"
             class="cardImage" />
           <p class="songName">Duniyaa</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "Lukka Chuppi" (Akhil, Dhvani Bhanu..
           </p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b2734cfe2d352da6d7910961377f"
             class="cardImage" />
           <p class="songName">Labon Ko</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            Pritam, KK<br />
-            &nbsp;
-          </p>
+            Pritam, KK <br />&nbsp;</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e028a3f0a3ca7929dea23cd274c"
             class="cardImage" />
           <p class="songName">Lovely (with Khalid)</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            Billi Eilish, Khalid<br />
-            &nbsp;
-          </p>
+            Billi Eilish, Khalid<br />&nbsp;</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b27341e31d6ea1d493dd77933ee5"
             class="cardImage" />
           <p class="songName">STAY (with Justin..</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">The Kid LARAOI,Justin Bieber</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b27371da5e89467bd75d2ed9f1fa"
             class="cardImage" />
           <p class="songName">Jannatein Kahan</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            Pritam, KK<br />
-            &nbsp;
-          </p>
+            Pritam, KK<br />&nbsp; </p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e029ad4c5b52effc242984def78"
             class="cardImage" />
           <p class="songName">Sometimes</p>
-          <p class="songDescription">AUR &nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">AUR<br />&nbsp;</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02f5a66f7c0126268d45cda1b6"
             class="cardImage" />
           <p class="songName">Namastute</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            Seedhe Maut <br />
-            &nbsp;
-          </p>
+            Seedhe Maut<br />&nbsp;</p>
+        </div>
         </div>
       </div>
       <h3 >Most streamed</h3>
@@ -577,62 +611,71 @@
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b2733fb3fb3086a40c2c5062501d"
             class="cardImage" />
           <p class="songName">Tu Hai Kahan</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            AUR<br />
-            &nbsp;
-          </p>
+            AUR <br />&nbsp;</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b2735f3ede47954a93aa03efe5f9"
             class="cardImage" />
           <p class="songName">Arjan Vailly</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            From "ANIMAL" <br />(Manan Bharadwaj, B..
-          </p>
+            From "ANIMAL"(Maninder Bharadwaj,..</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e0209426d9ae9d8d981735ebc5e"
             class="cardImage" />
           <p class="songName">Ranjha</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            From "Shershaah" <br />(B Praak, Jasleen Royal)
-          </p>
+            From "Shershaah"(Jasleen Royal, B Praak</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b273a75c2f26913099a420050f01"
             class="cardImage" />
           <p class="songName">Ratan Lambiyan</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
             From "Shershaah" (Tanishq Bagchi, Jubin..
           </p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02dea88e870d30a4da51065bf5"
             class="cardImage" />
           <p class="songName">Manjha</p>
-          <p class="songDescription">Vishal Mishra</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">Vishal Mishra<br />&nbsp;</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
-            play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2"
+            play_arrow </span>
+            <img src="https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2"
             class="cardImage" />
           <p class="songName">Chaleya</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            From "Jawan" <br />(Anirudh Ravichander..
-          </p>
+            From "Jawan"(Anirudh Ravichander..</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271"
             class="cardImage" />
           <p class="songName">Satranga</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">
-            From "ANIMAL" <br />(Arijit Singh, Shreyas..
-          </p>
+            From "ANIMAL"(Arijit Singh, Shreyas..</p>
+        </div>
         </div>
       </div>
       <h3 >Picked by Raghvendra Misra</h3>
@@ -642,37 +685,45 @@
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b"
             class="cardImage" />
           <p class="songName">Phir Mohobbat</p>
-          <p class="songDescription">
-            From Murder 2 (Md.Irfan, Arijit Singh)
-          </p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">From Murder 2 (Md.Irfan, Arijit Singh)</p>
+          </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b273b5eba194cd2f743be9a0f87b"
             class="cardImage" />
           <p class="songName">Hothon Se Chu Lo Tu.</p>
-          <p class="songDescription">Jagjit Singh <br />&nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">Jagjit Singh<br />&nbsp;</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b27300221eaa504574172c617504"
             class="cardImage" />
           <p class="songName">No Mercy</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
           <p class="songDescription">Deep Kalsi, Raftaar, KR$NA, KARMA</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b273f8c35169d5bab01327f87e5a"
             class="cardImage" />
           <p class="songName">Blowing Up</p>
-          <p class="songDescription">KR$NA <br />&nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">KR$NA<br />&nbsp;</p>
+        </div>
         </div>
         <div class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img src="https://i.scdn.co/image/ab67616d0000b273843596e5677ecc71fee1c340"
             class="cardImage" />
           <p class="songName">Prarthna</p>
-          <p class="songDescription">KR$NA <br />&nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">KR$NA<br />&nbsp;</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">
           <span id="cardplayicon" class="material-symbols-outlined">
@@ -680,25 +731,48 @@
             src="https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg"
             class="cardImage" />
           <p class="songName">Athma Rama</p>
-          <p class="songDescription">Agam Aggrawal <br />&nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">Agam Aggrawal<br />&nbsp;</p>
+        </div>
         </div>
         <div id="collapsedSong" class="songCard">   
           <span id="cardplayicon" class="material-symbols-outlined">
             play_arrow </span><img
-            src="https://m.media-amazon.com/images/M/MV5BZjg2ZjViMTktNWQ1Yy00ODZiLWE1OTgtNDY3MjI0OGUyNjNhXkEyXkFqcGdeQXVyNTk4NDI4NTE@._V1_.jpg"
+            src="https://i.scdn.co/image/ab67656300005f1f4de6e598c36e4476af554a64"
             class="cardImage" />
           <p class="songName">BEN 10-Theme So..</p>
-          <p class="songDescription">Sunidhi Chauhan <br />&nbsp;</p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">Sunidhi Chauhan<br />&nbsp;</p>
+        </div>
         </div>
       </div>
     </div>
+    <div class="mainwindow-cont-wrapper-search"></div>
+      </div>
+    </div>
+  </div>
     
   </div>
 
   <audio src="" type="audio/mp3"></audio>
-  <script src="app.js"></script>
-    <script src="music.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/colorthief@2.3.2/dist/color-thief.min.js"></script>
+  <script src="scripts/utility.js"></script>
+  <script src="scripts/app.js"></script>
+    <script src="scripts/music.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    
+   
+<div class="headerForPlayer">
+  <span id="trigger" class="material-symbols-outlined">
+    expand_more
+    </span>
+  <div class="title"><p>ddddd</p></div>
+  <span id="triggerView" class="material-symbols-outlined">
+    queue_music
+    </span>
+</div>
 </body>
 
 </html>
