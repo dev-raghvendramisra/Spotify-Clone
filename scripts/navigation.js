@@ -28,14 +28,19 @@ function tabUpdateForHome() {
 
 searchTabBtn.addEventListener("click", () => {
   tabUpdateForSearch();
+  if(history.state=="home" || history.state==null){
   history.pushState({ page: "search" }, null, "/search");
   navIconUpdate();
+}
 });
 
 homeTabBtn.addEventListener("click", () => {
   tabUpdateForHome();
-  history.pushState({ page: "home" }, "", "/");
-  navIconUpdate();
+  if(history.state=="search"){
+    history.pushState({ page: "home" }, "", "/");
+    navIconUpdate();
+  }
+ 
 });
 
 document.addEventListener("DOMContentLoaded", () => {
