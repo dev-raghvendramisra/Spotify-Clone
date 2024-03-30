@@ -852,3 +852,12 @@ searchBox.addEventListener("focus", () => {
   })
 });
 
+document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
+  evt.target.style.borderColor="white";
+  document.getElementById("mainSearchBtn").style.borderColor = "white";
+  document.getElementById("mainSearchCancelBtn").style.borderColor = "white";
+  document.getElementById("mainSearchBtn").style.color = "white";
+  document.getElementById("mainSearchBtn").style.borderRightColor = "transparent";
+  document.getElementById("mainSearchCancelBtn").style.borderLeftColor = "transparent";
+});
+
