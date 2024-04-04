@@ -289,7 +289,8 @@ function updateNowPlayingWindow() {
   nowPlayingSongs[crrSong].style.opacity = "0.7";
   if (prevSong === playlist.length - 1)
     nowPlayingSongs[prevSong].style.opacity = "1";
-}
+localStorage.setItem("crrSong",crrSong);
+  }
 
 function updateMeta() {
   navigator.mediaSession.metadata = new MediaMetadata({
@@ -529,15 +530,21 @@ songsInQueueClutter();
 const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 
 document.addEventListener("DOMContentLoaded", () => {
+  localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
   audio.src = playlist[crrSong];
   audio.volume = 0.1;
   volumeValue = audio.volume * 100;
   vbar.style.width = `${volumeValue}%`;
   volumeValue = audio.volume;
+  
   vwChecker();
   clutterCards();
   crrSongDetailsUpdate();
   updateAnimation();
+  updateNowPlayingWindow();
+      cardBtnUpdate();
+      updateMeta();
+  
 });
 
 playIconFunction(playBtn);
