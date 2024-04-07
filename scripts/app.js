@@ -727,7 +727,7 @@ function sidebarOpenClose(){
     icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
     btnclicked = true;
     document.querySelector(".logo").src = "meta/logo1.png";
-    sessionStorage.setItem("isSidebarCollapsed",true);
+    localStorage.setItem("isSidebarCollapsed",true);
   } else if (btnclicked == true) {
     styling.innerHTML = "";
     icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
