@@ -531,6 +531,8 @@ const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 
 document.addEventListener("DOMContentLoaded", () => {
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
+  localStorage.getItem("crrDuration")?audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
+
   audio.src = playlist[crrSong];
   audio.volume = 0.1;
   volumeValue = audio.volume * 100;
@@ -598,6 +600,7 @@ audio.addEventListener("timeupdate", () => {
     display.innerText = `${actualCrrDurationInMin}:${actualCrrDurationInSec}`;
   });
   updatePbar();
+  localStorage.setItem("crrDuration",audio.currentTime);
 });
 
 pbarFunctionality(pbarTargetArea);
