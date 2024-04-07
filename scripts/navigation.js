@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   navIconUpdate();
 
-  if(sessionStorage.getItem("isSidebarCollapsed")!==null){
-    let stateOfSidebar=sessionStorage.getItem("isSidebarCollapsed");
+  if(localStorage.getItem("isSidebarCollapsed")!==null){
+    let stateOfSidebar=localStorage.getItem("isSidebarCollapsed");
     if(stateOfSidebar=="true"){
       btnclicked=false;
       sidebarOpenClose();
