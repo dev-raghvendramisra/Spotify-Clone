@@ -733,7 +733,7 @@ function sidebarOpenClose(){
     icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
     btnclicked = false;
     document.querySelector(".logo").src = "meta/logo.png";
-    sessionStorage.setItem("isSidebarCollapsed",false);
+    localStorage.setItem("isSidebarCollapsed",false);
   }
 }}
 
