@@ -28,16 +28,18 @@ function tabUpdateForHome() {
 
 searchTabBtn.addEventListener("click", () => {
   tabUpdateForSearch();
-  if(history.state=="home" || history.state==null){
+  if( history.state==null || history.state.page=="home" ){
   history.pushState({ page: "search" }, null, "/search");
   navIconUpdate();
 }
 });
 
 homeTabBtn.addEventListener("click", () => {
+  
   tabUpdateForHome();
-  if(history.state=="search"){
-    history.pushState({ page: "home" }, "", "/");
+  if(history.state.page=="search"){
+    console.log(history.state)
+    history.pushState({ page: "home" }, null, "/");
     navIconUpdate();
   }
  
@@ -45,12 +47,11 @@ homeTabBtn.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   if (history.state && history.state.page === "search") {
-    if (!openedInMobile) tabUpdateForSearch();
-  } else if(location.pathname=="/search") {
+     tabUpdateForSearch();
+  } 
+  else if(location.pathname=="/search") {
     tabUpdateForSearch();
     history.pushState({ page: "search" }, null, "/search");
-
-
   }
    else {
     tabUpdateForHome();
