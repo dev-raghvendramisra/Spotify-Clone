@@ -1660,6 +1660,9 @@ font-size:1.4vw;
   color:white;
   
 }
+.mainwindow-search-default{
+  padding-bottom:7vw;
+}
 .defaultCardRows {
   display: flex;
   justify-content: flex-start;
