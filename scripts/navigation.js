@@ -15,6 +15,7 @@ function tabUpdateForSearch() {
   if (openedInMobile) {
     document.querySelector(".sidebar").style.transform = "translate(-100%,0)";
   }
+  createDefaultCards();
 }
 function tabUpdateForHome() {
   stylingForTabs.innerText = "";

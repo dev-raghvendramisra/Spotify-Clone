@@ -1660,6 +1660,48 @@ font-size:1.4vw;
   color:white;
   
 }
+.defaultCardRows {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  overflow: auto;
+  position:relative;
+  margin-top:2vw;
+}
+
+
+.defaultCardRows::-webkit-scrollbar{
+display:none;
+}
+
+.defaultCard{
+  background-color:#DC148C;
+  height:12vw;
+  width:12vw;
+  border-radius:1vw;
+  flex-shrink:0;
+  position: relative;
+  overflow: hidden;
+}
+.defaultCard-img
+{
+  position: absolute;
+  height:6vw;
+  width:6vw;
+  right:-10%;
+  top:50%;
+  background-size: cover;
+  transform: rotateZ(25deg);
+}
+.defaultCard-label{
+  font-size:1.5vw;
+  color:white;
+  font-weight:700;
+  margin:1vw;
+}
 
 
 

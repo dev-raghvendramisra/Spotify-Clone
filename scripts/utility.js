@@ -177,3 +177,40 @@ function startTouching() {
     });
   });
 }
+
+function createDefaultCards() {
+  if(!document.querySelector(".defaultCardRows")){
+
+  defaultCardsData.forEach((card, idx) => {
+    if (idx % 9 === 0) {
+      let cardRow = document.createElement("div");
+      cardRow.setAttribute("class", "defaultCardRows");
+      document.querySelector(".mainwindow-search-default").append(cardRow);
+    }
+
+    let defaultCard = cardCreation(card);
+    defaultCard.setAttribute("draggable", "true");
+    let rowIdx = Math.floor(idx / 9); // Determine which row to append the card to
+
+    let cardRows = document.querySelectorAll(".defaultCardRows");
+    cardRows[rowIdx].append(defaultCard);
+  });
+}
+}
+function cardCreation(card) {
+  let defaultCard = document.createElement("div");
+  defaultCard.setAttribute("class", "defaultCard");
+  
+  let label = document.createElement("p");
+  label.setAttribute("class", "defaultCard-label");
+  label.innerText = card.title;
+  
+  let img = document.createElement("img");
+  img.setAttribute("class", "defaultCard-img");
+  img.src = card.src;
+  
+  defaultCard.append(label, img);
+  defaultCard.style.backgroundColor = card.color;
+  
+  return defaultCard;
+}

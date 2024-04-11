@@ -548,15 +548,18 @@ function navBgSet() {
     if (mainWindowBgColor == "none") {
       mainWindowBgColor = "rgb(32, 32, 32)";
     }
+    if(location.pathname=="/search"){
+      mainWindowBgColor = "rgb(32, 32, 32)";
+    }
     document.querySelector(".mainNav").style.backgroundColor =
       mainWindowBgColor;
     document.querySelector(".mainNav").style.boxShadow =
       "0px 40px 80px -8px rgba(0, 0, 0, 0.452)";
+    
   } else if (minScrollVal > mainWindow.scrollTop) {
     document.querySelector(".mainNav").style.backgroundColor = "transparent";
     document.querySelector(".mainNav").style.boxShadow = "none";
-  }
-}
+  }}
 
 function displayLoadedContent() {
   updateMusicBarBg();
