@@ -1705,9 +1705,52 @@ display:none;
   font-weight:700;
   margin:1vw;
 }
-
-
-
+.search-songCard{
+  display: flex;
+  align-items:center;
+  width:93%;
+  height:10%;
+  background-color: #15ff5b01;
+  margin:0 auto;
+  padding:0.5vw;
+  border-radius :0.5vw;
+}
+#search-songCardImg{
+  height:100%; 
+}
+.searchSongImgCont{
+  height:3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:3vw;
+  margin: auto 0;
+  border-radius :0.5vw;
+  background-image:url("https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg");
+  background-size: cover;
+  
+}
+.searchSongImgCont #nowPlayingPlayIcon{
+      opacity:0;
+}
+.search-songCardText{
+  margin-left:1vw;
+}
+.result-songName
+,.result-songArtists{
+  color:white;
+  font-weight:500;
+  font-size:1.1vw;
+}
+.result-songArtists{
+  font-size:calc(1.6vw/1.689);
+  color:rgba(255, 255, 255, 0.656);
+}
+.search-songCardAlbum{
+  margin-left:70%;
+  font-size:calc(1.6vw/1.689);
+  color:rgba(255, 255, 255, 0.656);
+}
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {

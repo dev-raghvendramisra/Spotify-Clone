@@ -8,17 +8,17 @@ function playIconFunction(playBtn) {
       isPlaying = !isPlaying;
       if (!openedInMobile) {
         if (isPlaying) {
-          audio.play();
+          Audio.play();
           btn.innerText = "pause_circle";
         } else if (!isPlaying) {
-          audio.pause();
+          Audio.pause();
           
           btn.innerText = "play_circle";
         }
       }
       if (openedInMobile) {
         if (isPlaying) {
-          audio.play();
+          Audio.play();
           if (isMusicBarOpened) {
             btn.innerText = "pause_circle";
             btn.setAttribute("class", "material-symbols-outlined");
@@ -27,7 +27,7 @@ function playIconFunction(playBtn) {
             btn.setAttribute("class", "material-symbols-rounded");
           }
         } else if (!isPlaying) {
-          audio.pause();
+          Audio.pause();
           if (isMusicBarOpened) {
             btn.innerText = "play_circle";
             btn.setAttribute("class", "material-symbols-outlined");
@@ -57,8 +57,8 @@ function nextIconFunction(nextBtn) {
       if (crrSong === playlist.length) {
         crrSong = 0;
       }
-      audio.src = playlist[crrSong];
-      audio.play();
+      Audio.src = playlist[crrSong];
+      Audio.play();
       isLooping = false;
       isPlaying = true;
       mainPlayIconUpdate(playBtn);
@@ -98,8 +98,8 @@ function prevIconFunction(prevBtn) {
       if (crrSong < 0) {
         crrSong = 0;
       }
-      audio.src = playlist[crrSong];
-      audio.play();
+      Audio.src = playlist[crrSong];
+      Audio.play();
       isLooping = false;
       isPlaying = true;
       mainPlayIconUpdate(playBtn);
@@ -172,8 +172,8 @@ function startTouching() {
       let totalWidth = bar.clientWidth;
       let draggedposition = Math.floor(evt.touches[0].clientX);
       let percentage = (draggedposition / totalWidth) * 100;
-      let totalTimeforHere = audio.duration;
-      audio.currentTime = (totalTimeforHere * percentage) / 100;
+      let totalTimeforHere = Audio.duration;
+      Audio.currentTime = (totalTimeforHere * percentage) / 100;
     });
   });
 }
@@ -214,3 +214,35 @@ function cardCreation(card) {
   
   return defaultCard;
 }
+
+ async function getDuration(){
+ for(song of playlist){
+  tempAudio.src=song;
+  await new Promise((resolve,reject)=>{
+    tempAudio.addEventListener("loadedmetadata",()=>{
+
+    });
+    resolve();
+ })}}
+
+ function displayDuration(Audio,forData){
+  let actualSongDuration = Math.floor(Audio.duration);
+  songDuration = actualSongDuration;
+  let songDurationInMin = Math.floor(actualSongDuration / 60);
+  let songDurationInSec = actualSongDuration % 60;
+
+  if (songDurationInMin < 10) {
+    songDurationInMin = `0${songDurationInMin}`;
+  }
+  if (songDurationInSec < 10) {
+    songDurationInSec = `0${songDurationInSec}`;
+  }
+  if(!forData){
+  durationDisplay.forEach((display) => {
+    display.innerText = `${songDurationInMin}:${songDurationInSec}`;
+  });
+}
+else if(forData){
+
+}
+ }

@@ -748,6 +748,28 @@
       </div>
     </div>
     <div class="mainwindow-cont-wrapper-search">
+      <div class="mainwindow-search-results">
+            <div class="search-songCard">
+              <div class="searchSongImgCont">
+                <span id="nowPlayingPlayIcon"class="material-symbols-outlined">
+                  play_arrow
+                  </span>
+                  <div class="bars">
+                    <div class="bars__item"></div>
+                    <div class="bars__item"></div>
+                    <div class="bars__item"></div>
+                    <div class="bars__item"></div>
+                </div>
+              </div>
+             
+              <!-- <img id="search-songCardImg" src="https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg" alt=""> -->
+              <div class="search-songCardText">
+              <p class="result-songName">Athma Rama</p>
+              <p class="result-songArtists">Anand agrawal</p>
+            </div>
+            <p class="search-songCardAlbum">Athma Rama</p>
+            </div>
+        </div>
       <div class="mainwindow-search-default">
         
         </div>
@@ -759,12 +781,13 @@
     
   </div>
 
-  <audio src="" type="audio/mp3"></audio>
+  <audio id="mainAudioEl" src="" type="audio/mp3"></audio>
+  <audio id="tempAudioEl" src="" type="audio/mp3"></audio>
+  <script src="scripts/data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/colorthief@2.3.2/dist/color-thief.min.js"></script>
   <script src="scripts/utility.js"></script>
   <script src="scripts/app.js"></script>
     <script src="scripts/music.js"></script>
-    <script src="scripts/data.js"></script>
     <script src="scripts/navigation.js"></script>
     
     
