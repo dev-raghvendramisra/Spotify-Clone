@@ -215,19 +215,29 @@ function cardCreation(card) {
   return defaultCard;
 }
 
- async function getDuration(){
- for(song of playlist){
-  tempAudio.src=song;
-  await new Promise((resolve,reject)=>{
-    tempAudio.addEventListener("loadedmetadata",()=>{
-
+async function getDuration(){
+  for (let song of playlist) {
+    tempAudio.src = song;
+    await new Promise((resolve, reject) => {
+      tempAudio.addEventListener("loadedmetadata", () => {
+        resolve();
+      });
     });
-    resolve();
- })}}
+    songDetails[playlist.indexOf(song)].duration=displayDuration(tempAudio, true);
+    if(songDetails[playlist.indexOf(song)].name==="Satranga" || songDetails[playlist.indexOf(song)].name==="Chaleya"){
+      console.log(songDetails[playlist.indexOf(song)].duration)
+    };
+  }
+  
+    songDetails.forEach((songData)=>{
+    searchSongCardCreation(songData);
+    });
+  
+}
 
- function displayDuration(Audio,forData){
-  let actualSongDuration = Math.floor(Audio.duration);
-  songDuration = actualSongDuration;
+function displayDuration(audio, forData){
+  let actualSongDuration = Math.floor(audio.duration);
+  let songDuration = actualSongDuration;
   let songDurationInMin = Math.floor(actualSongDuration / 60);
   let songDurationInSec = actualSongDuration % 60;
 
@@ -237,12 +247,77 @@ function cardCreation(card) {
   if (songDurationInSec < 10) {
     songDurationInSec = `0${songDurationInSec}`;
   }
-  if(!forData){
-  durationDisplay.forEach((display) => {
-    display.innerText = `${songDurationInMin}:${songDurationInSec}`;
-  });
+
+  if (!forData) {
+    durationDisplay.forEach((display) => {
+      display.innerText = `${songDurationInMin}:${songDurationInSec}`;
+    });
+  } else {
+    return `${songDurationInMin}:${songDurationInSec}`;
+  }
 }
-else if(forData){
+
+function searchSongCardCreation(songData){
+
+  //Creating Markup for Search Song Card
+
+ let searchCard=document.createElement("div");
+ searchCard.setAttribute("class","search-songCard");
+
+ let wrapperForSongDetails=document.createElement("div");
+ wrapperForSongDetails.setAttribute("class","contForSongDetails");
+ 
+ let searchSongImgCont=document.createElement("div");
+ searchSongImgCont.setAttribute("class","searchSongImgCont");
+ searchSongImgCont.innerHTML=playIcon_BarsHtml;
+ 
+ let searchSongCardText=document.createElement("div");
+ searchSongCardText.setAttribute("class","search-songCardText");
+
+ let resultsSongName=document.createElement("p");
+ resultsSongName.setAttribute("class","result-songName");
+ 
+ let resultsSongArtists=document.createElement("p");
+ resultsSongArtists.setAttribute("class","result-songArtists");
+ 
+ let resultsSongDuration=document.createElement("p");
+ resultsSongDuration.setAttribute("class","result-songDur");
+ 
+ let resultsSongAlbum=document.createElement("p");
+ resultsSongAlbum.setAttribute("class","search-songCardAlbum");
+
+ //Appending the created elements to the main search card
+
+ searchSongCardText.append(resultsSongName,resultsSongArtists);
+ wrapperForSongDetails.append(searchSongImgCont,searchSongCardText);
+ searchCard.append(wrapperForSongDetails,resultsSongDuration,resultsSongAlbum);
+
+ //filling the search card with data
+
+ searchSongImgCont.style.backgroundImage=`url(${songData.src})`
+resultsSongName.innerText=songData.name;
+resultsSongArtists.innerText=songData.description;
+resultsSongDuration.innerText=songData.duration;
+resultsSongAlbum.innerText=songData.album;
+let id="";
+for(let property in songData){
+  if(property==="src" || property==="fullname"){
+    continue;
+  }
+  else{
+     id+= cardIdCreation(songData[property]);
+      
+  }
+}
+searchCard.setAttribute("id",id);
+document.querySelector(".mainwindow-search-results").append(searchCard);
+return searchCard;
 
 }
- }
+
+
+
+function cardIdCreation(songProperties){
+return songProperties.split(" ").join("").toLowerCase();
+}
+

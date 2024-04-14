@@ -1707,11 +1707,12 @@ display:none;
 }
 .search-songCard{
   display: flex;
+  justify-content: space-between;
   align-items:center;
   width:93%;
   height:10%;
   background-color: #15ff5b01;
-  margin:0 auto;
+  margin:0.5vw auto;
   padding:0.5vw;
   border-radius :0.5vw;
 }
@@ -1726,8 +1727,8 @@ display:none;
   width:3vw;
   margin: auto 0;
   border-radius :0.5vw;
-  background-image:url("https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg");
   background-size: cover;
+  position: relative;
   
 }
 .searchSongImgCont #nowPlayingPlayIcon{
@@ -1740,17 +1741,55 @@ display:none;
 ,.result-songArtists{
   color:white;
   font-weight:500;
-  font-size:1.1vw;
+  font-size:1vw;
 }
 .result-songArtists{
-  font-size:calc(1.6vw/1.689);
+  font-size:calc(1.4vw/1.689);
   color:rgba(255, 255, 255, 0.656);
 }
 .search-songCardAlbum{
-  margin-left:70%;
-  font-size:calc(1.6vw/1.689);
+  font-size:calc(1.4vw/1.689);
   color:rgba(255, 255, 255, 0.656);
+  width:20%;
+  text-align: right;
 }
+.labelsForResultsCont{
+display: flex;
+width:93%;
+justify-content: space-between;
+padding:0.5vw;
+margin:1vw auto;
+font-size: calc(1.6vw / 1.689);
+color: rgba(255, 255, 255, 0.656);
+background-color: #2A2A2A;
+border-bottom:solid rgba(255, 255, 255, 0.152) 1px;
+border-radius:clamp(5px,1vw,20px)
+}
+.result-songDur{
+  margin-right:15%;
+  color: rgba(255, 255, 255, 0.656);
+  font-size: calc(1.4vw / 1.689);
+}
+.search-songCard:hover{
+  background-color: #4e4c4c77;
+}
+.search-songCard:hover .searchSongImgCont::before{
+  content:'';
+  position:absolute ;
+  height:100%;
+  width:100%;
+  background-color:rgba(0,0,0,0.5);
+  z-index:1;
+  border-radius:0.5vw;
+  top:0;
+  left:0;
+}
+.search-songCard:hover #nowPlayingPlayIcon{
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+.contForSongDetails{display: flex;width:33%;} 
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {

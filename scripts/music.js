@@ -545,6 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNowPlayingWindow();
       cardBtnUpdate();
       updateMeta();
+      getDuration();
   
 });
 

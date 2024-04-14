@@ -237,6 +237,16 @@ const defaultCardsData=[
 }
 ];
 
+const playIcon_BarsHtml=`<span id="nowPlayingPlayIcon"class="material-symbols-outlined">
+play_arrow
+</span>
+<div class="bars">
+  <div class="bars__item"></div>
+  <div class="bars__item"></div>
+  <div class="bars__item"></div>
+  <div class="bars__item"></div>
+</div>`;
+
 
 const sideBarCollapsedStyling = `
 .playlist-thumb{
@@ -536,8 +546,8 @@ const playlist = [
   "tracks/ranjha.mp3",
   "tracks/ratanLambiyan.mp3",
   "tracks/manjha.mp3",
-  "tracks/chaleya.mp3",
   "tracks/satranga.mp3",
+  "tracks/chaleya.mp3",
   "tracks/phirMohobbat.mp3",
   "tracks/hothonSeChulo.mp3",
   "tracks/noMercy.mp3",
