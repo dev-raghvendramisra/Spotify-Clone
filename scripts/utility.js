@@ -321,3 +321,24 @@ function cardIdCreation(songProperties){
 return songProperties.split(" ").join("").toLowerCase();
 }
 
+getDuration();
+
+window.addEventListener("keydown",(evt)=>{
+  if(evt.key=" "){
+    evt.preventDefault();
+    if(isPlaying){
+      Audio.pause();
+      isPlaying=!isPlaying;
+    }
+    else if(!isPlaying){
+      Audio.play();
+      isPlaying=!isPlaying;
+    }
+    mainPlayIconUpdate(playBtn);
+    crrSongDetailsUpdate();
+    cardBtnUpdate();
+    updateNowPlayingWindow();
+    updateMeta();
+
+  }
+})

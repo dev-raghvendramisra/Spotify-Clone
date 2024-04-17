@@ -532,6 +532,7 @@ const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 document.addEventListener("DOMContentLoaded", () => {
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
   localStorage.getItem("crrDuration")?Audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
+ 
   Audio.src = playlist[crrSong];
   Audio.volume = 0.1;
   volumeValue = Audio.volume * 100;
@@ -545,7 +546,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNowPlayingWindow();
       cardBtnUpdate();
       updateMeta();
-      getDuration();
   
 });
 
@@ -569,8 +569,20 @@ Audio.addEventListener("ended", () => {
 });
 
 Audio.addEventListener("loadedmetadata", () => {
-  displayDuration(Audio,forData=false);
- 
+  let actualSongDuration = Math.floor(Audio.duration);
+  songDuration = actualSongDuration;
+  let songDurationInMin = Math.floor(actualSongDuration / 60);
+  let songDurationInSec = actualSongDuration % 60;
+
+  if (songDurationInMin < 10) {
+    songDurationInMin = `0${songDurationInMin}`;
+  }
+  if (songDurationInSec < 10) {
+    songDurationInSec = `0${songDurationInSec}`;
+  }
+  durationDisplay.forEach((display) => {
+    display.innerText = `${songDurationInMin}:${songDurationInSec}`;
+  });
 });
 
 Audio.addEventListener("timeupdate", () => {
@@ -786,5 +798,4 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
 })
 
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
-
 
