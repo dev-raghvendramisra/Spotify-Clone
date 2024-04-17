@@ -1,5 +1,8 @@
 const Audio=document.querySelector("#mainAudioEl");
 let tempAudio=document.querySelector("#tempAudioEl");
+const mainWindowSearchBar = document.getElementById("mainSearchBar");
+const mainWindowSearchDefault = document.querySelector(".mainwindow-search-default");
+const mainWindowSearchResult = document.querySelector(".mainwindow-search-results");
 
 
 const homeTabContainer=document.querySelector(".mainwindow-cont-wrapper-home");
@@ -696,14 +699,16 @@ let songDetails =[
     name: "Chaleya",
     description: "Arijit Singh, Anirudh Ravichander",
     fullName: 'Chaleya (From "Jawan")',
-    album: "Jawan"
+    album: "Jawan",
+    property:"tempPrp"
   },
   {
     src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271",
     name: "Satranga",
     description: "Arijit Singh, Shreyas Puranik",
     fullName: 'Satranga ("From Animal")',
-    album: "Animal"
+    album: "Animal",
+    property:"tempPrp"
   },
   {
     src: "https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b",

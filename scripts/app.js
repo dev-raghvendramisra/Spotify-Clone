@@ -386,3 +386,18 @@ document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
   document.getElementById("mainSearchCancelBtn").style.borderLeftColor = "transparent";
 });
 
+mainWindowSearchBar.addEventListener("input",(evt)=>{
+  mainWindowSearchResult.style.display="initial";
+  mainWindowSearchDefault.style.display="none";
+  let allCards=document.querySelectorAll(".search-songCard");
+   allCards.forEach((card)=>{
+    if(evt.target.value!==""){
+    if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
+      card.style.display="flex";
+    }
+    else{
+      card.style.display="none";
+     }
+    } })
+   
+});

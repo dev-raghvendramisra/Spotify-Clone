@@ -216,26 +216,24 @@ function cardCreation(card) {
 }
 
 async function getDuration(){
-  for (let song of playlist) {
-    tempAudio.src = song;
+ 
+   for(let i=0;i<playlist.length;i++){ 
+    tempAudio.src = playlist[i];
     await new Promise((resolve, reject) => {
       tempAudio.addEventListener("loadedmetadata", () => {
         resolve();
       });
     });
-    songDetails[playlist.indexOf(song)].duration=displayDuration(tempAudio, true);
-    if(songDetails[playlist.indexOf(song)].name==="Satranga" || songDetails[playlist.indexOf(song)].name==="Chaleya"){
-      console.log(songDetails[playlist.indexOf(song)].duration)
-    };
-  }
-  
+    songDetails[i].duration=displayDuration(tempAudio);
+  };
     songDetails.forEach((songData)=>{
-    searchSongCardCreation(songData);
+    searchSongCardCreation(songData).style.display="none";
     });
+    mainWindowSearchResult.style.display="none";
   
 }
 
-function displayDuration(audio, forData){
+function displayDuration(audio, forData=true){
   let actualSongDuration = Math.floor(audio.duration);
   let songDuration = actualSongDuration;
   let songDurationInMin = Math.floor(actualSongDuration / 60);
@@ -301,7 +299,7 @@ resultsSongDuration.innerText=songData.duration;
 resultsSongAlbum.innerText=songData.album;
 let id="";
 for(let property in songData){
-  if(property==="src" || property==="fullname"){
+  if(property==="src" || property==="fullname" || property==="tempPrp"){
     continue;
   }
   else{
@@ -318,13 +316,14 @@ return searchCard;
 
 
 function cardIdCreation(songProperties){
-return songProperties.split(" ").join("").toLowerCase();
+return songProperties.split(" ").join("").toLowerCase().split(",").join("").split('"').join("").split("(").join("").split(")").join("");
 }
 
 getDuration();
 
 window.addEventListener("keydown",(evt)=>{
-  if(evt.key=" "){
+  if(evt.key==" "){
+    if(document.activeElement!==mainWindowSearchBar && document.activeElement!==searchBox){
     evt.preventDefault();
     if(isPlaying){
       Audio.pause();
@@ -339,6 +338,6 @@ window.addEventListener("keydown",(evt)=>{
     cardBtnUpdate();
     updateNowPlayingWindow();
     updateMeta();
-
+  }
   }
 })
