@@ -299,7 +299,7 @@ resultsSongDuration.innerText=songData.duration;
 resultsSongAlbum.innerText=songData.album;
 let id="";
 for(let property in songData){
-  if(property==="src" || property==="fullname" || property==="tempPrp"){
+  if(property==="src" || property==="fullname" ){
     continue;
   }
   else{

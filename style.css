@@ -1710,7 +1710,7 @@ display:none;
   justify-content: space-between;
   align-items:center;
   width:93%;
-  height:10%;
+  height:7%;
   background-color: #15ff5b01;
   margin:0.5vw auto;
   padding:0.5vw;
@@ -1763,7 +1763,15 @@ font-size: calc(1.6vw / 1.689);
 color: rgba(255, 255, 255, 0.656);
 background-color: #2A2A2A;
 border-bottom:solid rgba(255, 255, 255, 0.152) 1px;
-border-radius:clamp(5px,1vw,20px)
+border-radius:clamp(5px,1vw,20px);
+position:sticky;
+top:0;
+z-index:2
+}
+.mainwindow-search-results{
+  position:relative;
+  height:70vh;
+  overflow:scroll;
 }
 .result-songDur{
   margin-right:15%;

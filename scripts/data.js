@@ -549,8 +549,8 @@ const playlist = [
   "tracks/ranjha.mp3",
   "tracks/ratanLambiyan.mp3",
   "tracks/manjha.mp3",
-  "tracks/satranga.mp3",
-  "tracks/chaleya.mp3",
+  "tracks/vigdiyanHeraan.mp3",
+  "tracks/yeTuneKyaKiya.mp3",
   "tracks/phirMohobbat.mp3",
   "tracks/hothonSeChulo.mp3",
   "tracks/noMercy.mp3",
@@ -695,20 +695,18 @@ let songDetails =[
     album: "Manjha"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2",
-    name: "Chaleya",
-    description: "Arijit Singh, Anirudh Ravichander",
-    fullName: 'Chaleya (From "Jawan")',
-    album: "Jawan",
-    property:"tempPrp"
+    src: "https://i.scdn.co/image/ab67616d00001e0253838c41f300a38bef3b05e9",
+    name: "Vigdiyan Heraan",
+    description: "Yo Yo Honey Singh",
+    fullName: 'Vigdiyan Heraan ("From Honey 3.0")',
+    album: "Honey 3.0",
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271",
-    name: "Satranga",
-    description: "Arijit Singh, Shreyas Puranik",
-    fullName: 'Satranga ("From Animal")',
-    album: "Animal",
-    property:"tempPrp"
+    src: "https://i.scdn.co/image/ab67616d00001e02fe77bd21eb38ff74b5f21524",
+    name: "Ye Tune Kya Kiya",
+    description: "Pritam, Javed Bashir",
+    fullName: 'Ye Tune Kya Kiya',
+    album: "Once Upon A Time In Mumbaai Dobara",
   },
   {
     src: "https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b",

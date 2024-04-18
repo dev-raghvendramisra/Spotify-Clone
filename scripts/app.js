@@ -387,7 +387,7 @@ document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
 });
 
 mainWindowSearchBar.addEventListener("input",(evt)=>{
-  mainWindowSearchResult.style.display="initial";
+  mainWindowSearchResult.style.display="block";
   mainWindowSearchDefault.style.display="none";
   let allCards=document.querySelectorAll(".search-songCard");
    allCards.forEach((card)=>{
