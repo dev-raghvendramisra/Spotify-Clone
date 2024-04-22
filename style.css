@@ -1753,20 +1753,19 @@ display:none;
   width:20%;
   text-align: right;
 }
-.labelsForResultsCont{
-display: flex;
-width:93%;
-justify-content: space-between;
-padding:0.5vw;
-margin:1vw auto;
-font-size: calc(1.6vw / 1.689);
-color: rgba(255, 255, 255, 0.656);
-background-color: #2A2A2A;
-border-bottom:solid rgba(255, 255, 255, 0.152) 1px;
-border-radius:clamp(5px,1vw,20px);
-position:sticky;
-top:0;
-z-index:2
+.labelsForResultsCont {
+  display: flex;
+  width: 93%;
+  justify-content: space-between;
+  padding: 0.5vw;
+  margin: 1vw auto;
+  font-size: calc(1.6vw / 1.689);
+  color: rgba(255, 255, 255, 0.747);
+  background-color: #1D1D1D;
+  border-bottom: solid rgba(255, 255, 255, 0.24) 1px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 .mainwindow-search-results{
   position:relative;
