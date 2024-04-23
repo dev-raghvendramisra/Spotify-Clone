@@ -1760,7 +1760,7 @@ display:none;
   padding: 0.5vw;
   margin: 1vw auto;
   font-size: calc(1.6vw / 1.689);
-  color: rgba(255, 255, 255, 0.747);
+  color: rgba(255, 255, 255, 1);
   background-color: #1D1D1D;
   border-bottom: solid rgba(255, 255, 255, 0.24) 1px;
   position: sticky;
