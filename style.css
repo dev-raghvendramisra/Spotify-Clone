@@ -731,6 +731,9 @@ nav img {
 .songName {
   font-weight: 700;
   margin-top: 1vh;
+  width: 10vw;
+  white-space: nowrap;
+  overflow:hidden;
 }
 
 .mainNav {
