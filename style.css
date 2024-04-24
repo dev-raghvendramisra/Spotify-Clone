@@ -3,7 +3,7 @@
 :root {
   --opacity: 1;
   --loaderBgColor: #2c2c2c;
-  --loaderAnimBg: rgba(128, 128, 128, 0.295);
+  --loaderAnimBg: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(208,208,208,0.3) 50%, rgba(255,255,255,0) 100%);
   --colorForBefore: rgb(0, 0, 0);
   --colorForBeforePLayer: rgb(0, 0, 0);
 }
@@ -691,6 +691,7 @@ nav img {
   display: flex;
   gap: 2vw;
   /* flex-wrap:wrap; */
+  overflow-x:scroll;
   padding: 3vh 1.5vw;
   justify-content: flex-start;
 }
@@ -720,9 +721,11 @@ nav img {
   margin-top: 0.8vh;
   font-size: 0.9vw;
   width: 10vw;
+  height:2.8vw;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.582);
   transition: all 0.54s ease;
+  overflow:hidden;
 }
 
 .songName {
@@ -775,7 +778,7 @@ nav img {
 }
 
 #collapsedSong {
-  display: none;
+  display: initial;
 }
 
 #cardplayicon {
@@ -1233,7 +1236,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1257,7 +1260,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1271,7 +1274,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1290,7 +1293,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1308,7 +1311,7 @@ body {
   height: 400%;
   width: 44%;
   transform: rotateZ(30deg);
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
   animation: 0.8s ease 0s infinite normal forwards running anim;
 }
 
@@ -1326,7 +1329,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite backwards 0.5s;
 }
@@ -1797,6 +1800,9 @@ display:none;
   z-index: 2;
 }
 .contForSongDetails{display: flex;width:33%;} 
+.songcontainer1::-webkit-scrollbar {
+  display: none;
+}
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {
