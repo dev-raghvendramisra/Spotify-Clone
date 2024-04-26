@@ -15,7 +15,7 @@ let crrSongThumb = document
   .querySelector(".musicBar")
   .querySelector(".main-window-playlist-thumb");
 const crrSongName = document.querySelector(".currentMusic-Player");
-const songCards = document.querySelectorAll(".songCard");
+let songCards;
 const nowPlayingWindow = document.querySelector(".nowPlayingVeiw");
 const nowPlayingImage = document.querySelector(".nowPlayingMainImg");
 const nowPlayingSongName = document.querySelector(".nowPlayingSongName");
@@ -315,7 +315,7 @@ function updateAnimation() {
     }
   });
 }
-
+10
 function clutterCards() {
   let currentWidth = window.innerWidth;
 
@@ -324,6 +324,7 @@ function clutterCards() {
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
+      description.parentElement.parentElement.querySelector(".songName").innerText=songDetails[idx].name;
       description.parentElement.classList.add("songDescriptionCont");
     });
     let playApeended = document.querySelector("#controlicon-play");
@@ -347,7 +348,9 @@ function clutterCards() {
     }
 
     updateAnimation();
-  } else if (currentWidth > widthForMobileCardsCluttering) {
+  }
+  
+  else if (currentWidth > widthForMobileCardsCluttering) {
     if(initialClutter){
       return;
     }
@@ -359,8 +362,30 @@ function clutterCards() {
       openedInMobile = false;
       let wrapper = document.createElement("div");
       wrapper.appendChild(description);
+      wrapper.setAttribute("class", "songDescriptionCont");
       newParent.append(wrapper);
       oldParent.style.display = "none";
+        description.innerText = `"${songDetails[idx].album}"\n${songDetails[idx].description}`;
+        let songName=description.parentElement.parentElement.querySelector(".songName");
+        let wrapperForName = document.createElement("div");
+        wrapperForName.append(songName);
+        songName.innerText = songDetails[idx].name;
+        description.parentElement.parentElement.append(wrapperForName,wrapper);
+        wrapperForName.style.overflow="hidden";
+        wrapperForName.style.position="relative";
+        wrapperForName.style.height="2.8vw";
+        wrapperForName.style.width="9vw";
+        wrapper.append(description);
+           if(songName.scrollWidth>songName.clientWidth){
+             songName.style.animation="scroll linear 8s infinite forwards";
+             wrapperForName.setAttribute("class","coverafter");
+             
+           }
+           if(wrapper.scrollHeight>wrapper.clientHeight){
+             description.style.animation="scrollInv linear 8s infinite forwards";
+             console.log("scrolling");
+           }
+     
     });
    initialClutter=true;
   }
@@ -529,7 +554,11 @@ songsInQueueClutter();
 
 const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 
+let cardRow;
+mainCardgenerate(cardRow);
+
 document.addEventListener("DOMContentLoaded", () => {
+
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
   localStorage.getItem("crrDuration")?Audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
  
@@ -538,7 +567,6 @@ document.addEventListener("DOMContentLoaded", () => {
   volumeValue = Audio.volume * 100;
   vbar.style.width = `${volumeValue}%`;
   volumeValue = Audio.volume;
-  
   vwChecker();
   clutterCards();
   crrSongDetailsUpdate();

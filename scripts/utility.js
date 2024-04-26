@@ -341,3 +341,25 @@ window.addEventListener("keydown",(evt)=>{
   }
   }
 })
+
+
+
+function mainCardgenerate(cardRow){
+  songDetails.forEach((songData,idx)=>{
+    
+        if(idx%7===0){
+           cardRow = document.createElement("div");
+           cardRow.setAttribute("class","songcontainer1");
+           document.querySelector(".mainwindow-cont-wrapper-home").append(cardRow);
+        }
+        
+     
+          cardRow.innerHTML=cardRow.innerHTML?`${cardRow.innerHTML}\n${songCardInnerHtml}`:songCardInnerHtml;
+          let songNodeList=document.querySelectorAll(".songCard");
+          songNodeList[idx].querySelector("img").src=songData.src;
+          songCards=document.querySelectorAll(".songCard");
+      
+        
+        
+  });
+}

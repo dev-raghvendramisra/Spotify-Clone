@@ -758,3 +758,19 @@ let songDetails =[
     album: "BEN 10-Theme Song"
   }
 ];
+
+
+const songCardInnerHtml=`
+<div class="songCard">
+          <span id="cardplayicon" class="material-symbols-outlined">
+            play_arrow </span>
+            <img src=""
+            class="cardImage" />
+          <p class="songName"></p>
+          <div style="margin: 0;overflow: hidden;width:40vw;height:6vw;background-color:transparent;">
+          <p class="songDescription">
+           
+          </p>
+        </div>
+        </div>`;
+
