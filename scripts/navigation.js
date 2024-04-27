@@ -39,7 +39,6 @@ homeTabBtn.addEventListener("click", () => {
   
   tabUpdateForHome();
   if(history.state.page=="search"){
-    console.log(history.state)
     history.pushState({ page: "home" }, null, "/");
     navIconUpdate();
   }

@@ -1,4 +1,4 @@
-const audio = document.querySelector("audio");
+
 let pbar = document.querySelectorAll(".progressBarFill");
 let playBtn = document.querySelectorAll("#controlicon-play");
 let prevBtn = document.querySelectorAll("#controlicon-prev");
@@ -15,7 +15,7 @@ let crrSongThumb = document
   .querySelector(".musicBar")
   .querySelector(".main-window-playlist-thumb");
 const crrSongName = document.querySelector(".currentMusic-Player");
-const songCards = document.querySelectorAll(".songCard");
+let songCards;
 const nowPlayingWindow = document.querySelector(".nowPlayingVeiw");
 const nowPlayingImage = document.querySelector(".nowPlayingMainImg");
 const nowPlayingSongName = document.querySelector(".nowPlayingSongName");
@@ -74,7 +74,7 @@ function setDuration(evt) {
     Math.floor((clikedPosition / pbarTargetAreaWidth) * 100) + 2
   }`;
 
-  audio.currentTime = (parseInt(pbarWidth) * songDuration) / 100;
+  Audio.currentTime = (parseInt(pbarWidth) * songDuration) / 100;
   updatePbar();
 }
 
@@ -106,7 +106,7 @@ function setVolume(evt) {
   let finalWidth = (clickedPosition / vbarTargetAreaWidth) * 100;
   let changedVolume = ((finalWidth / 100) * 100) / 100;
   if (changedVolume >= 0.0 && changedVolume <= 1) {
-    audio.volume = changedVolume;
+    Audio.volume = changedVolume;
   }
 
   vbar.style.width = `${finalWidth}%`;
@@ -115,19 +115,19 @@ function setVolume(evt) {
   } else if (vbar.clientWidth >= vw * 0.9) {
     vbar.style.justifyContent = "flex-end";
   }
-  volumeValue = audio.volume;
+  volumeValue = Audio.volume;
 }
 
 function volumeIconUpdate() {
-  if (audio.volume == 0.0) {
+  if (Audio.volume == 0.0) {
     // volumeBtn.innerText = "volume_off";
     volumeBtn.setAttribute("class", "fa-solid fa-volume-xmark");
     volumeBtn.innerText = "";
-  } else if (audio.volume >= 0.5) {
+  } else if (Audio.volume >= 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-high");
     volumeBtn.innerText = "";
     // volumeBtn.innerText = "volume_up";
-  } else if (audio.volume < 0.5) {
+  } else if (Audio.volume < 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-low");
     volumeBtn.innerText = "";
     // volumeBtn.innerText = "volume_down";
@@ -232,8 +232,8 @@ function playByCard(card, idx) {
   card.addEventListener("click", () => {
     prevSong = crrSong;
     crrSong = idx;
-    audio.src = playlist[crrSong];
-    audio.play();
+    Audio.src = playlist[crrSong];
+    Audio.play();
     isPlaying = true;
     mainPlayIconUpdate(playBtn);
     crrSongDetailsUpdate();
@@ -315,15 +315,16 @@ function updateAnimation() {
     }
   });
 }
-
+10
 function clutterCards() {
   let currentWidth = window.innerWidth;
 
   if (currentWidth <= widthForMobileCardsCluttering) {
-    audio.volume = 1;
+    Audio.volume = 1;
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
+      description.parentElement.parentElement.querySelector(".songName").innerText=songDetails[idx].name;
       description.parentElement.classList.add("songDescriptionCont");
     });
     let playApeended = document.querySelector("#controlicon-play");
@@ -347,7 +348,9 @@ function clutterCards() {
     }
 
     updateAnimation();
-  } else if (currentWidth > widthForMobileCardsCluttering) {
+  }
+  
+  else if (currentWidth > widthForMobileCardsCluttering) {
     if(initialClutter){
       return;
     }
@@ -359,8 +362,30 @@ function clutterCards() {
       openedInMobile = false;
       let wrapper = document.createElement("div");
       wrapper.appendChild(description);
+      wrapper.setAttribute("class", "songDescriptionCont");
       newParent.append(wrapper);
       oldParent.style.display = "none";
+        description.innerText = `"${songDetails[idx].album}"\n${songDetails[idx].description}`;
+        let songName=description.parentElement.parentElement.querySelector(".songName");
+        let wrapperForName = document.createElement("div");
+        wrapperForName.append(songName);
+        songName.innerText = songDetails[idx].name;
+        description.parentElement.parentElement.append(wrapperForName,wrapper);
+        wrapperForName.style.overflow="hidden";
+        wrapperForName.style.position="relative";
+        wrapperForName.style.height="2.8vw";
+        wrapperForName.style.width="9vw";
+        wrapper.append(description);
+           if(songName.scrollWidth>songName.clientWidth){
+             songName.style.animation="scroll linear 8s infinite forwards";
+             wrapperForName.setAttribute("class","coverafter");
+             
+           }
+           if(wrapper.scrollHeight>wrapper.clientHeight){
+             description.style.animation="scrollInv linear 8s infinite forwards";
+             console.log("scrolling");
+           }
+     
     });
    initialClutter=true;
   }
@@ -529,16 +554,19 @@ songsInQueueClutter();
 
 const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 
+let cardRow;
+mainCardgenerate(cardRow);
+
 document.addEventListener("DOMContentLoaded", () => {
+
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
-  localStorage.getItem("crrDuration")?audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
+  localStorage.getItem("crrDuration")?Audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
  
-  audio.src = playlist[crrSong];
-  audio.volume = 0.1;
-  volumeValue = audio.volume * 100;
+  Audio.src = playlist[crrSong];
+  Audio.volume = 0.1;
+  volumeValue = Audio.volume * 100;
   vbar.style.width = `${volumeValue}%`;
-  volumeValue = audio.volume;
-  
+  volumeValue = Audio.volume;
   vwChecker();
   clutterCards();
   crrSongDetailsUpdate();
@@ -551,7 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 playIconFunction(playBtn);
 
-audio.addEventListener("ended", () => {
+Audio.addEventListener("ended", () => {
   prevSong = crrSong;
   crrSong++;
   if (crrSong >= playlist.length) {
@@ -560,16 +588,16 @@ audio.addEventListener("ended", () => {
   if (isLooping) {
     crrSong = loopingSong;
   }
-  audio.src = playlist[crrSong];
-  audio.play();
+  Audio.src = playlist[crrSong];
+  Audio.play();
   crrSongDetailsUpdate();
   updateNowPlayingWindow();
   updateMeta();
   cardBtnUpdate();
 });
 
-audio.addEventListener("loadedmetadata", () => {
-  let actualSongDuration = Math.floor(audio.duration);
+Audio.addEventListener("loadedmetadata", () => {
+  let actualSongDuration = Math.floor(Audio.duration);
   songDuration = actualSongDuration;
   let songDurationInMin = Math.floor(actualSongDuration / 60);
   let songDurationInSec = actualSongDuration % 60;
@@ -585,8 +613,8 @@ audio.addEventListener("loadedmetadata", () => {
   });
 });
 
-audio.addEventListener("timeupdate", () => {
-  actualCrrDuration = Math.floor(audio.currentTime);
+Audio.addEventListener("timeupdate", () => {
+  actualCrrDuration = Math.floor(Audio.currentTime);
   crrDuration = actualCrrDuration;
   actualCrrDurationInMin = Math.floor(actualCrrDuration / 60);
   actualCrrDurationInSec = actualCrrDuration % 60;
@@ -600,7 +628,7 @@ audio.addEventListener("timeupdate", () => {
     display.innerText = `${actualCrrDurationInMin}:${actualCrrDurationInSec}`;
   });
   updatePbar();
-  localStorage.setItem("crrDuration",audio.currentTime);
+  localStorage.setItem("crrDuration",Audio.currentTime);
 });
 
 pbarFunctionality(pbarTargetArea);
@@ -636,22 +664,22 @@ vbarTargetArea.addEventListener("mouseup", () => {
 });
 
 volumeBtn.addEventListener("click", () => {
-  if (audio.volume !== 0.0) {
-    audio.volume = 0.0;
-    vbar.style.width = `${Math.floor(audio.volume) * 10}%`;
-  } else if (audio.volume === 0.0) {
+  if (Audio.volume !== 0.0) {
+    Audio.volume = 0.0;
+    vbar.style.width = `${Math.floor(Audio.volume) * 10}%`;
+  } else if (Audio.volume === 0.0) {
     if (volumeValue === 0.0) {
-      audio.volume = 0.1;
-      vbar.style.width = `${Math.floor(audio.volume) * 10}%`;
+      Audio.volume = 0.1;
+      vbar.style.width = `${Math.floor(Audio.volume) * 10}%`;
     } else {
-      audio.volume = volumeValue;
-      volumeValue = audio.volume;
+      Audio.volume = volumeValue;
+      volumeValue = Audio.volume;
 
       vbar.style.width = `${Math.floor(volumeValue * 100)}%`;
     }
   }
 });
-audio.addEventListener("volumechange", () => {
+Audio.addEventListener("volumechange", () => {
   volumeIconUpdate();
 });
 
@@ -684,8 +712,8 @@ nowPlayingSongs.forEach((queueSong, idx) => {
   queueSong.addEventListener("click", () => {
     prevSong = crrSong;
     crrSong = idx;
-    audio.src = playlist[crrSong];
-    audio.play();
+    Audio.src = playlist[crrSong];
+    Audio.play();
     isPlaying = true;
     mainPlayIconUpdate(playBtn);
     updateNowPlayingWindow();
@@ -704,7 +732,7 @@ document.getElementById("nowPlayingClose").addEventListener("click", () => {
 });
 
 navigator.mediaSession.setActionHandler("play", function () {
-  audio.play();
+  Audio.play();
   isPlaying = true;
   mainPlayIconUpdate(playBtn);
   updateMeta();
@@ -714,7 +742,7 @@ navigator.mediaSession.setActionHandler("play", function () {
 });
 
 navigator.mediaSession.setActionHandler("pause", function () {
-  audio.pause();
+  Audio.pause();
   isPlaying = false;
   mainPlayIconUpdate(playBtn);
 });
@@ -723,8 +751,8 @@ navigator.mediaSession.setActionHandler("previoustrack", function () {
   prevSong = crrSong;
   crrSong--;
   if (crrSong === -1) crrSong = 0;
-  audio.src = playlist[crrSong];
-  audio.play();
+  Audio.src = playlist[crrSong];
+  Audio.play();
   isPlaying = true;
   mainPlayIconUpdate(playBtn);
   updateMeta();
@@ -737,8 +765,8 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   prevSong = crrSong;
   crrSong++;
   if (crrSong == playlist.length) crrSong = 0;
-  audio.src = `${playlist[crrSong]}`;
-  audio.play();
+  Audio.src = `${playlist[crrSong]}`;
+  Audio.play();
   isPlaying = true;
   mainPlayIconUpdate(playBtn);
   updateMeta();
@@ -798,5 +826,4 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
 })
 
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
-
 

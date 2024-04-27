@@ -8,17 +8,17 @@ function playIconFunction(playBtn) {
       isPlaying = !isPlaying;
       if (!openedInMobile) {
         if (isPlaying) {
-          audio.play();
+          Audio.play();
           btn.innerText = "pause_circle";
         } else if (!isPlaying) {
-          audio.pause();
+          Audio.pause();
           
           btn.innerText = "play_circle";
         }
       }
       if (openedInMobile) {
         if (isPlaying) {
-          audio.play();
+          Audio.play();
           if (isMusicBarOpened) {
             btn.innerText = "pause_circle";
             btn.setAttribute("class", "material-symbols-outlined");
@@ -27,7 +27,7 @@ function playIconFunction(playBtn) {
             btn.setAttribute("class", "material-symbols-rounded");
           }
         } else if (!isPlaying) {
-          audio.pause();
+          Audio.pause();
           if (isMusicBarOpened) {
             btn.innerText = "play_circle";
             btn.setAttribute("class", "material-symbols-outlined");
@@ -57,8 +57,8 @@ function nextIconFunction(nextBtn) {
       if (crrSong === playlist.length) {
         crrSong = 0;
       }
-      audio.src = playlist[crrSong];
-      audio.play();
+      Audio.src = playlist[crrSong];
+      Audio.play();
       isLooping = false;
       isPlaying = true;
       mainPlayIconUpdate(playBtn);
@@ -98,8 +98,8 @@ function prevIconFunction(prevBtn) {
       if (crrSong < 0) {
         crrSong = 0;
       }
-      audio.src = playlist[crrSong];
-      audio.play();
+      Audio.src = playlist[crrSong];
+      Audio.play();
       isLooping = false;
       isPlaying = true;
       mainPlayIconUpdate(playBtn);
@@ -172,8 +172,8 @@ function startTouching() {
       let totalWidth = bar.clientWidth;
       let draggedposition = Math.floor(evt.touches[0].clientX);
       let percentage = (draggedposition / totalWidth) * 100;
-      let totalTimeforHere = audio.duration;
-      audio.currentTime = (totalTimeforHere * percentage) / 100;
+      let totalTimeforHere = Audio.duration;
+      Audio.currentTime = (totalTimeforHere * percentage) / 100;
     });
   });
 }
@@ -213,4 +213,153 @@ function cardCreation(card) {
   defaultCard.style.backgroundColor = card.color;
   
   return defaultCard;
+}
+
+async function getDuration(){
+ 
+   for(let i=0;i<playlist.length;i++){ 
+    tempAudio.src = playlist[i];
+    await new Promise((resolve, reject) => {
+      tempAudio.addEventListener("loadedmetadata", () => {
+        resolve();
+      });
+    });
+    songDetails[i].duration=displayDuration(tempAudio);
+  };
+    songDetails.forEach((songData)=>{
+    searchSongCardCreation(songData).style.display="none";
+    });
+    mainWindowSearchResult.style.display="none";
+  
+}
+
+function displayDuration(audio, forData=true){
+  let actualSongDuration = Math.floor(audio.duration);
+  let songDuration = actualSongDuration;
+  let songDurationInMin = Math.floor(actualSongDuration / 60);
+  let songDurationInSec = actualSongDuration % 60;
+
+  if (songDurationInMin < 10) {
+    songDurationInMin = `0${songDurationInMin}`;
+  }
+  if (songDurationInSec < 10) {
+    songDurationInSec = `0${songDurationInSec}`;
+  }
+
+  if (!forData) {
+    durationDisplay.forEach((display) => {
+      display.innerText = `${songDurationInMin}:${songDurationInSec}`;
+    });
+  } else {
+    return `${songDurationInMin}:${songDurationInSec}`;
+  }
+}
+
+function searchSongCardCreation(songData){
+
+  //Creating Markup for Search Song Card
+
+ let searchCard=document.createElement("div");
+ searchCard.setAttribute("class","search-songCard");
+
+ let wrapperForSongDetails=document.createElement("div");
+ wrapperForSongDetails.setAttribute("class","contForSongDetails");
+ 
+ let searchSongImgCont=document.createElement("div");
+ searchSongImgCont.setAttribute("class","searchSongImgCont");
+ searchSongImgCont.innerHTML=playIcon_BarsHtml;
+ 
+ let searchSongCardText=document.createElement("div");
+ searchSongCardText.setAttribute("class","search-songCardText");
+
+ let resultsSongName=document.createElement("p");
+ resultsSongName.setAttribute("class","result-songName");
+ 
+ let resultsSongArtists=document.createElement("p");
+ resultsSongArtists.setAttribute("class","result-songArtists");
+ 
+ let resultsSongDuration=document.createElement("p");
+ resultsSongDuration.setAttribute("class","result-songDur");
+ 
+ let resultsSongAlbum=document.createElement("p");
+ resultsSongAlbum.setAttribute("class","search-songCardAlbum");
+
+ //Appending the created elements to the main search card
+
+ searchSongCardText.append(resultsSongName,resultsSongArtists);
+ wrapperForSongDetails.append(searchSongImgCont,searchSongCardText);
+ searchCard.append(wrapperForSongDetails,resultsSongDuration,resultsSongAlbum);
+
+ //filling the search card with data
+
+ searchSongImgCont.style.backgroundImage=`url(${songData.src})`
+resultsSongName.innerText=songData.name;
+resultsSongArtists.innerText=songData.description;
+resultsSongDuration.innerText=songData.duration;
+resultsSongAlbum.innerText=songData.album;
+let id="";
+for(let property in songData){
+  if(property==="src" || property==="fullname" ){
+    continue;
+  }
+  else{
+     id+= cardIdCreation(songData[property]);
+      
+  }
+}
+searchCard.setAttribute("id",id);
+document.querySelector(".mainwindow-search-results").append(searchCard);
+return searchCard;
+
+}
+
+
+
+function cardIdCreation(songProperties){
+return songProperties.split(" ").join("").toLowerCase().split(",").join("").split('"').join("").split("(").join("").split(")").join("");
+}
+
+getDuration();
+
+window.addEventListener("keydown",(evt)=>{
+  if(evt.key==" "){
+    if(document.activeElement!==mainWindowSearchBar && document.activeElement!==searchBox){
+    evt.preventDefault();
+    if(isPlaying){
+      Audio.pause();
+      isPlaying=!isPlaying;
+    }
+    else if(!isPlaying){
+      Audio.play();
+      isPlaying=!isPlaying;
+    }
+    mainPlayIconUpdate(playBtn);
+    crrSongDetailsUpdate();
+    cardBtnUpdate();
+    updateNowPlayingWindow();
+    updateMeta();
+  }
+  }
+})
+
+
+
+function mainCardgenerate(cardRow){
+  songDetails.forEach((songData,idx)=>{
+    
+        if(idx%7===0){
+           cardRow = document.createElement("div");
+           cardRow.setAttribute("class","songcontainer1");
+           document.querySelector(".mainwindow-cont-wrapper-home").append(cardRow);
+        }
+        
+     
+          cardRow.innerHTML=cardRow.innerHTML?`${cardRow.innerHTML}\n${songCardInnerHtml}`:songCardInnerHtml;
+          let songNodeList=document.querySelectorAll(".songCard");
+          songNodeList[idx].querySelector("img").src=songData.src;
+          songCards=document.querySelectorAll(".songCard");
+      
+        
+        
+  });
 }

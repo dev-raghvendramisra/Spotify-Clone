@@ -3,7 +3,7 @@
 :root {
   --opacity: 1;
   --loaderBgColor: #2c2c2c;
-  --loaderAnimBg: rgba(128, 128, 128, 0.295);
+  --loaderAnimBg: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(208,208,208,0.3) 50%, rgba(255,255,255,0) 100%);
   --colorForBefore: rgb(0, 0, 0);
   --colorForBeforePLayer: rgb(0, 0, 0);
 }
@@ -691,6 +691,7 @@ nav img {
   display: flex;
   gap: 2vw;
   /* flex-wrap:wrap; */
+  overflow-x:scroll;
   padding: 3vh 1.5vw;
   justify-content: flex-start;
 }
@@ -706,6 +707,7 @@ nav img {
   /* transition: all 1s ease; */
   cursor: pointer;
   position: relative;
+
 }
 
 .cardImage {
@@ -728,6 +730,8 @@ nav img {
 .songName {
   font-weight: 700;
   margin-top: 1vh;
+  width: 9vw;
+  white-space: nowrap;
 }
 
 .mainNav {
@@ -775,7 +779,7 @@ nav img {
 }
 
 #collapsedSong {
-  display: none;
+  display: initial;
 }
 
 #cardplayicon {
@@ -799,6 +803,16 @@ nav img {
 .songCard:hover #cardplayicon {
   opacity: 1;
   pointer-events: all;
+  z-index: 2;
+}
+.songCard:hover .coverafter::before {
+  background-image: linear-gradient(to left, #333333 -1%, transparent);
+}
+.songCard:hover .songDescriptionCont::before{
+  background-image: linear-gradient(to bottom, #333333 -1%, transparent);
+}
+.songCard:hover .songDescriptionCont::after{
+  background-image: linear-gradient(to top, #333333 -1%, transparent);
 }
 
 .musicBar {
@@ -1233,7 +1247,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1257,7 +1271,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1271,7 +1285,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1290,7 +1304,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1308,7 +1322,7 @@ body {
   height: 400%;
   width: 44%;
   transform: rotateZ(30deg);
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
   animation: 0.8s ease 0s infinite normal forwards running anim;
 }
 
@@ -1326,7 +1340,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-color: var(--loaderAnimBg);
+  background-image: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite backwards 0.5s;
 }
@@ -1705,9 +1719,190 @@ display:none;
   font-weight:700;
   margin:1vw;
 }
+.search-songCard{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  width:93%;
+  height:7%;
+  background-color: #15ff5b01;
+  margin:0.5vw auto;
+  padding:0.5vw;
+  border-radius :0.5vw;
+}
+#search-songCardImg{
+  height:100%; 
+}
+.searchSongImgCont{
+  height:3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:3vw;
+  margin: auto 0;
+  border-radius :0.5vw;
+  background-size: cover;
+  position: relative;
+  
+}
+.searchSongImgCont #nowPlayingPlayIcon{
+      opacity:0;
+}
+.search-songCardText{
+  margin-left:1vw;
+}
+.result-songName
+,.result-songArtists{
+  color:white;
+  font-weight:500;
+  font-size:1vw;
+}
+.result-songArtists{
+  font-size:calc(1.4vw/1.689);
+  color:rgba(255, 255, 255, 0.656);
+}
+.search-songCardAlbum{
+  font-size:calc(1.4vw/1.689);
+  color:rgba(255, 255, 255, 0.656);
+  width:20%;
+  text-align: right;
+}
+.labelsForResultsCont {
+  display: flex;
+  width: 93%;
+  justify-content: space-between;
+  padding: 0.5vw;
+  margin: 1vw auto;
+  font-size: calc(1.6vw / 1.689);
+  color: rgba(255, 255, 255, 1);
+  background-color: #1D1D1D;
+  border-bottom: solid rgba(255, 255, 255, 0.24) 1px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.mainwindow-search-results{
+  position:relative;
+  height:70vh;
+  overflow:scroll;
+}
+.result-songDur{
+  margin-right:15%;
+  color: rgba(255, 255, 255, 0.656);
+  font-size: calc(1.4vw / 1.689);
+}
+.search-songCard:hover{
+  background-color: #4e4c4c77;
+}
+.search-songCard:hover .searchSongImgCont::before{
+  content:'';
+  position:absolute ;
+  height:100%;
+  width:100%;
+  background-color:rgba(0,0,0,0.5);
+  z-index:1;
+  border-radius:0.5vw;
+  top:0;
+  left:0;
+}
+.search-songCard:hover #nowPlayingPlayIcon{
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+.contForSongDetails{display: flex;width:33%;} 
+.songcontainer1::-webkit-scrollbar {
+  display: none;
+}
+.coverafter::before{
+  content: "";
+  right: 0;
+  top: 0;
+  background-image: linear-gradient(to left, #171717 -1%, transparent);
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  z-index: 1;
+}
+.songDescriptionCont{
+  position: relative;
+  width: 9vw;
+  height:3vw;
+  overflow: hidden;
+}
+.songDescriptionCont::before{
+  content: "";
+  right: 0;
+  top: 0;
+  background-image: linear-gradient(to bottom, #171717 -1%, transparent);
+  height: 25%;
+  width: 100%;
+  position: absolute;
+  z-index: 1}
 
+.songDescriptionCont::after{
+  content: "";
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, #171717 -1%, transparent);
+  height: 25%;
+  width: 100%;
+  position: absolute;
+  z-index: 1}
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 
+  50% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
 
+  51% {
+    opacity: 0;
+  }
+
+  55% {
+    transform: translate(0, 0);
+  }
+
+  58% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+}
+@keyframes scrollInv {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(0, -50%);
+    opacity: 1;
+  }
+
+  51% {
+    opacity: 0;
+  }
+
+  55% {
+    transform: translate(0, 0);
+  }
+
+  58% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+}
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {
@@ -1817,7 +2012,7 @@ display:none;
     font-size: 6vw;
   }
 
-  .mainwindow DIV:last-child {
+  .mainwindow .songcontainer1:last-child {
     margin-bottom: 17vh;
   }
 
@@ -1832,37 +2027,12 @@ display:none;
     /* animation:scroll linear 5s infinite forwards ;  */
   }
 
-  @keyframes scroll {
-    0% {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-
-    50% {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
-
-    51% {
-      opacity: 0;
-    }
-
-    55% {
-      transform: translate(0, 0);
-    }
-
-    58% {
-      opacity: 0;
-    }
-
-    70% {
-      opacity: 1;
-    }
-  }
+  
 
   .songDescriptionCont {
     position: relative;
   }
+  
 
   .songDescriptionContbefore::after {
     content: "";
