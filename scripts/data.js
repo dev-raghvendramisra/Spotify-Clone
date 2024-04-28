@@ -756,6 +756,13 @@ let songDetails =[
     description: "Sunidhi Chauhan",
     fullName: "BEN 10-Theme Song",
     album: "BEN 10-Theme Song"
+  },
+    {
+    src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924",
+    name: "Humka Peeni Hai",
+    description: "Wajid, Master Saleem, Shabab Sabri",
+    fullName: `${this.name}From("${this.album)}`,
+    album: "Dabangg"
   }
 ];
 
