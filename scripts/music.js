@@ -383,7 +383,7 @@ function clutterCards() {
            }
            if(wrapper.scrollHeight>wrapper.clientHeight){
              description.style.animation="scrollInv linear 8s infinite forwards";
-             console.log("scrolling");
+             
            }
      
     });
