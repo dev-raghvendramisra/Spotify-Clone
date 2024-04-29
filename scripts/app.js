@@ -401,3 +401,28 @@ mainWindowSearchBar.addEventListener("input",(evt)=>{
     } })
    
 });
+
+window.addEventListener("keydown",(evt)=>{
+  let vbarWidth=vbar.style.width;
+  if(evt.key=="ArrowUp"){
+    if(Audio.volume<1)
+    {
+
+    vbarWidth=vbarWidth.replace("%","");
+    vbarWidth=parseInt(vbarWidth)+10;
+    vbarWidth=vbarWidth;
+    updateVbar(null,null,vbarWidth)
+  }
+
+  }
+
+  else if(evt.key=="ArrowDown"){
+    if(Audio.volume>0){
+
+    vbarWidth=vbarWidth.replace("%","");
+    vbarWidth=parseInt(vbarWidth)-10;
+    vbarWidth=vbarWidth;
+    updateVbar(null,null,vbarWidth)
+  }}
+}
+);

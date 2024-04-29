@@ -558,6 +558,13 @@ const playlist = [
   "tracks/prarthna.mp3",
   "tracks/athmaRama.mp3",
   "tracks/ben10.mp3",
+  "tracks/humkaPeeniHai.mp3",
+  "tracks/miAmor.mp3",
+  "tracks/tujheSochtaHun.mp3",
+  "tracks/chaudhary.mp3",
+  "tracks/tereNainoMein.mp3",
+  "tracks/bulleya.mp3",
+  "tracks/wohBaarishein.mp3",
 ];
 
 let songDetails =[
@@ -642,7 +649,7 @@ let songDetails =[
     src: "https://i.scdn.co/image/ab67616d0000b27371da5e89467bd75d2ed9f1fa",
     name: "Jannatein Kahan",
     description: "Pritam, KK",
-    fullName: "Jannatein Kahan",
+    fullName: 'Jannatein Kahan (From "Jannat 2")',
     album: "Jannatein Kahan"
   },
   {
@@ -761,9 +768,52 @@ let songDetails =[
     src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924",
     name: "Humka Peeni Hai",
     description: "Wajid, Master Saleem, Shabab Sabri",
-   fullName: `Humka Peeni Hai From("Dabangg")`,
+   fullName: `Humka Peeni Hai (From "Dabangg")`,
     album: "Dabangg"
   }
+  ,
+  {
+  src: "https://i.scdn.co/image/ab67616d00001e02050aa2ba1ea0f6b96f4de231",
+  name: "Mi Amor",
+  description: "Sharn, 40k, The Paul",
+ fullName: `Mi Amor`,
+  album: "Mi Amor"
+},
+{
+src: "https://i.scdn.co/image/ab67616d00001e0271da5e89467bd75d2ed9f1fa",
+name: "Tujhe Sochta Hoon",
+description: "Pritam, KK",
+fullName: `Tujhe Sochta Hoon (From "Jannat 2")`,
+album: "Jannat 2"
+},
+{
+src: "https://i.scdn.co/image/ab67616d00001e0227c59173f1d904947229613f",
+name: "Chaudhary",
+description: "Amit Triwedi, Mame Khan",
+fullName: `Chaudhary`,
+album: "Coke Studio"
+},
+{
+src: "https://i.scdn.co/image/ab67616d00001e02200b79ddaca34de0acf74946",
+name: "Tere Nainon Mein",
+description: "The Bilz & Kashif",
+fullName: `Tere Nainon Mein`,
+album: "Tere Nainon Mein"
+},
+{
+src: "https://i.scdn.co/image/ab67616d00001e02b2abfd2439b6c23c3664df87",
+name: "Bulleya",
+description: "Vishal-Shekhar, Papon, Irshad Kamil",
+fullName: `Bulleya From("Sultan")`,
+album: "Sultan"
+},
+{
+src: "https://i.scdn.co/image/ab67616d00001e02aa94e9741ecf418b89d5c339",
+name: "Woh Baarishein",
+description: "Arjun Kanungo",
+fullName: `Woh Baarishein`,
+album: "Woh Baarishein"
+}
 ];
 
 
@@ -780,4 +830,5 @@ const songCardInnerHtml=`
           </p>
         </div>
         </div>`;
-
+//------------------
+       

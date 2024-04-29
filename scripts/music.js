@@ -102,35 +102,20 @@ function setVolume(evt) {
   let vbarTargetAreaWidth = Math.floor(
     vbarTargetArea.getBoundingClientRect().width
   );
-  let clickedPosition = Math.floor(evt.offsetX);
-  let finalWidth = (clickedPosition / vbarTargetAreaWidth) * 100;
-  let changedVolume = ((finalWidth / 100) * 100) / 100;
-  if (changedVolume >= 0.0 && changedVolume <= 1) {
-    Audio.volume = changedVolume;
-  }
-
-  vbar.style.width = `${finalWidth}%`;
-  if (vbar.clientWidth < vw * 0.9) {
-    vbar.style.justifyContent = "flex-start";
-  } else if (vbar.clientWidth >= vw * 0.9) {
-    vbar.style.justifyContent = "flex-end";
-  }
+  updateVbar(evt,vbarTargetAreaWidth);
   volumeValue = Audio.volume;
 }
 
 function volumeIconUpdate() {
   if (Audio.volume == 0.0) {
-    // volumeBtn.innerText = "volume_off";
     volumeBtn.setAttribute("class", "fa-solid fa-volume-xmark");
     volumeBtn.innerText = "";
   } else if (Audio.volume >= 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-high");
     volumeBtn.innerText = "";
-    // volumeBtn.innerText = "volume_up";
   } else if (Audio.volume < 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-low");
     volumeBtn.innerText = "";
-    // volumeBtn.innerText = "volume_down";
   }
 }
 
@@ -325,6 +310,7 @@ function clutterCards() {
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
       description.parentElement.parentElement.querySelector(".songName").innerText=songDetails[idx].name;
+      document.documentElement.style.setProperty("--display","none")
       description.parentElement.classList.add("songDescriptionCont");
     });
     let playApeended = document.querySelector("#controlicon-play");
@@ -362,6 +348,7 @@ function clutterCards() {
       openedInMobile = false;
       let wrapper = document.createElement("div");
       wrapper.appendChild(description);
+      document.documentElement.style.setProperty("--display","initial")
       wrapper.setAttribute("class", "songDescriptionCont");
       newParent.append(wrapper);
       oldParent.style.display = "none";

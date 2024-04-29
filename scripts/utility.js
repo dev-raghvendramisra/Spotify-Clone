@@ -363,3 +363,23 @@ function mainCardgenerate(cardRow){
         
   });
 }
+
+function updateVbar(evt,vbarTargetAreaWidth,finalWidth){
+
+  if(finalWidth==undefined){
+    let clickedPosition = Math.floor(evt.offsetX);
+    finalWidth = (clickedPosition / vbarTargetAreaWidth) * 100;
+  }
+  let changedVolume = ((finalWidth / 100) * 100) / 100;
+  if (changedVolume >= 0.0 && changedVolume <= 1) {
+    Audio.volume = changedVolume;
+    volumeValue=Audio.volume;
+  }
+
+  vbar.style.width = `${finalWidth}%`;
+  if (vbar.clientWidth < vw * 0.9) {
+    vbar.style.justifyContent = "flex-start";
+  } else if (vbar.clientWidth >= vw * 0.9) {
+    vbar.style.justifyContent = "flex-end";
+  }
+}
