@@ -335,6 +335,7 @@ mainWindow.addEventListener("scroll", navBgSet);
 
 window.addEventListener("load", displayLoadedContent);
 
+
 searchBox.addEventListener("focus", () => {
   if (!openedInMobile) return;
   searchBoxOpen = !searchBoxOpen;

@@ -1782,6 +1782,7 @@ display:none;
   z-index: 2;
 }
 .mainwindow-search-results{
+  display:none;
   position:relative;
   height:70vh;
   overflow:scroll;
