@@ -217,15 +217,15 @@ function cardCreation(card) {
 
 async function getDuration(){
  
-   for(let i=0;i<playlist.length;i++){ 
-    tempAudio.src = playlist[i];
-    await new Promise((resolve, reject) => {
-      tempAudio.addEventListener("loadedmetadata", () => {
-        resolve();
-      });
-    });
-    songDetails[i].duration=displayDuration(tempAudio);
-  };
+  //  for(let i=0;i<playlist.length;i++){ 
+  //   tempAudio.src = playlist[i];
+  //   await new Promise((resolve, reject) => {
+  //     tempAudio.addEventListener("loadedmetadata", () => {
+  //       resolve();
+  //     });
+  //   });
+  //   songDetails[i].duration=displayDuration(tempAudio);
+  // };
     songDetails.forEach((songData)=>{
     searchSongCardCreation(songData).style.display="none";
     });

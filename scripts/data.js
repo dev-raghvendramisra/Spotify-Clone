@@ -569,251 +569,286 @@ const playlist = [
 
 let songDetails =[
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271",
-    name: "Satranga",
+    album: "Animal",
     description: "Arijit Singh, Shreyas Puranik",
-    fullName: 'Satranga (From "Animal")',
-    album: "Animal"
+    duration: "04:31",
+    fullName: "Satranga (From \"Animal\")",
+    name: "Satranga",
+    src: "https://i.scdn.co/image/ab67616d00001e02021d7017f73387b008eab271"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2",
-    name: "Chaleya",
+    album: "Jawan",
     description: "Arijit Singh, Anirudh Ravichander",
-    fullName: 'Chaleya (From "Jawan")',
-    album: "Jawan"
+    duration: "03:08",
+    fullName: "Chaleya (From \"Jawan\")",
+    name: "Chaleya",
+    src: "https://i.scdn.co/image/ab67616d0000b27360dbbb589dff0c57a3a4ffb2"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02333548f23189291acdee787d",
-    name: "4.10",
+    album: "4.10",
     description: "DIVINE, Lal Chand Yamla Jatt",
+    duration: "02:49",
     fullName: "4.10",
-    album: "4.10"
+    name: "4.10",
+    src: "https://i.scdn.co/image/ab67616d00001e02333548f23189291acdee787d"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b273c08202c50371e234d20caf62",
-    name: "Kesariya",
+    album: "Bhramastra",
     description: "Pritam, Arijit Singh, Amitabh Bhattacharya",
-    fullName: 'Kesariya ("From Bhramastra")',
-    album: "Bhramastra"
+    duration: "04:28",
+    fullName: "Kesariya (From \"Bhramastra\")",
+    name: "Kesariya",
+    src: "https://i.scdn.co/image/ab67616d0000b273c08202c50371e234d20caf62"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e028eeefdbfd14ad10510ba6c86",
-    name: "Woh Raat",
+    album: "Woh Raat",
     description: "Raftaar, KR$NA",
+    duration: "03:12",
     fullName: "Woh Raat",
-    album: "Woh Raat"
+    name: "Woh Raat",
+    src: "https://i.scdn.co/image/ab67616d00001e028eeefdbfd14ad10510ba6c86"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02bb52f4d0546656ebcf9ed925",
-    name: "Thoda Thoda Pyaar",
+    album: "Thoda Thoda Pyaar",
     description: "Nilesh Ahuja, Stebin Ben",
+    duration: "04:32",
     fullName: "Thoda Thoda Pyaar",
-    album: "Thoda Thoda Pyaar"
+    name: "Thoda Thoda Pyaar",
+    src: "https://i.scdn.co/image/ab67616d00001e02bb52f4d0546656ebcf9ed925"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e0299655481a2151203ed89351d",
-    name: "Malang(Title Track)",
+    album: "Malang",
     description: "Ved Sharma, Kunal Vermaa",
-    fullName: 'Malang (From "Malang")',
-    album: "Malang"
+    duration: "04:47",
+    fullName: "Malang (From \"Malang\")",
+    name: "Malang(Title Track)",
+    src: "https://i.scdn.co/image/ab67616d00001e0299655481a2151203ed89351d"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e027b93fd8b0ade33ceb9d536de",
-    name: "Duniyaa",
+    album: "Lukka Chuppi",
     description: "Akhil, Dhvani Bhanushali",
-    fullName: 'Duniya (From "Lukka Chuppi")',
-    album: "Lukka Chuppi"
+    duration: "03:42",
+    fullName: "Duniya (From \"Lukka Chuppi\")",
+    name: "Duniyaa",
+    src: "https://i.scdn.co/image/ab67616d00001e027b93fd8b0ade33ceb9d536de"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b2734cfe2d352da6d7910961377f",
-    name: "Labon Ko",
+    album: "Labon Ko",
     description: "Pritam, KK",
+    duration: "05:43",
     fullName: "Labon Ko",
-    album: "Labon Ko"
+    name: "Labon Ko",
+    src: "https://i.scdn.co/image/ab67616d0000b2734cfe2d352da6d7910961377f"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e028a3f0a3ca7929dea23cd274c",
-    name: "Lovely (with Khalid)",
+    album: "Lovely (with Khalid)",
     description: "Billi Eilish, Khalid",
+    duration: "03:20",
     fullName: "Lovely (with Khalid)",
-    album: "Lovely (with Khalid)"
+    name: "Lovely (with Khalid)",
+    src: "https://i.scdn.co/image/ab67616d00001e028a3f0a3ca7929dea23cd274c"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b27341e31d6ea1d493dd77933ee5",
-    name: "STAY (with Justin Bieber)",
+    album: "STAY (with Justin Bieber)",
     description: "The Kid LARAOI,Justin Bieber",
+    duration: "02:21",
     fullName: "STAY (with Justin Bieber)",
-    album: "STAY (with Justin Bieber)"
+    name: "STAY (with Justin Bieber)",
+    src: "https://i.scdn.co/image/ab67616d0000b27341e31d6ea1d493dd77933ee5"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b27371da5e89467bd75d2ed9f1fa",
-    name: "Jannatein Kahan",
+    album: "Jannatein Kahan",
     description: "Pritam, KK",
-    fullName: 'Jannatein Kahan (From "Jannat 2")',
-    album: "Jannatein Kahan"
+    duration: "03:48",
+    fullName: "Jannatein Kahan (From \"Jannat 2\")",
+    name: "Jannatein Kahan",
+    src: "https://i.scdn.co/image/ab67616d0000b27371da5e89467bd75d2ed9f1fa"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e029ad4c5b52effc242984def78",
-    name: "Sometimes",
+    album: "Sometimes",
     description: "AUR",
+    duration: "03:16",
     fullName: "Sometimes",
-    album: "Sometimes"
+    name: "Sometimes",
+    src: "https://i.scdn.co/image/ab67616d00001e029ad4c5b52effc242984def78"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02f5a66f7c0126268d45cda1b6",
-    name: "Namastute",
+    album: "Namastute",
     description: "Seedhe Maut",
+    duration: "02:00",
     fullName: "Namastute",
-    album: "Namastute"
+    name: "Namastute",
+    src: "https://i.scdn.co/image/ab67616d00001e02f5a66f7c0126268d45cda1b6"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b2733fb3fb3086a40c2c5062501d",
-    name: "Tu Hai Kahan",
+    album: "Tu Hai Kahan",
     description: "AUR",
+    duration: "04:23",
     fullName: "Tu Hai Kahan",
-    album: "Tu Hai Kahan"
+    name: "Tu Hai Kahan",
+    src: "https://i.scdn.co/image/ab67616d0000b2733fb3fb3086a40c2c5062501d"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b2735f3ede47954a93aa03efe5f9",
-    name: "Arjan Vailly",
+    album: "ANIMAL",
     description: "Manan Bharadwaj, Bhupinder Babbal",
-    fullName: 'Arjan Vailly (From "ANIMAL")',
-    album: "ANIMAL"
+    duration: "03:02",
+    fullName: "Arjan Vailly (From \"ANIMAL\")",
+    name: "Arjan Vailly",
+    src: "https://i.scdn.co/image/ab67616d0000b2735f3ede47954a93aa03efe5f9"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e0209426d9ae9d8d981735ebc5e",
-    name: "Ranjha",
+    album: "Shershaah",
     description: "B Praak, Jasleen Royal",
-    fullName: 'Ranjha (From "Shershaah")',
-    album: "Shershaah"
+    duration: "03:48",
+    fullName: "Ranjha (From \"Shershaah\")",
+    name: "Ranjha",
+    src: "https://i.scdn.co/image/ab67616d00001e0209426d9ae9d8d981735ebc5e"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b273a75c2f26913099a420050f01",
-    name: "Ratan Lambiyan",
+    album: "Shershaah",
     description: "Tanishq Bagchi, Jubin Nautiyal",
-    fullName: 'Ratan Lambiyan (From "Shershaah")',
-    album: "Shershaah"
+    duration: "03:50",
+    fullName: "Ratan Lambiyan (From \"Shershaah\")",
+    name: "Ratan Lambiyan",
+    src: "https://i.scdn.co/image/ab67616d0000b273a75c2f26913099a420050f01"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02dea88e870d30a4da51065bf5",
-    name: "Manjha",
+    album: "Manjha",
     description: "Vishal Mishra",
+    duration: "03:11",
     fullName: "Manjha",
-    album: "Manjha"
+    name: "Manjha",
+    src: "https://i.scdn.co/image/ab67616d00001e02dea88e870d30a4da51065bf5"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e0253838c41f300a38bef3b05e9",
-    name: "Vigdiyan Heraan",
-    description: "Yo Yo Honey Singh",
-    fullName: 'Vigdiyan Heraan ("From Honey 3.0")',
     album: "Honey 3.0",
+    description: "Yo Yo Honey Singh",
+    duration: "03:17",
+    fullName: "Vigdiyan Heraan (From Honey 3.0)",
+    name: "Vigdiyan Heraan",
+    src: "https://i.scdn.co/image/ab67616d00001e0253838c41f300a38bef3b05e9"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e02fe77bd21eb38ff74b5f21524",
-    name: "Ye Tune Kya Kiya",
-    description: "Pritam, Javed Bashir",
-    fullName: 'Ye Tune Kya Kiya',
     album: "Once Upon A Time In Mumbaai Dobara",
+    description: "Pritam, Javed Bashir",
+    duration: "05:14",
+    fullName: "Ye Tune Kya Kiya",
+    name: "Ye Tune Kya Kiya",
+    src: "https://i.scdn.co/image/ab67616d00001e02fe77bd21eb38ff74b5f21524"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b",
-    name: "Phir Mohobbat",
+    album: "Murder 2",
     description: "Md.Irfan, Arijit Singh, Saim Bhat",
-    fullName: 'Phir Mohobbat (From "Murder 2")',
-    album: "Murder 2"
+    duration: "05:30",
+    fullName: "Phir Mohobbat (From \"Murder 2\")",
+    name: "Phir Mohobbat",
+    src: "https://i.scdn.co/image/ab67616d00001e022432edc97b465e6db54d356b"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b273b5eba194cd2f743be9a0f87b",
-    name: "Hothon Se Chu Lo Tum",
+    album: "Hothon Se Chu Lo Tum",
     description: "Jagjit Singh",
+    duration: "04:57",
     fullName: "Hothon Se Chu Lo Tum",
-    album: "Hothon Se Chu Lo Tum"
+    name: "Hothon Se Chu Lo Tum",
+    src: "https://i.scdn.co/image/ab67616d0000b273b5eba194cd2f743be9a0f87b"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b27300221eaa504574172c617504",
-    name: "No Mercy",
+    album: "No Mercy",
     description: "Deep Kalsi, Raftaar, KR$NA, KARMA",
+    duration: "03:38",
     fullName: "No Mercy",
-    album: "No Mercy"
+    name: "No Mercy",
+    src: "https://i.scdn.co/image/ab67616d0000b27300221eaa504574172c617504"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b273f8c35169d5bab01327f87e5a",
-    name: "Blowing Up",
+    album: "Blowing Up",
     description: "KR$NA",
+    duration: "04:07",
     fullName: "Blowing Up",
-    album: "Blowing Up"
+    name: "Blowing Up",
+    src: "https://i.scdn.co/image/ab67616d0000b273f8c35169d5bab01327f87e5a"
   },
   {
-    src: "https://i.scdn.co/image/ab67616d0000b273843596e5677ecc71fee1c340",
-    name: "Prarthna",
+    album: "Prarthna",
     description: "KR$NA",
+    duration: "03:25",
     fullName: "Prarthna",
-    album: "Prarthna"
+    name: "Prarthna",
+    src: "https://i.scdn.co/image/ab67616d0000b273843596e5677ecc71fee1c340"
   },
   {
-    src: "https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg",
-    name: "Athma Rama",
+    album: "Athma Rama",
     description: "Agam Aggrawal",
+    duration: "05:24",
     fullName: "Athma Rama",
-    album: "Athma Rama"
+    name: "Athma Rama",
+    src: "https://lh3.googleusercontent.com/PvuDzAO7HEl3SzakzJhb0fmWGAMuJmNQt_BVeKoS9Kivin_io0qSt1SrxS8iGE7y66wA49zGH5n0twWg"
   },
   {
-    src: "https://i.scdn.co/image/ab67656300005f1f4de6e598c36e4476af554a64",
-    name: "BEN 10-Theme Song",
+    album: "BEN 10-Theme Song",
     description: "Sunidhi Chauhan",
+    duration: "01:01",
     fullName: "BEN 10-Theme Song",
-    album: "BEN 10-Theme Song"
+    name: "BEN 10-Theme Song",
+    src: "https://i.scdn.co/image/ab67656300005f1f4de6e598c36e4476af554a64"
   },
-    {
-    src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924",
-    name: "Humka Peeni Hai",
-    description: "Wajid, Master Saleem, Shabab Sabri",
-   fullName: `Humka Peeni Hai (From "Dabangg")`,
-    album: "Dabangg"
-  }
-  ,
   {
-  src: "https://i.scdn.co/image/ab67616d00001e02050aa2ba1ea0f6b96f4de231",
-  name: "Mi Amor",
-  description: "Sharn, 40k, The Paul",
- fullName: `Mi Amor`,
-  album: "Mi Amor"
-},
-{
-src: "https://i.scdn.co/image/ab67616d00001e0271da5e89467bd75d2ed9f1fa",
-name: "Tujhe Sochta Hoon",
-description: "Pritam, KK",
-fullName: `Tujhe Sochta Hoon (From "Jannat 2")`,
-album: "Jannat 2"
-},
-{
-src: "https://i.scdn.co/image/ab67616d00001e0227c59173f1d904947229613f",
-name: "Chaudhary",
-description: "Amit Triwedi, Mame Khan",
-fullName: `Chaudhary`,
-album: "Coke Studio"
-},
-{
-src: "https://i.scdn.co/image/ab67616d00001e02200b79ddaca34de0acf74946",
-name: "Tere Nainon Mein",
-description: "The Bilz & Kashif",
-fullName: `Tere Nainon Mein`,
-album: "Tere Nainon Mein"
-},
-{
-src: "https://i.scdn.co/image/ab67616d00001e02b2abfd2439b6c23c3664df87",
-name: "Bulleya",
-description: "Vishal-Shekhar, Papon, Irshad Kamil",
-fullName: `Bulleya From("Sultan")`,
-album: "Sultan"
-},
-{
-src: "https://i.scdn.co/image/ab67616d00001e02aa94e9741ecf418b89d5c339",
-name: "Woh Baarishein",
-description: "Arjun Kanungo",
-fullName: `Woh Baarishein`,
-album: "Woh Baarishein"
-}
+    album: "Dabangg",
+    description: "Wajid, Master Saleem, Shabab Sabri",
+    duration: "05:15",
+    fullName: "Humka Peeni Hai (From \"Dabangg\")",
+    name: "Humka Peeni Hai",
+    src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924"
+  },
+  {
+    album: "Mi Amor",
+    description: "Sharn, 40k, The Paul",
+    duration: "03:23",
+    fullName: "Mi Amor",
+    name: "Mi Amor",
+    src: "https://i.scdn.co/image/ab67616d00001e02050aa2ba1ea0f6b96f4de231"
+  },
+  {
+    album: "Jannat 2",
+    description: "Pritam, KK",
+    duration: "05:13",
+    fullName: "Tujhe Sochta Hoon (From \"Jannat 2\")",
+    name: "Tujhe Sochta Hoon",
+    src: "https://i.scdn.co/image/ab67616d00001e0271da5e89467bd75d2ed9f1fa"
+  },
+  {
+    album: "Coke Studio",
+    description: "Amit Triwedi, Mame Khan",
+    duration: "07:00",
+    fullName: "Chaudhary",
+    name: "Chaudhary",
+    src: "https://i.scdn.co/image/ab67616d00001e0227c59173f1d904947229613f"
+  },
+  {
+    album: "Tere Nainon Mein",
+    description: "The Bilz & Kashif",
+    duration: "04:04",
+    fullName: "Tere Nainon Mein",
+    name: "Tere Nainon Mein",
+    src: "https://i.scdn.co/image/ab67616d00001e02200b79ddaca34de0acf74946"
+  },
+  {
+    album: "Sultan",
+    description: "Vishal-Shekhar, Papon, Irshad Kamil",
+    duration: "05:57",
+    fullName: "Bulleya From(\"Sultan\")",
+    name: "Bulleya",
+    src: "https://i.scdn.co/image/ab67616d00001e02b2abfd2439b6c23c3664df87"
+  },
+  {
+    album: "Woh Baarishein",
+    description: "Arjun Kanungo",
+    duration: "03:52",
+    fullName: "Woh Baarishein",
+    name: "Woh Baarishein",
+    src: "https://i.scdn.co/image/ab67616d00001e02aa94e9741ecf418b89d5c339"
+  }
+
 ];
 
 
