@@ -16,6 +16,8 @@ let divIds = [];
 let i = 0;
 let mainWindow = document.querySelector(".mainwindow");
 let upperCardList = document.querySelectorAll(".uppercard");
+let mainCancelBtn=document.querySelector("#mainSearchCancelBtn");
+let  mainWindowSearchFail=document.querySelector(".mainWindowSearchFail");
 let mainWindowBgColor = "none";
 let minScrollVal = 40;
 let isFocused=false;
@@ -381,25 +383,49 @@ searchBox.addEventListener("focus", () => {
 document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
   evt.target.style.borderColor="white";
   document.getElementById("mainSearchBtn").style.borderColor = "white";
-  document.getElementById("mainSearchCancelBtn").style.borderColor = "white";
+  mainCancelBtn.style.borderColor = "white";
   document.getElementById("mainSearchBtn").style.color = "white";
   document.getElementById("mainSearchBtn").style.borderRightColor = "transparent";
-  document.getElementById("mainSearchCancelBtn").style.borderLeftColor = "transparent";
+  mainCancelBtn.style.borderLeftColor = "transparent";
 });
 
+mainCancelBtn.addEventListener("click",(evt)=>{
+  mainWindowSearchBar.value="";
+  mainWindowSearchResult.style.display="none";
+  mainWindowSearchDefault.style.display="block";
+  mainWindowSearchFail.style.display="none";
+  evt.target.style.color="transparent";
+  evt.target.style.pointerEvents="none";
+}) ; 
+
 mainWindowSearchBar.addEventListener("input",(evt)=>{
-  mainWindowSearchResult.style.display="block";
-  mainWindowSearchDefault.style.display="none";
+  if(mainWindowSearchBar.value.length>=13){return;}
+  mainWindowSearchResult.style.display="none";
+  mainWindowSearchDefault.style.display="block";
+  mainWindowSearchFail.style.display="initial";
+  mainWindowSearchFail.querySelector("h3").innerText=`Couldn't find "${evt.target.value}"❗ `;
+
   let allCards=document.querySelectorAll(".search-songCard");
    allCards.forEach((card)=>{
     if(evt.target.value!==""){
     if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
       card.style.display="flex";
+      mainWindowSearchFail.style.display="none";
+      mainWindowSearchDefault.style.display="none";
+      mainWindowSearchResult.style.display="block";
+      mainCancelBtn.style.pointerEvents="all";
+      mainCancelBtn.style.color="white";
+
     }
     else{
       card.style.display="none";
      }
-    } })
+    }
+  else if(evt.target.value==""){
+    mainWindowSearchResult.style.display="none";
+    mainWindowSearchDefault.style.display="block";
+    mainWindowSearchFail.style.display="none";
+  } })
    
 });
 

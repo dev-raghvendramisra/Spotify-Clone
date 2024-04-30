@@ -243,7 +243,7 @@ const defaultCardsData=[
 const playIcon_BarsHtml=`<span id="nowPlayingPlayIcon"class="material-symbols-outlined">
 play_arrow
 </span>
-<div class="bars">
+<div class="bars" style="position:relative;z-index:2;">
   <div class="bars__item"></div>
   <div class="bars__item"></div>
   <div class="bars__item"></div>

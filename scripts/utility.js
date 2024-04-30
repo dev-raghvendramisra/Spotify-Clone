@@ -42,6 +42,7 @@ function playIconFunction(playBtn) {
       cardBtnUpdate();
       crrSongDetailsUpdate();
       updateMeta();
+      updateSearchCard();
       
     }
    );
@@ -66,6 +67,8 @@ function nextIconFunction(nextBtn) {
       cardBtnUpdate();
       updateNowPlayingWindow();
       updateMeta();
+      updateSearchCard();
+
     });
   });
 }
@@ -107,6 +110,8 @@ function prevIconFunction(prevBtn) {
       cardBtnUpdate();
       updateNowPlayingWindow();
       updateMeta();
+      updateSearchCard();
+
     });
   });
 }
@@ -147,6 +152,8 @@ function mainPlayIconUpdate(playBtn) {
     cardBtnUpdate();
     crrSongDetailsUpdate();
     updateMeta();
+    updateSearchCard();
+
   });
 }
 
@@ -155,6 +162,25 @@ function pbarFunctionality(pbarTargetArea) {
     bar.addEventListener("click", (evt) => {
       setDuration(evt);
     });
+  });
+}
+function playByCard(card, idx, searchCard) {
+  card.addEventListener("click", () => {
+    prevSong = crrSong;
+    crrSong = idx;
+    Audio.src = playlist[crrSong];
+    Audio.play();
+    isPlaying = true;
+
+    if(searchCard){
+  updateSearchCard();
+    }
+    mainPlayIconUpdate(playBtn);
+    crrSongDetailsUpdate();
+    cardBtnUpdate();
+    updateNowPlayingWindow();
+    updateMeta();
+
   });
 }
 
@@ -189,7 +215,7 @@ function createDefaultCards() {
     }
 
     let defaultCard = cardCreation(card);
-    defaultCard.setAttribute("draggable", "true");
+    defaultCard.setAttribute("draggable", "false");
     let rowIdx = Math.floor(idx / 9); // Determine which row to append the card to
 
     let cardRows = document.querySelectorAll(".defaultCardRows");
@@ -207,6 +233,7 @@ function cardCreation(card) {
   
   let img = document.createElement("img");
   img.setAttribute("class", "defaultCard-img");
+  img.setAttribute("draggable", "false");
   img.src = card.src;
   
   defaultCard.append(label, img);
@@ -226,8 +253,12 @@ async function getDuration(){
   //   });
   //   songDetails[i].duration=displayDuration(tempAudio);
   // };
-    songDetails.forEach((songData)=>{
-    searchSongCardCreation(songData).style.display="none";
+    songDetails.forEach((songData,idx)=>{
+      let card=searchSongCardCreation(songData);
+   card.style.display="none";
+   let searchCard=true;
+   playByCard(card,idx,searchCard);
+    
     });
     mainWindowSearchResult.style.display="none";
   
@@ -338,6 +369,7 @@ window.addEventListener("keydown",(evt)=>{
     cardBtnUpdate();
     updateNowPlayingWindow();
     updateMeta();
+
   }
   }
 })
@@ -382,4 +414,17 @@ function updateVbar(evt,vbarTargetAreaWidth,finalWidth){
   } else if (vbar.clientWidth >= vw * 0.9) {
     vbar.style.justifyContent = "flex-end";
   }
+}
+
+function updateSearchCard(){
+  let allSearchCards = document.querySelectorAll(".search-songCard");
+  allSearchCards[prevSong].style.backgroundColor = "";
+  allSearchCards[prevSong].querySelector(".searchSongImgCont").classList.remove("searchSongImgContCrr");
+allSearchCards[prevSong].querySelector(".bars").style.display="none";
+allSearchCards[prevSong].querySelector("#nowPlayingPlayIcon").style.display="initial";
+allSearchCards[crrSong].style.backgroundColor = "rgb(78 76 76 / 21%)";
+allSearchCards[crrSong].querySelector(".searchSongImgCont").classList.add("searchSongImgContCrr");
+allSearchCards[crrSong].querySelector(".bars").style.display="flex";
+allSearchCards[crrSong].querySelector("#nowPlayingPlayIcon").style.display="none";
+
 }

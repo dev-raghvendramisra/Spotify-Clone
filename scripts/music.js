@@ -213,20 +213,7 @@ function crrSongDetailsUpdate() {
   }
 }
 
-function playByCard(card, idx) {
-  card.addEventListener("click", () => {
-    prevSong = crrSong;
-    crrSong = idx;
-    Audio.src = playlist[crrSong];
-    Audio.play();
-    isPlaying = true;
-    mainPlayIconUpdate(playBtn);
-    crrSongDetailsUpdate();
-    cardBtnUpdate();
-    updateNowPlayingWindow();
-    updateMeta();
-  });
-}
+
 
 function cardBtnUpdate() {
   songCards[prevSong].querySelector("#cardplayicon").innerText = "play_arrow";
@@ -581,6 +568,7 @@ Audio.addEventListener("ended", () => {
   updateNowPlayingWindow();
   updateMeta();
   cardBtnUpdate();
+  updateSearchCard();
 });
 
 Audio.addEventListener("loadedmetadata", () => {
@@ -679,6 +667,7 @@ loopIconFunction(loopBtn);
 songCards.forEach((card, idx) => {
   playByCard(card, idx);
 });
+
 
 nowPlayingVeiwBtn.addEventListener("click", () => {
   if (!nowPlayingOpened) {

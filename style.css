@@ -1655,6 +1655,7 @@ body {
   background-color: #2A2A2A;
 font-size:1.4vw;
   border:1px solid rgba(255, 255, 255,0);
+  cursor: pointer;
  
 }
 .mainSearchBarCont:hover #mainSearchBar{
@@ -1727,11 +1728,16 @@ display:none;
   height:7%;
   background-color: #15ff5b01;
   margin:0.5vw auto;
-  padding:0.5vw;
+  padding:1vw;
   border-radius :0.5vw;
+  cursor: pointer;
+  border:1px solid rgba(255, 255, 255, 0.199);
 }
 #search-songCardImg{
   height:100%; 
+}
+.mainwindow-search-results::-webkit-scrollbar {
+  display: none;
 }
 .searchSongImgCont{
   height:3vw;
@@ -1771,7 +1777,7 @@ display:none;
   display: flex;
   width: 93%;
   justify-content: space-between;
-  padding: 0.5vw;
+  padding: 0.5vw 3%;
   margin: 1vw auto;
   font-size: calc(1.6vw / 1.689);
   color: rgba(255, 255, 255, 1);
@@ -1795,23 +1801,30 @@ display:none;
 .search-songCard:hover{
   background-color: #4e4c4c77;
 }
-.search-songCard:hover .searchSongImgCont::before{
+.searchSongImgCont::before{
   content:'';
   position:absolute ;
   height:100%;
   width:100%;
-  background-color:rgba(0,0,0,0.5);
+  background-color:transparent;
   z-index:1;
   border-radius:0.5vw;
   top:0;
   left:0;
 }
+.search-songCard:hover .searchSongImgCont::before{
+  background-color:rgba(0,0,0,0.5);
+}
+ .searchSongImgContCrr::before{
+  background-color:rgba(0,0,0,0.5);
+}
+
 .search-songCard:hover #nowPlayingPlayIcon{
   opacity: 1;
   position: relative;
   z-index: 2;
 }
-.contForSongDetails{display: flex;width:33%;} 
+.contForSongDetails{display: flex;width:33%;align-items: center;} 
 .songcontainer1::-webkit-scrollbar {
   display: none;
 }

@@ -387,7 +387,7 @@
         </div>
           <div class="mainSearchBarCont">
             <span class="fa-solid fa-magnifying-glass" id="mainSearchBtn"></span>
-            <input type="text" placeholder="What do you want to play?" id="mainSearchBar">
+            <input type="text" placeholder="What do you want to play?" id="mainSearchBar" autocomplete="off">
             <span class="material-symbols-rounded" id="mainSearchCancelBtn">close</span>
           </div>
         
@@ -459,6 +459,9 @@
       <h3 id="charts">Weekly top charts</h3>
     </div>
     <div class="mainwindow-cont-wrapper-search">
+      <div class="mainWindowSearchFail" style="display:none;">
+        <h3 class="failureText" style="color:white;text-align: center;display: block; padding:1.5vw;"></h3>
+      </div>
       <div class="mainwindow-search-results">
             <div class="labelsForResultsCont">
               <p class="labelForResults">Title</p>
