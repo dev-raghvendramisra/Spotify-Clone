@@ -402,7 +402,7 @@ mainWindowSearchBar.addEventListener("input",(evt)=>{
   if(mainWindowSearchBar.value.length>=13){return;}
   mainWindowSearchResult.style.display="none";
   mainWindowSearchDefault.style.display="block";
-  mainWindowSearchFail.style.display="initial";
+  mainWindowSearchFail.style.display="flex";
   mainWindowSearchFail.querySelector("h3").innerText=`Couldn't find "${evt.target.value}"❗ `;
 
   let allCards=document.querySelectorAll(".search-songCard");
