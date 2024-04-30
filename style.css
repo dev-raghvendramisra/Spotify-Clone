@@ -747,7 +747,7 @@ nav img {
   display: flex;
   justify-content: flex-start;
   position: sticky;
-  z-index: 4;
+  z-index: 3;
   padding-bottom: 2vh;
   top: 0;
   box-sizing: border-box;
