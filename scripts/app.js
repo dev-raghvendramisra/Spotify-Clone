@@ -52,7 +52,14 @@ function showResults() {
 function assignId() {
   artistName.forEach((text) => {
     ids = text.innerText.split(" ").join("").toLowerCase();
-    text.parentElement.parentElement.setAttribute("id", ids);
+    text.parentElement.parentElement.setAttribute("id", ids);    
+    text.parentElement.parentElement.addEventListener("click",(evt)=>{
+
+       mainWindowSearchBar.value=text.parentElement.parentElement.getAttribute("id");
+    
+       
+    })    
+
     divIds[i] = ids;
     i++;
   });
@@ -266,7 +273,6 @@ function sidebarOpenClose(){
 }}
 
 // Main code block, statements written in the sequence of execution.
-
 assignId();
 const originalListings = document.querySelector(".defaultlistings").innerHTML;
 
@@ -400,34 +406,11 @@ mainCancelBtn.addEventListener("click",(evt)=>{
 }) ; 
 
 mainWindowSearchBar.addEventListener("input",(evt)=>{
-  if(mainWindowSearchBar.value.length>=13){return;}
-  mainWindowSearchResult.style.display="none";
-  mainWindowSearchDefault.style.display="block";
-  mainWindowSearchFail.style.display="flex";
-  mainWindowSearchFail.querySelector("h3").innerText=`Couldn't find "${evt.target.value}"❗ `;
+  mainSearchBarFunctionality(evt);
+});
 
-  let allCards=document.querySelectorAll(".search-songCard");
-   allCards.forEach((card)=>{
-    if(evt.target.value!==""){
-    if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
-      card.style.display="flex";
-      mainWindowSearchFail.style.display="none";
-      mainWindowSearchDefault.style.display="none";
-      mainWindowSearchResult.style.display="block";
-      mainCancelBtn.style.pointerEvents="all";
-      mainCancelBtn.style.color="white";
-
-    }
-    else{
-      card.style.display="none";
-     }
-    }
-  else if(evt.target.value==""){
-    mainWindowSearchResult.style.display="none";
-    mainWindowSearchDefault.style.display="block";
-    mainWindowSearchFail.style.display="none";
-  } })
-   
+mainWindowSearchBar.addEventListener("change",(evt)=>{
+  mainSearchBarFunctionality(evt);
 });
 
 window.addEventListener("keydown",(evt)=>{

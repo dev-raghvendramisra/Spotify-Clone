@@ -3,7 +3,7 @@ let tempAudio=document.querySelector("#tempAudioEl");
 const mainWindowSearchBar = document.getElementById("mainSearchBar");
 const mainWindowSearchDefault = document.querySelector(".mainwindow-search-default");
 const mainWindowSearchResult = document.querySelector(".mainwindow-search-results");
-
+let artistArray=[];
 
 const homeTabContainer=document.querySelector(".mainwindow-cont-wrapper-home");
 const searchTabContainer=document.querySelector(".mainwindow-cont-wrapper-search");
@@ -650,7 +650,7 @@ let songDetails =[
   },
   {
     album: "STAY (with Justin Bieber)",
-    description: "The Kid LARAOI,Justin Bieber",
+    description: "The Kid LARAOI, Justin Bieber",
     duration: "02:21",
     fullName: "STAY (with Justin Bieber)",
     name: "STAY (with Justin Bieber)",
@@ -851,6 +851,58 @@ let songDetails =[
 
 ];
 
+let profilePictureUrls = [
+  "https://i.scdn.co/image/ab6761610000e5eb0261696c5df3be99da6ed3f3",
+  "https://i.scdn.co/image/ab67616100005174dde15c94829b30ce8ef25a92",
+  "https://i.scdn.co/image/ab6761610000e5ebfc7c542c04b5f7dc8f1b1c16",
+  "https://i.scdn.co/image/ab67616100005174e4bae1cd1803402a906b61ba",
+  "https://a10.gaanacdn.com/gn_img/artists/0wrb4N3Lg7/wrb48eZlbL/size_m_1568900169.jpg",
+  "https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca",
+  "https://i.scdn.co/image/ab6761610000e5eb9ead3cc9a2db015a9871ecdd",
+  "https://i.scdn.co/image/ab6761610000e5eb02830cbc62bd287f707e0fae",
+  "https://i.scdn.co/image/ab6761610000e5ebdebeea13700496b7d2b345d9",
+  "https://i.scdn.co/image/ab6761610000e5eb2bda814984dd1cccfa7a5c09",
+  "https://i.scdn.co/image/ab6761610000e5ebea2c802a9e82f379022f38c2",
+  "https://i.scdn.co/image/ab6761610000e5ebfeddadb0bf7e46794f1aad01",
+  "https://i.scdn.co/image/ab67616100005174187491994c7bb4d30d7c8e6e",
+  "https://i.scdn.co/image/ab6761610000e5ebec20e1f55b66ea9138ff8e91",
+  "https://i.scdn.co/image/ab6761610000f178474e22bd75615c1a0b3a8530",
+  "https://i.scdn.co/image/ab6761610000e5ebb09a31f853166e721d4d46b2",
+  "https://i.scdn.co/image/ab67616d00001e022a038d3bf875d23e4aeaa84e",
+  "https://i.scdn.co/image/ab6761610000e5eb5be3f26e0c3aa322637a975f",
+  "https://i.scdn.co/image/ab6761610000e5eb393666951ab8b14e9c4ed386",
+  "https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36",
+  "https://i.scdn.co/image/ab67616100005174694f35fb14a1a3a7b5b13f13",
+  "https://i.scdn.co/image/ab6761610000e5eb2ff3b81c16a59f19b0f6e2d2",
+  "https://i.scdn.co/image/ab6761610000e5ebc11a065d1a5722ac80c2fd8b",
+  "https://i.scdn.co/image/ab6761610000e5eb102c7080e73fb9223df047e2",
+  "https://i.scdn.co/image/ab676161000051741085c393173d6a0826610e98",
+  "https://i.scdn.co/image/ab6761610000e5eb654603f76991dc1275e67d39",
+  "https://i.scdn.co/image/ab6761610000e5eb6fd9a57911c47be245fe4dcc",
+  "https://i.scdn.co/image/ab6761610000e5ebc58e9665446297c3be1a0ae0",
+  "https://i.scdn.co/image/ab6761610000e5eb6220fc5e958ab498b96f5835",
+  "https://i.scdn.co/image/ab6761610000e5eb29cf7f1a56f5ff1911f6a0ef",
+  "https://sufiscore.com/wp-content/uploads/2021/02/javed-bashir-prof.jpg",
+  "https://i.scdn.co/image/ab6761610000e5ebb074074cf866ba3b3ebc09a6",
+  "https://i.scdn.co/image/ab6761610000e5ebdc9b04e1a236dddd533f2d35",
+  "https://i.scdn.co/image/fd8f374ce79d829d92ef5448fd6239a438b0d5f4",
+  "https://i.scdn.co/image/ab6761610000e5ebd1077a31f85786ff037a07e1",
+  "https://i.scdn.co/image/ab6761610000f1785e3d2b5842f55aa7f6f1c506",
+  "https://i.scdn.co/image/ab6761610000e5eb1eabab66e670e65bf1acc422",
+  "https://i.scdn.co/image/ab6761610000e5eb21a9a4198a25ad25ff3c45ff",
+  "https://static.theprint.in/wp-content/uploads/2020/06/wajid-khan-1.jpg",
+  "https://i.scdn.co/image/ab67616d0000b273cebf2f2ddcd8f29962258bf9",
+  "https://i.scdn.co/image/ab6761610000e5eb7abb8a1183f6ff5a92218fc3",
+  "https://i.scdn.co/image/ab6761610000e5eb7aa6748dcf92d2eff597f154",
+  "https://i.scdn.co/image/ab676161000051741dcbb331f2318db2dd2c6bcf",
+  "https://i.scdn.co/image/ab6761610000e5ebeba97bff36c4ae81e94333d8",
+  "https://i.scdn.co/image/ab67616d0000b273b6c681dcfe4398b523bc2bbe",
+  "https://i.scdn.co/image/ab6761610000e5eb90b6c3d093f9b02aad628eaf",
+  "https://i.scdn.co/image/ab6761610000e5eb0dd274246ecf6019bfac1aef",
+  "https://i.scdn.co/image/ab6761610000e5eb47b943824370b9eb2fb9607f",
+  "https://i.scdn.co/image/ab676161000051749b3f033df7aee564e1e8b95b"
+];
+
 
 const songCardInnerHtml=`
 <div class="songCard">
@@ -866,4 +918,39 @@ const songCardInnerHtml=`
         </div>
         </div>`;
 //------------------
-       
+
+const artistCardhtml=`
+<img src="" class="playlist-thumb" />
+<div class="textforartist">
+  <p class="artistname"></p>
+  <p class="thumbnaillabel">Artist</p>
+</div>
+`
+
+
+
+
+
+
+
+
+
+
+
+
+// let strArr1=["sita","gita","ram"];
+// let strArr2=["raghav","ram","aman"];
+
+// strArr2.forEach((el)=>{
+//    if(strArr1.includes(el)){
+//     return
+//   } 
+//    else {
+//     strArr1[strArr1.length]=el
+//    }
+//    })
+
+
+
+
+

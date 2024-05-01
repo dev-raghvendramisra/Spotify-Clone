@@ -416,6 +416,37 @@ function updateVbar(evt,vbarTargetAreaWidth,finalWidth){
   }
 }
 
+function mainSearchBarFunctionality(evt){
+  if(mainWindowSearchBar.value.length>=13){return;}
+  mainWindowSearchResult.style.display="none";
+  mainWindowSearchDefault.style.display="block";
+  mainWindowSearchFail.style.display="flex";
+  mainWindowSearchFail.querySelector("h3").innerText=`Couldn't find "${evt.target.value}"❗ `;
+
+  let allCards=document.querySelectorAll(".search-songCard");
+   allCards.forEach((card)=>{
+    if(evt.target.value!==""){
+    if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
+      card.style.display="flex";
+      mainWindowSearchFail.style.display="none";
+      mainWindowSearchDefault.style.display="none";
+      mainWindowSearchResult.style.display="block";
+      mainCancelBtn.style.pointerEvents="all";
+      mainCancelBtn.style.color="white";
+
+    }
+    else{
+      card.style.display="none";
+     }
+    }
+  else if(evt.target.value==""){
+    mainWindowSearchResult.style.display="none";
+    mainWindowSearchDefault.style.display="block";
+    mainWindowSearchFail.style.display="none";
+  } })
+   
+}
+
 function updateSearchCard(){
   let allSearchCards = document.querySelectorAll(".search-songCard");
   allSearchCards[prevSong].style.backgroundColor = "";
@@ -428,3 +459,33 @@ allSearchCards[crrSong].querySelector(".bars").style.display="flex";
 allSearchCards[crrSong].querySelector("#nowPlayingPlayIcon").style.display="none";
 
 }
+
+function artistArrayGenerate(){
+  let artistArray=[];
+    
+  songDetails.forEach((songData)=>{
+    let comparableArr=songData.description.split(", ");
+    comparableArr.forEach(crrEl => {
+     if( artistArray.includes(crrEl)){return;}else artistArray.push(crrEl);
+    });
+  });
+
+  return artistArray;
+}
+
+function createArtistCard(){
+  artistArray.forEach((artistName,idx)=>{
+    let artistCard=document.createElement("div");
+    artistCard.classList.add("artistsideblock1");
+    artistCard.innerHTML=artistCardhtml;
+    artistCard.querySelector("img").src=profilePictureUrls[idx];
+    artistCard.querySelector(".artistname").innerText=artistName;
+    let sidebarFaliure=document.querySelector(".failedtosearch");
+    document.querySelector(".defaultlistings").append(artistCard,sidebarFaliure);
+    
+  })
+ 
+  
+}
+artistArray=artistArrayGenerate();
+createArtistCard();
