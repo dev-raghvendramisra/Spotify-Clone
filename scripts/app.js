@@ -101,6 +101,7 @@ function displayLoadedContent() {
   mainWindowLoader.style.opacity = "0";
   setTimeout(() => {
     mainWindowLoader.style.display = "none";
+    document.querySelector(".mainNav").style.zIndex="3";
   }, 1000);
 }
 

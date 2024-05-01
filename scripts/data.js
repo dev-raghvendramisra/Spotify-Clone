@@ -559,7 +559,7 @@ const playlist = [
   "tracks/athmaRama.mp3",
   "tracks/ben10.mp3",
   "tracks/humkaPeeniHai.mp3",
-  "tracks/miAmor.mp3",
+  "tracks/aaogeTumKabhi.mp3",
   "tracks/tujheSochtaHun.mp3",
   "tracks/chaudhary.mp3",
   "tracks/tereNainoMein.mp3",
@@ -801,12 +801,12 @@ let songDetails =[
     src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924"
   },
   {
-    album: "Mi Amor",
-    description: "Sharn, 40k, The Paul",
-    duration: "03:23",
-    fullName: "Mi Amor",
-    name: "Mi Amor",
-    src: "https://i.scdn.co/image/ab67616d00001e02050aa2ba1ea0f6b96f4de231"
+    album: "The Local Train",
+    description: "The Local Train",
+    duration: "05:13",
+    fullName: "Aaoge Tum Kabhi",
+    name: "Aaoge Tum Kabhi",
+    src: "https://i.scdn.co/image/ab67616d0000b2738e001d2d4b55039b545d047e"
   },
   {
     album: "Jannat 2",
