@@ -548,6 +548,15 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNowPlayingWindow();
       cardBtnUpdate();
       updateMeta();
+      document.querySelector(".thumbnaillabel").innerText=`Playlist • ${playlist.length} songs`;
+      document.getElementById("defaultsongs").addEventListener("click",()=>{
+        tabUpdateForSearch();
+      if (history.state == null || history.state.page == "home") {
+        history.pushState({ page: "search" }, null, "/search");
+        navIconUpdate();
+      }
+        displayArtistSongs("");
+       })
   
 });
 

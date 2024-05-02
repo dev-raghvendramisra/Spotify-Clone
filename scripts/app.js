@@ -53,6 +53,7 @@ function assignId() {
   artistName.forEach((text) => {
     ids = text.innerText.split(" ").join("").toLowerCase();
     text.parentElement.parentElement.setAttribute("id", ids);
+
     text.parentElement.parentElement.addEventListener("click", (evt) => {
       tabUpdateForSearch();
       if (history.state == null || history.state.page == "home") {
@@ -71,11 +72,55 @@ function assignId() {
   let playlistId = playlistName.innerText.split(" ").join("").toLowerCase();
   divIds[i] = playlistId;
   playlistName.parentElement.parentElement.setAttribute("id", playlistId);
+  elemsOriginalOrder();
 }
 
 function elemsOriginalOrder() {
-  document.querySelector(".defaultlistings").innerHTML = "";
-  document.querySelector(".defaultlistings").innerHTML = originalListings;
+ let defaultlistings= document.querySelector(".defaultlistings");
+ let failedtosearch= document.querySelector(".failedtosearch");
+  let playlisBlock = document.getElementById("defaultsongs");
+  let artistBlocks = document.querySelectorAll(".artistsideblock1");
+  divIds=divIds.sort();
+  defaultlistings.append(playlisBlock);
+  divIds.forEach((id)=>{
+       artistBlocks.forEach((block)=>{
+        if(block.id==id){
+          defaultlistings.append(block,failedtosearch)
+        }
+        else {
+          return;
+        }
+       })
+  })
+
+
+
+  // setTimeout(()=>{
+  //   let artistBlocks=document.querySelectorAll(".artistsideblock1");
+  //   artistBlocks.forEach((block)=>{
+  //     console.log("event added");
+  //     block.removeEventListener("click",(evt)=>{
+  //             mainWindowSearchBar.value = block.getAttribute("id");
+  //             tabUpdateForSearch();
+  //             displayArtistSongs(mainWindowSearchBar.value);
+  //             if (history.state == null || history.state.page == "home") {
+  //               history.pushState({ page: "search" }, null, "/search");
+  //               navIconUpdate();
+  //             } 
+  //     })
+  //     block.addEventListener("click",(evt)=>{
+  //             mainWindowSearchBar.value = block.getAttribute("id");
+  //             tabUpdateForSearch();
+  //             displayArtistSongs(mainWindowSearchBar.value);
+  //             if (history.state == null || history.state.page == "home") {
+  //               history.pushState({ page: "search" }, null, "/search");
+  //               navIconUpdate();
+  //             } 
+  //     })
+  //   })
+
+  // },0)
+  
 }
 
 function navBgSet() {
