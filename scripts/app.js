@@ -16,11 +16,11 @@ let divIds = [];
 let i = 0;
 let mainWindow = document.querySelector(".mainwindow");
 let upperCardList = document.querySelectorAll(".uppercard");
-let mainCancelBtn=document.querySelector("#mainSearchCancelBtn");
-let  mainWindowSearchFail=document.querySelector(".mainWindowSearchFail");
+let mainCancelBtn = document.querySelector("#mainSearchCancelBtn");
+let mainWindowSearchFail = document.querySelector(".mainWindowSearchFail");
 let mainWindowBgColor = "none";
 let minScrollVal = 40;
-let isFocused=false;
+let isFocused = false;
 
 // function definitions.
 
@@ -52,13 +52,17 @@ function showResults() {
 function assignId() {
   artistName.forEach((text) => {
     ids = text.innerText.split(" ").join("").toLowerCase();
-    text.parentElement.parentElement.setAttribute("id", ids);    
-    text.parentElement.parentElement.addEventListener("click",(evt)=>{
+    text.parentElement.parentElement.setAttribute("id", ids);
+    text.parentElement.parentElement.addEventListener("click", (evt) => {
+      tabUpdateForSearch();
+      if (history.state == null || history.state.page == "home") {
+        history.pushState({ page: "search" }, null, "/search");
+        navIconUpdate();
+      }
+      mainWindowSearchBar.value = text.parentElement.parentElement.getAttribute("id");
+      displayArtistSongs(mainWindowSearchBar.value);
 
-       mainWindowSearchBar.value=text.parentElement.parentElement.getAttribute("id");
-    
-       
-    })    
+    })
 
     divIds[i] = ids;
     i++;
@@ -79,18 +83,19 @@ function navBgSet() {
     if (mainWindowBgColor == "none") {
       mainWindowBgColor = "rgb(32, 32, 32)";
     }
-    if(location.pathname=="/search"){
+    if (location.pathname == "/search") {
       mainWindowBgColor = "rgb(32, 32, 32)";
     }
     document.querySelector(".mainNav").style.backgroundColor =
       mainWindowBgColor;
     document.querySelector(".mainNav").style.boxShadow =
       "0px 40px 80px -8px rgba(0, 0, 0, 0.452)";
-    
+
   } else if (minScrollVal > mainWindow.scrollTop) {
     document.querySelector(".mainNav").style.backgroundColor = "transparent";
     document.querySelector(".mainNav").style.boxShadow = "none";
-  }}
+  }
+}
 
 function displayLoadedContent() {
   updateMusicBarBg();
@@ -108,7 +113,7 @@ function displayLoadedContent() {
   mainWindowLoader.style.opacity = "0";
   setTimeout(() => {
     mainWindowLoader.style.display = "none";
-    document.querySelector(".mainNav").style.zIndex="3";
+    document.querySelector(".mainNav").style.zIndex = "3";
   }, 1000);
 }
 
@@ -253,24 +258,25 @@ function updateMusicBarBg() {
   }
 }
 
-function sidebarOpenClose(){
-  if(!openedInMobile){
-  if (btnclicked == false) {
-    styling.innerHTML = sideBarCollapsedStyling;
-    if(isResized){styling.append(".defaultlistings::before{top:29%}")}
-    document.head.append(styling);
-    icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
-    btnclicked = true;
-    document.querySelector(".logo").src = "meta/logo1.png";
-    localStorage.setItem("isSidebarCollapsed",true);
-  } else if (btnclicked == true) {
-    styling.innerHTML = "";
-    icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
-    btnclicked = false;
-    document.querySelector(".logo").src = "meta/logo.png";
-   localStorage.setItem("isSidebarCollapsed",false);
+function sidebarOpenClose() {
+  if (!openedInMobile) {
+    if (btnclicked == false) {
+      styling.innerHTML = sideBarCollapsedStyling;
+      if (isResized) { styling.append(".defaultlistings::before{top:29%}") }
+      document.head.append(styling);
+      icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
+      btnclicked = true;
+      document.querySelector(".logo").src = "meta/logo1.png";
+      localStorage.setItem("isSidebarCollapsed", true);
+    } else if (btnclicked == true) {
+      styling.innerHTML = "";
+      icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
+      btnclicked = false;
+      document.querySelector(".logo").src = "meta/logo.png";
+      localStorage.setItem("isSidebarCollapsed", false);
+    }
   }
-}}
+}
 
 // Main code block, statements written in the sequence of execution.
 assignId();
@@ -287,9 +293,9 @@ btn.addEventListener("click", () => {
 
 searchBtn.addEventListener("click", (evt) => {
   evt.preventDefault();
-  if(openedInMobile) return;
+  if (openedInMobile) return;
   searchBoxOpen = !searchBoxOpen;
-  
+
   if (searchBoxOpen) {
     searchBox.style.display = "initial";
 
@@ -309,16 +315,17 @@ searchBtn.addEventListener("click", (evt) => {
           document.getElementById(`${divs}`).style.opacity = "1";
         }
         elemsOriginalOrder();
-        crossIcon.style.display = "none";});
+        crossIcon.style.display = "none";
+      });
     });
     searchBtn.classList.add("buttonclicked");
   }
-  else if(!searchBoxOpen){
+  else if (!searchBoxOpen) {
     searchBox.style.display = "none";
     searchBtn.classList.remove("buttonclicked");
-    
+
   }
-  
+
 });
 
 upperCardList.forEach((value, idx) => {
@@ -387,8 +394,8 @@ searchBox.addEventListener("focus", () => {
   })
 });
 
-document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
-  evt.target.style.borderColor="white";
+document.querySelector("#mainSearchBar").addEventListener("focus", (evt) => {
+  evt.target.style.borderColor = "white";
   document.getElementById("mainSearchBtn").style.borderColor = "white";
   mainCancelBtn.style.borderColor = "white";
   document.getElementById("mainSearchBtn").style.color = "white";
@@ -396,44 +403,42 @@ document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
   mainCancelBtn.style.borderLeftColor = "transparent";
 });
 
-mainCancelBtn.addEventListener("click",(evt)=>{
-  mainWindowSearchBar.value="";
-  mainWindowSearchResult.style.display="none";
-  mainWindowSearchDefault.style.display="block";
-  mainWindowSearchFail.style.display="none";
-  evt.target.style.color="transparent";
-  evt.target.style.pointerEvents="none";
-}) ; 
-
-mainWindowSearchBar.addEventListener("input",(evt)=>{
-  mainSearchBarFunctionality(evt);
+mainCancelBtn.addEventListener("click", (evt) => {
+  mainWindowSearchBar.value = "";
+  mainWindowSearchResult.style.display = "none";
+  mainWindowSearchDefault.style.display = "block";
+  mainWindowSearchFail.style.display = "none";
+  evt.target.style.color = "transparent";
+  evt.target.style.pointerEvents = "none";
 });
 
-mainWindowSearchBar.addEventListener("change",(evt)=>{
-  mainSearchBarFunctionality(evt);
+mainWindowSearchBar.addEventListener("input", (evt) => {
+    mainSearchBarFunctionality(evt);
 });
 
-window.addEventListener("keydown",(evt)=>{
-  let vbarWidth=vbar.style.width;
-  if(evt.key=="ArrowUp"){
-    if(Audio.volume<1)
-    {
 
-    vbarWidth=vbarWidth.replace("%","");
-    vbarWidth=parseInt(vbarWidth)+10;
-    vbarWidth=vbarWidth;
-    updateVbar(null,null,vbarWidth)
-  }
+
+window.addEventListener("keydown", (evt) => {
+  let vbarWidth = vbar.style.width;
+  if (evt.key == "ArrowUp") {
+    if (Audio.volume < 1) {
+
+      vbarWidth = vbarWidth.replace("%", "");
+      vbarWidth = parseInt(vbarWidth) + 10;
+      vbarWidth = vbarWidth;
+      updateVbar(null, null, vbarWidth)
+    }
 
   }
 
-  else if(evt.key=="ArrowDown"){
-    if(Audio.volume>0){
+  else if (evt.key == "ArrowDown") {
+    if (Audio.volume > 0) {
 
-    vbarWidth=vbarWidth.replace("%","");
-    vbarWidth=parseInt(vbarWidth)-10;
-    vbarWidth=vbarWidth;
-    updateVbar(null,null,vbarWidth)
-  }}
+      vbarWidth = vbarWidth.replace("%", "");
+      vbarWidth = parseInt(vbarWidth) - 10;
+      vbarWidth = vbarWidth;
+      updateVbar(null, null, vbarWidth)
+    }
+  }
 }
 );

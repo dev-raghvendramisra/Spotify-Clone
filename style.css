@@ -443,6 +443,7 @@ form {
 
 .defaultlistings {
   height: 55vh;
+  height: 37vh;
   overflow: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -1415,7 +1416,7 @@ body {
   height: 100vh;
   width: 22vw;
   right: 0;
-  z-index: 3;
+  z-index: 4;
   padding: 1.5vw 1.5vw;
   color: #ffffff;
   overflow-y: scroll;

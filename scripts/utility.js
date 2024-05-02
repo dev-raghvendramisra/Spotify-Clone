@@ -426,18 +426,9 @@ function mainSearchBarFunctionality(evt){
   let allCards=document.querySelectorAll(".search-songCard");
    allCards.forEach((card)=>{
     if(evt.target.value!==""){
-    if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
-      card.style.display="flex";
-      mainWindowSearchFail.style.display="none";
-      mainWindowSearchDefault.style.display="none";
-      mainWindowSearchResult.style.display="block";
-      mainCancelBtn.style.pointerEvents="all";
-      mainCancelBtn.style.color="white";
-
-    }
-    else{
-      card.style.display="none";
-     }
+      let condition=card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""));
+      cardDisplayOnMatchingWithSearchBarVal(condition,card);
+    
     }
   else if(evt.target.value==""){
     mainWindowSearchResult.style.display="none";
@@ -489,3 +480,29 @@ function createArtistCard(){
 }
 artistArray=artistArrayGenerate();
 createArtistCard();
+
+
+function displayArtistSongs(searchValue){
+  let allSearchCards = document.querySelectorAll(".search-songCard");
+  allSearchCards.forEach((card)=>{
+    let condition;
+    if(card.id.indexOf(searchValue)!==-1)condition=true;
+     cardDisplayOnMatchingWithSearchBarVal(condition,card)
+  })
+}
+
+
+function cardDisplayOnMatchingWithSearchBarVal(condition,card){
+  if(condition){
+    card.style.display="flex";
+    mainWindowSearchFail.style.display="none";
+    mainWindowSearchDefault.style.display="none";
+    mainWindowSearchResult.style.display="block";
+    mainCancelBtn.style.pointerEvents="all";
+    mainCancelBtn.style.color="white";
+
+  }
+  else{
+    card.style.display="none";
+   }
+}
