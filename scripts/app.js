@@ -93,34 +93,6 @@ function elemsOriginalOrder() {
        })
   })
 
-
-
-  // setTimeout(()=>{
-  //   let artistBlocks=document.querySelectorAll(".artistsideblock1");
-  //   artistBlocks.forEach((block)=>{
-  //     console.log("event added");
-  //     block.removeEventListener("click",(evt)=>{
-  //             mainWindowSearchBar.value = block.getAttribute("id");
-  //             tabUpdateForSearch();
-  //             displayArtistSongs(mainWindowSearchBar.value);
-  //             if (history.state == null || history.state.page == "home") {
-  //               history.pushState({ page: "search" }, null, "/search");
-  //               navIconUpdate();
-  //             } 
-  //     })
-  //     block.addEventListener("click",(evt)=>{
-  //             mainWindowSearchBar.value = block.getAttribute("id");
-  //             tabUpdateForSearch();
-  //             displayArtistSongs(mainWindowSearchBar.value);
-  //             if (history.state == null || history.state.page == "home") {
-  //               history.pushState({ page: "search" }, null, "/search");
-  //               navIconUpdate();
-  //             } 
-  //     })
-  //   })
-
-  // },0)
-  
 }
 
 function navBgSet() {

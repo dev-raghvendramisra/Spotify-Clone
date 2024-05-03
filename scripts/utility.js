@@ -466,6 +466,7 @@ function mainSearchBarFunctionality(evt){
     mainWindowSearchResult.style.display="none";
     mainWindowSearchDefault.style.display="block";
     mainWindowSearchFail.style.display="none";
+    elemsOriginalOrder();
   } })
    
 }
@@ -553,12 +554,3 @@ mainWindowSearchBar.addEventListener("blur",()=>{
   mainSearchBarFocus=false;
 }
 )
-
-
-// let wrapperForResultName=document.querySelectorAll(".result-songNameWrapper");
-// wrapperForResultName.forEach((wrapper)=>{
-//   console.log("width exceeding");
-//   console.log("scroll width:",wrapper.scrollWidth);
-//   console.log("scroll width:",wrapper.clientWidth);
-//   console.log("\n");
-//   })

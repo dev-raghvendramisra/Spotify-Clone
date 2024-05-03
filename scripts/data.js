@@ -7,7 +7,7 @@ let mainSearchBarFocus=false;
 let openedInMobile = false;
 const widthForMobileCardsCluttering = 740;
 let artistArray=[];
-
+let userDevice;
 const homeTabContainer=document.querySelector(".mainwindow-cont-wrapper-home");
 const searchTabContainer=document.querySelector(".mainwindow-cont-wrapper-search");
 const stylingForSearchTab=`
@@ -962,4 +962,20 @@ let currentWidth = window.innerWidth;
 
   if (currentWidth <= widthForMobileCardsCluttering) {
     openedInMobile=true;
+  }
+
+  if(localStorage.getItem("device")){
+    userDevice=localStorage.getItem("device");
+  }
+  else {
+    if(window.innerWidth>widthForMobileCardsCluttering){
+      localStorage.setItem("device","pc");
+      userDevice=localStorage.getItem("device");
+
+    }
+    else if(window.innerWidth<=widthForMobileCardsCluttering){
+      localStorage.setItem("device","mob");
+      userDevice=localStorage.getItem("device");
+
+    }
   }

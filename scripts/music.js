@@ -760,31 +760,7 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   crrSongDetailsUpdate();
 });
 
-// window.addEventListener("resize", () => {
-//   if (initialWindowWidth <= widthForMobileCardsCluttering) {
-//     if (
-//       mainWindow.addEventListener("scroll", () => {
-//         return true;
-//       })
-//     ) {
-//     } else {
-//       if(!isFocused){
-//         if(mainSearchBarFocus){
-//           location.reload();
-//           clutterCards();
-//         }
-        
-//       }
-    
-      
-     
-//     }
-//   } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
-//     if (window.innerWidth <= widthForMobileCardsCluttering) {
-//       location.reload();
-//     }
-//   }
-// });
+
 
 if (!isMusicBarOpened) {
   document.querySelector("#followme").addEventListener("click", () => {
@@ -819,3 +795,25 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
 
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
 
+window.addEventListener("resize",()=>{
+  
+    if(window.innerWidth>widthForMobileCardsCluttering){
+      if(userDevice=="mob"){
+        localStorage.setItem("device","pc");
+
+      location.reload();
+    }
+      else if(userDevice=="pc"){
+      return;
+    } 
+    }
+    if(window.innerWidth<=widthForMobileCardsCluttering){
+      if(userDevice=="pc"){
+        localStorage.setItem("device","mob");
+        location.reload();
+      }
+      else if(userDevice=="mob"){
+        return;
+      }
+    }
+})
