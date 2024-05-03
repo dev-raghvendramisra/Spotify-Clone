@@ -2653,7 +2653,8 @@ text-align: right;
 }
 
 .result-songArtists {
-  font-size: calc(4.5vw/1.689);
+  font-size: calc(5vw/1.689);
+  width:125%;
 }
 .search-songCardAlbum {
   display: none;
