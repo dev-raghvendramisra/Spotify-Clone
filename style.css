@@ -2378,7 +2378,6 @@ display:none;
 
 #charts{
   padding-top:0;
-  padding-left:3.5vmin;
   margin-top:0;
 
 }
@@ -2387,9 +2386,9 @@ display:none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding:0 3vmin;
 }
 #hamburger{
-  padding-right:4vmin;
   font-size:8vw;
   color:white;
 }
@@ -2466,6 +2465,9 @@ form{
 #searchicons-svg2:active {
   color: white;
 
+}
+.mainwindow-cont-wrapper{
+  margin-top:9vw;
 }
 
 .wrapperForlogo{
@@ -2559,7 +2561,125 @@ border-radius:50vw;
     padding-left:6.3vw;
     padding-top:1.5vh;
   }
+  
+  #mainSearchBar{
+    padding: 3vw 0;
+    width:50vw;
+    font-size:3.8vw;
+  }
+  #mainSearchBar::placeholder{
+    
+    font-size:3.8vw;
+  }
 
+  #mainSearchCancelBtn{
+    padding: 2.6vw;
+    font-size:5.2vw;
+  }
+  #mainSearchBtn{
+    padding: 3.2vw;
+    font-size:4vw;
+  }
+  .defaultCardRows{
+    justify-content: center;
+    gap:3vw;
+    margin-top:3vw;
+  }
+  .defaultCard{
+    height:30vw;
+    width:45vw;
+    border-radius: 4vw;
+  }
+  .defaultCard-img{
+    height: 20vw;
+    width: 20vw;
+    top: 41%;
+    right: -6%;
+
+    
+  }
+  .defaultCard-label{
+    font-size:5vw;
+    margin:2vw;
+  }
+  .result-songDur {
+    font-size: calc(6vw/1.689);
+margin-right: 0;
+width: 40%;
+text-align: right;
+}
+.searchSongImgCont{
+  aspect-ratio: 1;
+  height:15vw;
+  width:15vw;
+}
+.search-songCard{
+  height:17vw;
+}
+.contForSongDetails{
+  width:60%;
+  gap:2vw;
+}
+.search-songCardAlbum{
+  width:30%;
+}
+/* .search-songCardText{
+
+} */
+.result-songName{
+  font-size:5vw;
+  white-space: nowrap;
+  width: fit-content;
+  
+}
+.result-songNameWrapper{
+  overflow: hidden;
+  width:35vw;
+  position: relative;
+}
+.result-songNameWrapperOnScrolling::before{
+  position:absolute;
+  content:" ";
+  top:0;
+  right:0;
+  height: 100%;
+  width:25%;
+  z-index:2;
+  background-image:linear-gradient(to left, hsl(0 0% 10% / 1) 10%, transparent);
+}
+.result-songNameWrapperOnScrollingSel::before{
+  background-image: linear-gradient(to left, hsl(0 4% 15% / 1) 10%, transparent);
+
+}
+
+.result-songArtists {
+  font-size: calc(4.5vw/1.689);
+}
+.search-songCardAlbum {
+  display: none;
+}
+.search-songCard{
+  margin: 3vw auto;
+  width: 83%;
+padding: 3vw;
+border-color: rgba(255, 255, 255, 0.281);
+border-radius: 4.5vw;
+}
+.labelsForResultsCont{
+  display: none;
+}
+.mainwindow-search-results{position: relative;}
+.mainwindow-search-resultsEnableBef::before{
+position: sticky;
+content: "";
+top:-1px;
+display: block;
+left:0;
+z-index:2;
+height:10%;
+width:100%;
+background-image: linear-gradient(to bottom,#1F1F1F 10%, transparent);
+}
 }
 
 .defaultlistings::before {

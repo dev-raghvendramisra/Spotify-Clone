@@ -3,6 +3,9 @@ let tempAudio=document.querySelector("#tempAudioEl");
 const mainWindowSearchBar = document.getElementById("mainSearchBar");
 const mainWindowSearchDefault = document.querySelector(".mainwindow-search-default");
 const mainWindowSearchResult = document.querySelector(".mainwindow-search-results");
+let mainSearchBarFocus=false;
+let openedInMobile = false;
+const widthForMobileCardsCluttering = 740;
 let artistArray=[];
 
 const homeTabContainer=document.querySelector(".mainwindow-cont-wrapper-home");
@@ -882,7 +885,7 @@ let profilePictureUrls = [
   "https://i.scdn.co/image/ab6761610000e5ebc58e9665446297c3be1a0ae0",
   "https://i.scdn.co/image/ab6761610000e5eb6220fc5e958ab498b96f5835",
   "https://i.scdn.co/image/ab6761610000e5eb29cf7f1a56f5ff1911f6a0ef",
-  "https://sufiscore.com/wp-content/uploads/2021/02/javed-bashir-prof.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcfcRTJlbY-eN-2Pk8lhzEYDnbNoS6oWLT0UKPqbfQTfbGmIj0",
   "https://i.scdn.co/image/ab6761610000e5ebb074074cf866ba3b3ebc09a6",
   "https://i.scdn.co/image/ab6761610000e5ebdc9b04e1a236dddd533f2d35",
   "https://i.scdn.co/image/fd8f374ce79d829d92ef5448fd6239a438b0d5f4",
@@ -954,3 +957,9 @@ const artistCardhtml=`
 
 
 
+
+let currentWidth = window.innerWidth;
+
+  if (currentWidth <= widthForMobileCardsCluttering) {
+    openedInMobile=true;
+  }

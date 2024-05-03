@@ -23,7 +23,7 @@ const nowPlayingSongArtist = document.querySelector(".nowPlayingSongArtist");
 const inQueueSongsCont = document.querySelector(".inQueueSongs");
 const nowPlayingVeiwBtn = document.querySelector("#sideControls-veiw");
 let wrapperForMusicBar = document.querySelector(".wrapperForMusicBar");
-const widthForMobileCardsCluttering = 740;
+
 const initialWindowWidth = window.innerWidth;
 const initialWindowHeight = window.innerHeight;
 let resizedStyling;
@@ -43,7 +43,7 @@ let isVDragging = false;
 let isLooping = false;
 let prevSong = 0;
 let nowPlayingOpened = false;
-let openedInMobile = false;
+
 let isConstructed = false;
 let isMusicBarOpened = false;
 
@@ -760,27 +760,31 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   crrSongDetailsUpdate();
 });
 
-window.addEventListener("resize", () => {
-  if (initialWindowWidth <= widthForMobileCardsCluttering) {
-    if (
-      mainWindow.addEventListener("scroll", () => {
-        return true;
-      })
-    ) {
-    } else {
-      if(!isFocused){
-        location.reload();
-        clutterCards();
-      }
+// window.addEventListener("resize", () => {
+//   if (initialWindowWidth <= widthForMobileCardsCluttering) {
+//     if (
+//       mainWindow.addEventListener("scroll", () => {
+//         return true;
+//       })
+//     ) {
+//     } else {
+//       if(!isFocused){
+//         if(mainSearchBarFocus){
+//           location.reload();
+//           clutterCards();
+//         }
+        
+//       }
+    
       
      
-    }
-  } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
-    if (window.innerWidth <= widthForMobileCardsCluttering) {
-      location.reload();
-    }
-  }
-});
+//     }
+//   } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
+//     if (window.innerWidth <= widthForMobileCardsCluttering) {
+//       location.reload();
+//     }
+//   }
+// });
 
 if (!isMusicBarOpened) {
   document.querySelector("#followme").addEventListener("click", () => {
@@ -809,6 +813,9 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
     evt.target.classList.remove("displayForBefore");
   }
 })
+
+
+
 
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
 

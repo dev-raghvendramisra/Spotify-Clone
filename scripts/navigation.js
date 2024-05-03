@@ -14,8 +14,15 @@ function tabUpdateForSearch() {
   stylingForTabs.innerText = stylingForSearchTab;
   if (openedInMobile) {
     document.querySelector(".sidebar").style.transform = "translate(-100%,0)";
+    let chartsHeader=document.querySelector("#charts");
+    chartsHeader.style.display = "none";
+    let mainSearchBarCont=document.querySelector(".mainSearchBarCont");
+    chartsHeader.parentElement.prepend(mainSearchBarCont);
+    mainSearchBarCont.style.display = "flex";
+    
   }
-  createDefaultCards();
+  if(openedInMobile)createDefaultCards(num=2);
+  else createDefaultCards(num=9);
 }
 function tabUpdateForHome() {
   stylingForTabs.innerText = "";
@@ -24,6 +31,10 @@ function tabUpdateForHome() {
   stylingForTabs.innerText = stylingForHomeTab;
   if (openedInMobile) {
     document.querySelector(".sidebar").style.transform = "translate(-100%,0)";
+    let chartsHeader=document.querySelector("#charts");
+    let mainSearchBarCont=document.querySelector(".mainSearchBarCont");
+    chartsHeader.style.display = "initial";
+    mainSearchBarCont.style.display = "none";
   }
 }
 

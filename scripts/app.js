@@ -445,7 +445,7 @@ document.querySelector("#mainSearchBar").addEventListener("focus", (evt) => {
   mainCancelBtn.style.borderColor = "white";
   document.getElementById("mainSearchBtn").style.color = "white";
   document.getElementById("mainSearchBtn").style.borderRightColor = "transparent";
-  mainCancelBtn.style.borderLeftColor = "transparent";
+ 
 });
 
 mainCancelBtn.addEventListener("click", (evt) => {
@@ -458,6 +458,9 @@ mainCancelBtn.addEventListener("click", (evt) => {
 });
 
 mainWindowSearchBar.addEventListener("input", (evt) => {
+ 
+  mainCancelBtn.style.color = "white";
+ mainCancelBtn.style.borderLeftColor = "transparent";
     mainSearchBarFunctionality(evt);
 });
 
@@ -487,3 +490,12 @@ window.addEventListener("keydown", (evt) => {
   }
 }
 );
+
+document.querySelector(".mainwindow-search-results").addEventListener("scroll",()=>{
+  if(document.querySelector(".mainwindow-search-results").scrollTop>5){
+    document.querySelector(".mainwindow-search-results").classList.add("mainwindow-search-resultsEnableBef");
+  }
+  else if(document.querySelector(".mainwindow-search-results").scrollTop<5){
+    document.querySelector(".mainwindow-search-results").classList.remove("mainwindow-search-resultsEnableBef");
+  }
+})

@@ -204,11 +204,11 @@ function startTouching() {
   });
 }
 
-function createDefaultCards() {
+function createDefaultCards(num) {
   if(!document.querySelector(".defaultCardRows")){
 
   defaultCardsData.forEach((card, idx) => {
-    if (idx % 9 === 0) {
+    if (idx % num === 0) {
       let cardRow = document.createElement("div");
       cardRow.setAttribute("class", "defaultCardRows");
       document.querySelector(".mainwindow-search-default").append(cardRow);
@@ -216,7 +216,7 @@ function createDefaultCards() {
 
     let defaultCard = cardCreation(card);
     defaultCard.setAttribute("draggable", "false");
-    let rowIdx = Math.floor(idx / 9); // Determine which row to append the card to
+    let rowIdx = Math.floor(idx / num); // Determine which row to append the card to
 
     let cardRows = document.querySelectorAll(".defaultCardRows");
     cardRows[rowIdx].append(defaultCard);
@@ -315,20 +315,51 @@ function searchSongCardCreation(songData){
  let resultsSongAlbum=document.createElement("p");
  resultsSongAlbum.setAttribute("class","search-songCardAlbum");
 
+ let wrapperForResultName=document.createElement("div");  //optional element for scrolling text
  //Appending the created elements to the main search card
 
- searchSongCardText.append(resultsSongName,resultsSongArtists);
+
+ 
+ 
+ 
+ 
+ //filling the search card with data
+ 
+ searchSongImgCont.style.backgroundImage=`url(${songData.src})`
+ resultsSongName.innerText=songData.name;
+ resultsSongArtists.innerText=songData.description;
+ resultsSongDuration.innerText=songData.duration;
+ resultsSongAlbum.innerText=songData.album;
+ 
+ 
+ 
+ 
+
  wrapperForSongDetails.append(searchSongImgCont,searchSongCardText);
  searchCard.append(wrapperForSongDetails,resultsSongDuration,resultsSongAlbum);
+ 
+ if(openedInMobile){
+  searchSongCardText.append(wrapperForResultName,resultsSongArtists);
+  wrapperForResultName.append(resultsSongName);
+  wrapperForResultName.setAttribute("class","result-songNameWrapper");
 
- //filling the search card with data
 
- searchSongImgCont.style.backgroundImage=`url(${songData.src})`
-resultsSongName.innerText=songData.name;
-resultsSongArtists.innerText=songData.description;
-resultsSongDuration.innerText=songData.duration;
-resultsSongAlbum.innerText=songData.album;
-let id="";
+//  if(wrapperForResultName.scrollWidth>wrapperForResultName.clientWidth){
+  if(1){
+    // console.log("width exceeding");
+    // console.log("scroll width:",wrapperForResultName.scrollWidth);
+    // console.log("scroll width:",wrapperForResultName.clientWidth);
+    // console.log("\n");
+    wrapperForResultName.classList.add("result-songNameWrapperOnScrolling");
+    // resultsSongName.style.animation="scroll linear 8s infinite forwards";
+   }
+ 
+ }
+ else{
+  searchSongCardText.append(resultsSongName,resultsSongArtists);
+ }
+
+  let id="";
 for(let property in songData){
   if(property==="src" || property==="fullname" ){
     continue;
@@ -350,7 +381,7 @@ function cardIdCreation(songProperties){
 return songProperties.split(" ").join("").toLowerCase().split(",").join("").split('"').join("").split("(").join("").split(")").join("");
 }
 
-getDuration();
+getDuration()
 
 window.addEventListener("keydown",(evt)=>{
   if(evt.key==" "){
@@ -431,6 +462,7 @@ function mainSearchBarFunctionality(evt){
     
     }
   else if(evt.target.value==""){
+    mainCancelBtn.style.color = "transparent";
     mainWindowSearchResult.style.display="none";
     mainWindowSearchDefault.style.display="block";
     mainWindowSearchFail.style.display="none";
@@ -448,6 +480,12 @@ allSearchCards[crrSong].style.backgroundColor = "rgb(78 76 76 / 21%)";
 allSearchCards[crrSong].querySelector(".searchSongImgCont").classList.add("searchSongImgContCrr");
 allSearchCards[crrSong].querySelector(".bars").style.display="flex";
 allSearchCards[crrSong].querySelector("#nowPlayingPlayIcon").style.display="none";
+if(openedInMobile){
+  allSearchCards[prevSong].querySelector(".result-songNameWrapper").classList.remove("result-songNameWrapperOnScrollingSel");
+  allSearchCards[crrSong].querySelector(".result-songNameWrapper").classList.add("result-songNameWrapperOnScrollingSel");
+  
+
+}
 
 }
 
@@ -506,3 +544,21 @@ function cardDisplayOnMatchingWithSearchBarVal(condition,card){
     card.style.display="none";
    }
 }
+
+mainWindowSearchBar.addEventListener("focus",()=>{
+  mainSearchBarFocus=true;
+}
+)
+mainWindowSearchBar.addEventListener("blur",()=>{
+  mainSearchBarFocus=false;
+}
+)
+
+
+// let wrapperForResultName=document.querySelectorAll(".result-songNameWrapper");
+// wrapperForResultName.forEach((wrapper)=>{
+//   console.log("width exceeding");
+//   console.log("scroll width:",wrapper.scrollWidth);
+//   console.log("scroll width:",wrapper.clientWidth);
+//   console.log("\n");
+//   })
