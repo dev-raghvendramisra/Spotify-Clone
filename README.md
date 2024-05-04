@@ -48,20 +48,23 @@ My project is an improved version of a Spotify clone, with the vision of making 
 
 ## Key Features:
 
-* 🔥 **Real-time Song Updates:** Experience real-time updates for the current song name and card details, providing users with instant access to the latest informationrs.
+* 🔥 **Real-time Song Updates:** Instantly access the latest song information with real-time updates for song names and card details, ensuring a seamless listening experience.
   
-* 🔥 **Responsive Design:** The application is fully responsive, dynamically adjusting to the size of the viewport to ensure optimal viewing and interaction across various devices and screen sizes.
+* 🔥 **Responsive Design:** Adapt fluidly to various viewport sizes, guaranteeing optimal interaction across all devices and screen dimensions.
   
-* 🔥 **Dynamic Song Card Addition:** Song cards are dynamically added based on the size of the viewport, ensuring that users can easily navigate and discover new music regardless of their device.
+* 🔥 **Dynamic Song Card Addition:** Generate song cards dynamically based on viewport size, enabling effortless navigation and discovery of new music.
   
 * 🔥 **Comprehensive Button Functionality:** All essential buttons, including loop, skip, previous, pause, and play, are fully functional, providing users with complete control over their music playback experience.
   
-* 🔥 **Progress Bar:** A progress bar displays the current playback position of the song, allowing users to visualize the progress and navigate within the track seamlessly.
+* 🔥 **Progress Bar:** Enjoy complete control over music playback with fully functional buttons for loop, skip, previous, pause, and play functions.
 
-* 🔥 **Real-time Duration Updates:** The current duration of the song is continuously updated in real-time, ensuring accurate tracking of the playback progress.
 
-* 🔥 **Volume Control:** A volume bar allows users to adjust the volume level according to their preferences, providing a customizable listening experience.
+* 🔥 **Real-time Duration Updates:** Stay informed about current song duration with continuous real-time updates, ensuring accurate tracking of playback progress.
 
+* 🔥 **Volume Control:** Customize listening experience with a volume bar, allowing precise adjustment of audio levels to suit individual preferences.
+  
+* 🔥 **Automated Content Management:** Effortlessly update song arrays, with changes instantly reflected across the application, ensuring availability of new music everywhere.
+  
 * 🔥 And much more..
 
 <br></br>
@@ -70,11 +73,21 @@ My project is an improved version of a Spotify clone, with the vision of making 
 
 ## Current progress
 
-Working on **Responsiveness**, thus its best suited for bigger screens currently!
+Working on **Backend Integration** to make it end to end functional !
 
 
-<h3>Planned Backend Integration:</h3>
-The application is planned to integrate with a typical backend soon, enabling features such as user authentication, playlist management, and personalized recommendations based on user preferences and listening history.
+## Why Vanilla JavaScript?
+
+The choice of vanilla JavaScript was deliberate, aimed at strengthening core programming concepts. By eschewing the abstractions of frameworks, developers delve deep into the fundamentals, honing their understanding of JavaScript's underlying principles. This approach not only fosters a more profound comprehension of the language but also equips developers with the versatility to adapt to different frameworks and technologies as needed.
+
+## Leveraging Core Concepts in Frameworks:
+
+Frameworks like React build upon these core JavaScript concepts, abstracting repetitive tasks and providing efficient solutions to common development challenges. By understanding the intricacies of vanilla JavaScript, developers can leverage React's component-based architecture, virtual DOM, and state management capabilities to streamline development workflows and create robust, maintainable applications. React's philosophy of "learn once, write anywhere" underscores the importance of mastering foundational JavaScript concepts, empowering developers to tackle complex projects with confidence.
+
+## Contributions and Technologies:
+
+The project meticulously addresses every minor detail, ensuring a polished user experience. Core JavaScript concepts, including integration of the Media Session API, History API, keyboard responses, and search functionality, have been meticulously implemented.
+
 
 With the vision of making it the best of all, my Spotify clone aims to offer a comprehensive music streaming experience with enhanced features and improved usability, catering to the needs of modern music enthusiasts.
 
