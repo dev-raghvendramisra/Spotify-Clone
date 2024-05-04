@@ -56,7 +56,7 @@ function assignId() {
 
     text.parentElement.parentElement.addEventListener("click", (evt) => {
       tabUpdateForSearch();
-      if (history.state == null || history.state.page == "home") {
+      if (window,history.state == null || window,history.state.page == "home") {
         history.pushState({ page: "search" }, null, "/search");
         navIconUpdate();
       }

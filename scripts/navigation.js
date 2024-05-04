@@ -40,8 +40,9 @@ function tabUpdateForHome() {
 
 searchTabBtn.addEventListener("click", () => {
   tabUpdateForSearch();
-  if( history.state==null || history.state.page=="home" ){
+  if( window.history.state==null || window.history.state.page=="home" ){
   history.pushState({ page: "search" }, null, "/search");
+  statesCovered=window.window.history.length-2;
   navIconUpdate();
 }
 });
@@ -49,15 +50,16 @@ searchTabBtn.addEventListener("click", () => {
 homeTabBtn.addEventListener("click", () => {
   
   tabUpdateForHome();
-  if(history.state.page=="search"){
+  if(window.history.state.page=="search"){
     history.pushState({ page: "home" }, null, "/");
+    statesCovered=window.window.history.length-2;
     navIconUpdate();
   }
  
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (history.state && history.state.page === "search") {
+  if (window.history.state && window.history.state.page === "search") {
      tabUpdateForSearch();
   } 
   else if(location.pathname=="/search") {
@@ -90,10 +92,11 @@ window.addEventListener("popstate", (evt) => {
     tabUpdateForSearch();
   }
   navIconUpdate();
+ 
 });
 
 prevNavBtn.addEventListener("click", () => {
-  if (history.state !== null) {
+  if (window.history.state !== null) {
     history.back();
     statesCovered--;
   }
@@ -101,12 +104,13 @@ prevNavBtn.addEventListener("click", () => {
   navIconUpdate();
 });
 nextNavBtn.addEventListener("click", () => {
-  if(statesCovered!==history.length-2){
+  if(statesCovered!==window.history.length-2){
+    
     statesCovered++;
     history.forward();
     
-  }
   
+}
   navIconUpdate();
 });
 
@@ -119,14 +123,16 @@ function navIconUpdate() {
     prevNavBtn.style.cursor = "pointer";
   }
 
-  if(statesCovered>=history.length-2){
+  if(statesCovered>=window.history.length-2){
     nextNavBtn.style.color = "rgba(255, 255, 255, 0.425)";
    nextNavBtn.style.cursor = "not-allowed";
   }
-  else if(statesCovered<history.length-2){
+  
+  else if(statesCovered<window.history.length-2){
     nextNavBtn.style.color = "rgba(255, 255, 255, 1)";
     nextNavBtn.style.cursor = "pointer";
   }
 }
 
 //<-----fix the push state and navigation functionality----->
+
