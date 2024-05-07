@@ -58,6 +58,7 @@ function assignId() {
       tabUpdateForSearch();
       if (window,history.state == null || window,history.state.page == "home") {
         history.pushState({ page: "search" }, null, "/search");
+        statesCovered=window.window.history.length-2;
         navIconUpdate();
       }
       mainWindowSearchBar.value = text.parentElement.parentElement.getAttribute("id");
