@@ -470,6 +470,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   width:95%;
+  height:10vw;
 }
 
 #bell-icon {
