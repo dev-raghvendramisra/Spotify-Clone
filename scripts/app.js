@@ -56,9 +56,9 @@ function assignId() {
 
     text.parentElement.parentElement.addEventListener("click", (evt) => {
       tabUpdateForSearch();
-      if (window.history.state == null || window.history.state.page == "home") {
+      if (window,history.state == null || window,history.state.page == "home") {
         history.pushState({ page: "search" }, null, "/search");
-        statesCovered = window.history.length-2;
+        statesCovered=window.history.length-2;
         navIconUpdate();
       }
       mainWindowSearchBar.value = text.parentElement.parentElement.getAttribute("id");
@@ -286,12 +286,27 @@ function sidebarOpenClose() {
       btnclicked = true;
       document.querySelector(".logo").src = "meta/logo1.png";
       localStorage.setItem("isSidebarCollapsed", true);
+         
+      if(nowPlayingOpened){
+        mainWindow.style.width="70vw";
+      }
+      else{
+        mainWindow.style.width="95vw";
+      }
+    
+
     } else if (btnclicked == true) {
       styling.innerHTML = "";
       icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
       btnclicked = false;
       document.querySelector(".logo").src = "meta/logo.png";
       localStorage.setItem("isSidebarCollapsed", false);
+      if(nowPlayingOpened){
+        mainWindow.style.width="48vw";
+      }
+      else{
+        mainWindow.style.width="73vw";
+      }
     }
   }
 }
