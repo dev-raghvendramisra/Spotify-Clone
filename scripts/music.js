@@ -684,12 +684,26 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#1ED760";
     nowPlayingVeiwBtn.classList.add("NowPlayingVeiwBtn");
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+    if(isSidebarCollapsed=="false"){
+    mainWindow.style.width="48vw";
+  }
+  else{
+    mainWindow.style.width="70vw";
+  }
   } else if (nowPlayingOpened) {
     nowPlayingWindow.style.transform = "translate(0 ,100%)";
     console.log("listened");
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#ffffff";
     nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+    if(isSidebarCollapsed=="false"){
+    mainWindow.style.width="73vw";
+  }
+  else{
+    mainWindow.style.width="95vw";
+  }
   }
 });
 
@@ -714,6 +728,15 @@ document.getElementById("nowPlayingClose").addEventListener("click", () => {
   nowPlayingVeiwBtn.style.color = "#ffffff";
   nowPlayingOpened = !nowPlayingOpened;
   nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
+  if(!openedInMobile){
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+
+    if(isSidebarCollapsed=="false"){
+      mainWindow.style.width="73vw";
+  }
+  else{
+    mainWindow.style.width="95vw";
+  }}
 });
 
 navigator.mediaSession.setActionHandler("play", function () {
