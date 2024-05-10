@@ -1809,6 +1809,20 @@ display:none;
   position: relative;
   z-index: 2;
 }
+.tippy-box{
+  background-color: #0d72ea;
+  padding:0;
+  border-radius: 1vw;
+}
+.tippy-arrow::before{
+color: #0d72ea;
+left:10%;
+
+}
+.tippy-arrow{
+  left:8%;
+}
+
 .contForSongDetails{display: flex;width:33%;} 
 /*<---media queries-->*/
 @media (max-width: 740px) {
