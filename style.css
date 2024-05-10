@@ -1824,6 +1824,20 @@ left:10%;
 }
 
 .contForSongDetails{display: flex;width:33%;} 
+
+.tippy-box{
+  background-color: #0d72ea;
+  padding:0;
+  border-radius: 1vw;
+}
+.tippy-arrow::before{
+color: #0d72ea;
+left:10%;
+
+}
+.tippy-arrow{
+  left:8%;
+}
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {
