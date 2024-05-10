@@ -16,11 +16,9 @@ let divIds = [];
 let i = 0;
 let mainWindow = document.querySelector(".mainwindow");
 let upperCardList = document.querySelectorAll(".uppercard");
-let mainCancelBtn = document.querySelector("#mainSearchCancelBtn");
-let mainWindowSearchFail = document.querySelector(".mainWindowSearchFail");
 let mainWindowBgColor = "none";
 let minScrollVal = 40;
-let isFocused = false;
+let isFocused=false;
 
 // function definitions.
 
@@ -53,19 +51,6 @@ function assignId() {
   artistName.forEach((text) => {
     ids = text.innerText.split(" ").join("").toLowerCase();
     text.parentElement.parentElement.setAttribute("id", ids);
-
-    text.parentElement.parentElement.addEventListener("click", (evt) => {
-      tabUpdateForSearch();
-      if (window.history.state == null || window.history.state.page == "home") {
-        history.pushState({ page: "search" }, null, "/search");
-        statesCovered=window.history.length-2;
-        navIconUpdate();
-      }
-      mainWindowSearchBar.value = text.parentElement.parentElement.getAttribute("id");
-      displayArtistSongs(mainWindowSearchBar.value);
-
-    })
-
     divIds[i] = ids;
     i++;
   });
@@ -73,27 +58,11 @@ function assignId() {
   let playlistId = playlistName.innerText.split(" ").join("").toLowerCase();
   divIds[i] = playlistId;
   playlistName.parentElement.parentElement.setAttribute("id", playlistId);
-  elemsOriginalOrder();
 }
 
 function elemsOriginalOrder() {
- let defaultlistings= document.querySelector(".defaultlistings");
- let failedtosearch= document.querySelector(".failedtosearch");
-  let playlisBlock = document.getElementById("defaultsongs");
-  let artistBlocks = document.querySelectorAll(".artistsideblock1");
-  divIds=divIds.sort();
-  defaultlistings.append(playlisBlock);
-  divIds.forEach((id)=>{
-       artistBlocks.forEach((block)=>{
-        if(block.id==id){
-          defaultlistings.append(block,failedtosearch)
-        }
-        else {
-          return;
-        }
-       })
-  })
-
+  document.querySelector(".defaultlistings").innerHTML = "";
+  document.querySelector(".defaultlistings").innerHTML = originalListings;
 }
 
 function navBgSet() {
@@ -101,19 +70,18 @@ function navBgSet() {
     if (mainWindowBgColor == "none") {
       mainWindowBgColor = "rgb(32, 32, 32)";
     }
-    if (location.pathname == "/search") {
+    if(location.pathname=="/search"){
       mainWindowBgColor = "rgb(32, 32, 32)";
     }
     document.querySelector(".mainNav").style.backgroundColor =
       mainWindowBgColor;
     document.querySelector(".mainNav").style.boxShadow =
       "0px 40px 80px -8px rgba(0, 0, 0, 0.452)";
-
+    
   } else if (minScrollVal > mainWindow.scrollTop) {
     document.querySelector(".mainNav").style.backgroundColor = "transparent";
     document.querySelector(".mainNav").style.boxShadow = "none";
-  }
-}
+  }}
 
 function displayLoadedContent() {
   updateMusicBarBg();
@@ -131,7 +99,6 @@ function displayLoadedContent() {
   mainWindowLoader.style.opacity = "0";
   setTimeout(() => {
     mainWindowLoader.style.display = "none";
-    document.querySelector(".mainNav").style.zIndex = "3";
   }, 1000);
 }
 
@@ -276,42 +243,27 @@ function updateMusicBarBg() {
   }
 }
 
-function sidebarOpenClose() {
-  if (!openedInMobile) {
-    if (btnclicked == false) {
-      styling.innerHTML = sideBarCollapsedStyling;
-      if (isResized) { styling.append(".defaultlistings::before{top:29%}") }
-      document.head.append(styling);
-      icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
-      btnclicked = true;
-      document.querySelector(".logo").src = "meta/logo1.png";
-      localStorage.setItem("isSidebarCollapsed", true);
-         
-      if(nowPlayingOpened){
-        mainWindow.style.width="70vw";
-      }
-      else{
-        mainWindow.style.width="95vw";
-      }
-    
-
-    } else if (btnclicked == true) {
-      styling.innerHTML = "";
-      icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
-      btnclicked = false;
-      document.querySelector(".logo").src = "meta/logo.png";
-      localStorage.setItem("isSidebarCollapsed", false);
-      if(nowPlayingOpened){
-        mainWindow.style.width="48vw";
-      }
-      else{
-        mainWindow.style.width="73vw";
-      }
-    }
+function sidebarOpenClose(){
+  if(!openedInMobile){
+  if (btnclicked == false) {
+    styling.innerHTML = sideBarCollapsedStyling;
+    if(isResized){styling.append(".defaultlistings::before{top:29%}")}
+    document.head.append(styling);
+    icon.style = `font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;`;
+    btnclicked = true;
+    document.querySelector(".logo").src = "meta/logo1.png";
+    localStorage.setItem("isSidebarCollapsed",true);
+  } else if (btnclicked == true) {
+    styling.innerHTML = "";
+    icon.style = `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;`;
+    btnclicked = false;
+    document.querySelector(".logo").src = "meta/logo.png";
+   localStorage.setItem("isSidebarCollapsed",false);
   }
-}
+}}
 
 // Main code block, statements written in the sequence of execution.
+
 assignId();
 const originalListings = document.querySelector(".defaultlistings").innerHTML;
 
@@ -326,9 +278,9 @@ btn.addEventListener("click", () => {
 
 searchBtn.addEventListener("click", (evt) => {
   evt.preventDefault();
-  if (openedInMobile) return;
+  if(openedInMobile) return;
   searchBoxOpen = !searchBoxOpen;
-
+  
   if (searchBoxOpen) {
     searchBox.style.display = "initial";
 
@@ -348,17 +300,16 @@ searchBtn.addEventListener("click", (evt) => {
           document.getElementById(`${divs}`).style.opacity = "1";
         }
         elemsOriginalOrder();
-        crossIcon.style.display = "none";
-      });
+        crossIcon.style.display = "none";});
     });
     searchBtn.classList.add("buttonclicked");
   }
-  else if (!searchBoxOpen) {
+  else if(!searchBoxOpen){
     searchBox.style.display = "none";
     searchBtn.classList.remove("buttonclicked");
-
+    
   }
-
+  
 });
 
 upperCardList.forEach((value, idx) => {
@@ -383,7 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
 mainWindow.addEventListener("scroll", navBgSet);
 
 window.addEventListener("load", displayLoadedContent);
-
 
 searchBox.addEventListener("focus", () => {
   if (!openedInMobile) return;
@@ -427,63 +377,59 @@ searchBox.addEventListener("focus", () => {
   })
 });
 
-document.querySelector("#mainSearchBar").addEventListener("focus", (evt) => {
-  evt.target.style.borderColor = "white";
+document.querySelector("#mainSearchBar").addEventListener("focus",(evt)=>{
+  evt.target.style.borderColor="white";
   document.getElementById("mainSearchBtn").style.borderColor = "white";
-  mainCancelBtn.style.borderColor = "white";
+  document.getElementById("mainSearchCancelBtn").style.borderColor = "white";
   document.getElementById("mainSearchBtn").style.color = "white";
   document.getElementById("mainSearchBtn").style.borderRightColor = "transparent";
- 
+  document.getElementById("mainSearchCancelBtn").style.borderLeftColor = "transparent";
 });
 
-mainCancelBtn.addEventListener("click", (evt) => {
-  mainWindowSearchBar.value = "";
-  mainWindowSearchResult.style.display = "none";
-  mainWindowSearchDefault.style.display = "block";
-  mainWindowSearchFail.style.display = "none";
-  evt.target.style.color = "transparent";
-  evt.target.style.pointerEvents = "none";
-});
-
-mainWindowSearchBar.addEventListener("input", (evt) => {
- 
-  mainCancelBtn.style.color = "white";
- mainCancelBtn.style.borderLeftColor = "transparent";
-    mainSearchBarFunctionality(evt);
-});
-
-
-
-window.addEventListener("keydown", (evt) => {
-  let vbarWidth = vbar.style.width;
-  if (evt.key == "ArrowUp") {
-    if (Audio.volume < 1) {
-
-      vbarWidth = vbarWidth.replace("%", "");
-      vbarWidth = parseInt(vbarWidth) + 10;
-      vbarWidth = vbarWidth;
-      updateVbar(null, null, vbarWidth)
+mainWindowSearchBar.addEventListener("input",(evt)=>{
+  mainWindowSearchResult.style.display="block";
+  mainWindowSearchDefault.style.display="none";
+  let allCards=document.querySelectorAll(".search-songCard");
+   allCards.forEach((card)=>{
+    if(evt.target.value!==""){
+    if(card.getAttribute("id").includes(evt.target.value.toLowerCase().split(" ").join(""))){
+      card.style.display="flex";
     }
+    else{
+      card.style.display="none";
+     }
+    } })
+   
+});
 
-  }
+var tootltipcontent=document.querySelector(".tooltipwr").innerHTML;
 
-  else if (evt.key == "ArrowDown") {
-    if (Audio.volume > 0) {
+ function tippyload(){
+  if(localStorage.getItem("device")=="pc"){
 
-      vbarWidth = vbarWidth.replace("%", "");
-      vbarWidth = parseInt(vbarWidth) - 10;
-      vbarWidth = vbarWidth;
-      updateVbar(null, null, vbarWidth)
-    }
-  }
+    if(!localStorage.getItem("isTooltipShown")){
+  var tooltip =   tippy(document.querySelector("#sideControls-veiw"), {
+    content:tootltipcontent ,
+    allowHTML: true, // Allows HTML content
+    showOnInit: true, // Show the tooltip by default
+    interactive: true, // Allow interactions with the tooltip
+    showOnCreate: true, // Show the tooltip when it is created
+    arrow:true,
+    hideOnClick: false, // Don't hide the tooltip when clicked
+    trigger: 'manual', // Don't rely on hover or click triggers
+  });
+  localStorage.setItem("isTooltipShown",true),
+  
+  document.querySelector("#tpbtn").addEventListener("click",()=>{
+    tooltip.hide();
+  })
+  return tooltip;
+
 }
-);
+}
+}
+let tooltip=tippyload();
 
-document.querySelector(".mainwindow-search-results").addEventListener("scroll",()=>{
-  if(document.querySelector(".mainwindow-search-results").scrollTop>5){
-    document.querySelector(".mainwindow-search-results").classList.add("mainwindow-search-resultsEnableBef");
-  }
-  else if(document.querySelector(".mainwindow-search-results").scrollTop<5){
-    document.querySelector(".mainwindow-search-results").classList.remove("mainwindow-search-resultsEnableBef");
-  }
-})
+
+
+
