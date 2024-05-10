@@ -1,4 +1,3 @@
-
 // Variable declarations.
 
 
@@ -488,8 +487,6 @@ document.querySelector(".mainwindow-search-results").addEventListener("scroll",(
     document.querySelector(".mainwindow-search-results").classList.remove("mainwindow-search-resultsEnableBef");
   }
 })
-
-
 
 var tootltipcontent=document.querySelector(".tooltipwr").innerHTML;
 
