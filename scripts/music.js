@@ -15,7 +15,7 @@ let crrSongThumb = document
   .querySelector(".musicBar")
   .querySelector(".main-window-playlist-thumb");
 const crrSongName = document.querySelector(".currentMusic-Player");
-let songCards;
+const songCards = document.querySelectorAll(".songCard");
 const nowPlayingWindow = document.querySelector(".nowPlayingVeiw");
 const nowPlayingImage = document.querySelector(".nowPlayingMainImg");
 const nowPlayingSongName = document.querySelector(".nowPlayingSongName");
@@ -23,7 +23,7 @@ const nowPlayingSongArtist = document.querySelector(".nowPlayingSongArtist");
 const inQueueSongsCont = document.querySelector(".inQueueSongs");
 const nowPlayingVeiwBtn = document.querySelector("#sideControls-veiw");
 let wrapperForMusicBar = document.querySelector(".wrapperForMusicBar");
-
+const widthForMobileCardsCluttering = 740;
 const initialWindowWidth = window.innerWidth;
 const initialWindowHeight = window.innerHeight;
 let resizedStyling;
@@ -43,7 +43,7 @@ let isVDragging = false;
 let isLooping = false;
 let prevSong = 0;
 let nowPlayingOpened = false;
-
+let openedInMobile = false;
 let isConstructed = false;
 let isMusicBarOpened = false;
 
@@ -102,20 +102,35 @@ function setVolume(evt) {
   let vbarTargetAreaWidth = Math.floor(
     vbarTargetArea.getBoundingClientRect().width
   );
-  updateVbar(evt,vbarTargetAreaWidth);
+  let clickedPosition = Math.floor(evt.offsetX);
+  let finalWidth = (clickedPosition / vbarTargetAreaWidth) * 100;
+  let changedVolume = ((finalWidth / 100) * 100) / 100;
+  if (changedVolume >= 0.0 && changedVolume <= 1) {
+    Audio.volume = changedVolume;
+  }
+
+  vbar.style.width = `${finalWidth}%`;
+  if (vbar.clientWidth < vw * 0.9) {
+    vbar.style.justifyContent = "flex-start";
+  } else if (vbar.clientWidth >= vw * 0.9) {
+    vbar.style.justifyContent = "flex-end";
+  }
   volumeValue = Audio.volume;
 }
 
 function volumeIconUpdate() {
   if (Audio.volume == 0.0) {
+    // volumeBtn.innerText = "volume_off";
     volumeBtn.setAttribute("class", "fa-solid fa-volume-xmark");
     volumeBtn.innerText = "";
   } else if (Audio.volume >= 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-high");
     volumeBtn.innerText = "";
+    // volumeBtn.innerText = "volume_up";
   } else if (Audio.volume < 0.5) {
     volumeBtn.setAttribute("class", "fa-solid fa-volume-low");
     volumeBtn.innerText = "";
+    // volumeBtn.innerText = "volume_down";
   }
 }
 
@@ -213,7 +228,20 @@ function crrSongDetailsUpdate() {
   }
 }
 
-
+function playByCard(card, idx) {
+  card.addEventListener("click", () => {
+    prevSong = crrSong;
+    crrSong = idx;
+    Audio.src = playlist[crrSong];
+    Audio.play();
+    isPlaying = true;
+    mainPlayIconUpdate(playBtn);
+    crrSongDetailsUpdate();
+    cardBtnUpdate();
+    updateNowPlayingWindow();
+    updateMeta();
+  });
+}
 
 function cardBtnUpdate() {
   songCards[prevSong].querySelector("#cardplayicon").innerText = "play_arrow";
@@ -287,7 +315,7 @@ function updateAnimation() {
     }
   });
 }
-10
+
 function clutterCards() {
   let currentWidth = window.innerWidth;
 
@@ -296,8 +324,6 @@ function clutterCards() {
     let descriptions = document.querySelectorAll(".songDescription");
     descriptions.forEach((description, idx) => {
       description.innerText = songDetails[idx].description;
-      description.parentElement.parentElement.querySelector(".songName").innerText=songDetails[idx].name;
-      document.documentElement.style.setProperty("--display","none")
       description.parentElement.classList.add("songDescriptionCont");
     });
     let playApeended = document.querySelector("#controlicon-play");
@@ -321,9 +347,7 @@ function clutterCards() {
     }
 
     updateAnimation();
-  }
-  
-  else if (currentWidth > widthForMobileCardsCluttering) {
+  } else if (currentWidth > widthForMobileCardsCluttering) {
     if(initialClutter){
       return;
     }
@@ -335,31 +359,8 @@ function clutterCards() {
       openedInMobile = false;
       let wrapper = document.createElement("div");
       wrapper.appendChild(description);
-      document.documentElement.style.setProperty("--display","initial")
-      wrapper.setAttribute("class", "songDescriptionCont");
       newParent.append(wrapper);
       oldParent.style.display = "none";
-        description.innerText = `"${songDetails[idx].album}"\n${songDetails[idx].description}`;
-        let songName=description.parentElement.parentElement.querySelector(".songName");
-        let wrapperForName = document.createElement("div");
-        wrapperForName.append(songName);
-        songName.innerText = songDetails[idx].name;
-        description.parentElement.parentElement.append(wrapperForName,wrapper);
-        wrapperForName.style.overflow="hidden";
-        wrapperForName.style.position="relative";
-        wrapperForName.style.height="2.8vw";
-        wrapperForName.style.width="9vw";
-        wrapper.append(description);
-           if(songName.scrollWidth>songName.clientWidth){
-             songName.style.animation="scroll linear 8s infinite forwards";
-             wrapperForName.setAttribute("class","coverafter");
-             
-           }
-           if(wrapper.scrollHeight>wrapper.clientHeight){
-             description.style.animation="scrollInv linear 8s infinite forwards";
-             
-           }
-     
     });
    initialClutter=true;
   }
@@ -528,11 +529,7 @@ songsInQueueClutter();
 
 const nowPlayingSongs = document.querySelectorAll(".inQueueSong1");
 
-let cardRow;
-mainCardgenerate(cardRow);
-
 document.addEventListener("DOMContentLoaded", () => {
-
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
   localStorage.getItem("crrDuration")?Audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
  
@@ -541,6 +538,7 @@ document.addEventListener("DOMContentLoaded", () => {
   volumeValue = Audio.volume * 100;
   vbar.style.width = `${volumeValue}%`;
   volumeValue = Audio.volume;
+  
   vwChecker();
   clutterCards();
   crrSongDetailsUpdate();
@@ -548,15 +546,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNowPlayingWindow();
       cardBtnUpdate();
       updateMeta();
-      document.querySelector(".thumbnaillabel").innerText=`Playlist • ${playlist.length} songs`;
-      document.getElementById("defaultsongs").addEventListener("click",()=>{
-        tabUpdateForSearch();
-      if (window,history.state == null || window,history.state.page == "home") {
-        history.pushState({ page: "search" }, null, "/search");
-        navIconUpdate();
-      }
-        displayArtistSongs("");
-       })
   
 });
 
@@ -577,7 +566,6 @@ Audio.addEventListener("ended", () => {
   updateNowPlayingWindow();
   updateMeta();
   cardBtnUpdate();
-  updateSearchCard();
 });
 
 Audio.addEventListener("loadedmetadata", () => {
@@ -677,33 +665,19 @@ songCards.forEach((card, idx) => {
   playByCard(card, idx);
 });
 
-
 nowPlayingVeiwBtn.addEventListener("click", () => {
   if (!nowPlayingOpened) {
     nowPlayingWindow.style.transform = "translate(0 ,0%)";
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#1ED760";
     nowPlayingVeiwBtn.classList.add("NowPlayingVeiwBtn");
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
-    if(isSidebarCollapsed=="false"){
-    mainWindow.style.width="48vw";
-  }
-  else{
-    mainWindow.style.width="70vw";
-  }
+    tooltip.hide();
   } else if (nowPlayingOpened) {
     nowPlayingWindow.style.transform = "translate(0 ,100%)";
     console.log("listened");
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#ffffff";
     nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
-    if(isSidebarCollapsed=="false"){
-    mainWindow.style.width="73vw";
-  }
-  else{
-    mainWindow.style.width="95vw";
-  }
   }
 });
 
@@ -728,15 +702,6 @@ document.getElementById("nowPlayingClose").addEventListener("click", () => {
   nowPlayingVeiwBtn.style.color = "#ffffff";
   nowPlayingOpened = !nowPlayingOpened;
   nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
-  if(!openedInMobile){
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
-
-    if(isSidebarCollapsed=="false"){
-      mainWindow.style.width="73vw";
-  }
-  else{
-    mainWindow.style.width="95vw";
-  }}
 });
 
 navigator.mediaSession.setActionHandler("play", function () {
@@ -783,7 +748,27 @@ navigator.mediaSession.setActionHandler("nexttrack", function () {
   crrSongDetailsUpdate();
 });
 
-
+window.addEventListener("resize", () => {
+  if (initialWindowWidth <= widthForMobileCardsCluttering) {
+    if (
+      mainWindow.addEventListener("scroll", () => {
+        return true;
+      })
+    ) {
+    } else {
+      if(!isFocused){
+        location.reload();
+        clutterCards();
+      }
+      
+     
+    }
+  } else if (!initialWindowWidth <= widthForMobileCardsCluttering) {
+    if (window.innerWidth <= widthForMobileCardsCluttering) {
+      location.reload();
+    }
+  }
+});
 
 if (!isMusicBarOpened) {
   document.querySelector("#followme").addEventListener("click", () => {
@@ -813,30 +798,5 @@ document.querySelector(".defaultlistings").addEventListener("scroll",(evt)=>{
   }
 })
 
-
-
-
 //<-----setup button to close sidebar and further functionality and styling for mobile-->
 
-window.addEventListener("resize",()=>{
-  
-    if(window.innerWidth>widthForMobileCardsCluttering){
-      if(userDevice=="mob"){
-        localStorage.setItem("device","pc");
-
-      location.reload();
-    }
-      else if(userDevice=="pc"){
-      return;
-    } 
-    }
-    if(window.innerWidth<=widthForMobileCardsCluttering){
-      if(userDevice=="pc"){
-        localStorage.setItem("device","mob");
-        location.reload();
-      }
-      else if(userDevice=="mob"){
-        return;
-      }
-    }
-})
