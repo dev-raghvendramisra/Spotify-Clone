@@ -684,9 +684,11 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#1ED760";
     nowPlayingVeiwBtn.classList.add("NowPlayingVeiwBtn");
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
     if(document.querySelector(".tippy-arrow")){
-  tooltip.hide();}
+      tooltip.hide();
+      
+    }
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
     if(isSidebarCollapsed=="false"){
     mainWindow.style.width="48vw";
   }
