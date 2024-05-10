@@ -3,7 +3,7 @@
 :root {
   --opacity: 1;
   --loaderBgColor: #2c2c2c;
-  --loaderAnimBg: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(208,208,208,0.3) 50%, rgba(255,255,255,0) 100%);
+  --loaderAnimBg: rgba(128, 128, 128, 0.295);
   --colorForBefore: rgb(0, 0, 0);
   --colorForBeforePLayer: rgb(0, 0, 0);
 }
@@ -443,7 +443,6 @@ form {
 
 .defaultlistings {
   height: 55vh;
-  height: 37vh;
   overflow: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -470,7 +469,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   width:95%;
-  height:10vw;
 }
 
 #bell-icon {
@@ -693,7 +691,6 @@ nav img {
   display: flex;
   gap: 2vw;
   /* flex-wrap:wrap; */
-  overflow-x:scroll;
   padding: 3vh 1.5vw;
   justify-content: flex-start;
 }
@@ -709,7 +706,6 @@ nav img {
   /* transition: all 1s ease; */
   cursor: pointer;
   position: relative;
-
 }
 
 .cardImage {
@@ -732,8 +728,6 @@ nav img {
 .songName {
   font-weight: 700;
   margin-top: 1vh;
-  width: 9vw;
-  white-space: nowrap;
 }
 
 .mainNav {
@@ -781,7 +775,7 @@ nav img {
 }
 
 #collapsedSong {
-  display: initial;
+  display: none;
 }
 
 #cardplayicon {
@@ -805,16 +799,6 @@ nav img {
 .songCard:hover #cardplayicon {
   opacity: 1;
   pointer-events: all;
-  z-index: 2;
-}
-.songCard:hover .coverafter::before {
-  background-image: linear-gradient(to left, #333333 -1%, transparent);
-}
-.songCard:hover .songDescriptionCont::before{
-  background-image: linear-gradient(to bottom, #333333 -1%, transparent);
-}
-.songCard:hover .songDescriptionCont::after{
-  background-image: linear-gradient(to top, #333333 -1%, transparent);
 }
 
 .musicBar {
@@ -1249,7 +1233,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1273,7 +1257,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1287,7 +1271,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
 
   animation: anim 1.5s ease infinite forwards;
 }
@@ -1306,7 +1290,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
@@ -1324,7 +1308,7 @@ body {
   height: 400%;
   width: 44%;
   transform: rotateZ(30deg);
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
   animation: 0.8s ease 0s infinite normal forwards running anim;
 }
 
@@ -1342,7 +1326,7 @@ body {
   width: 100%;
   transform: rotateZ(-60deg);
 
-  background-image: var(--loaderAnimBg);
+  background-color: var(--loaderAnimBg);
 
   animation: anim 1s cubic-bezier(0, 0, 0, 1) infinite backwards 0.5s;
 }
@@ -1350,6 +1334,19 @@ body {
 .loadingElMusicbar div:nth-last-child(2)::after {
   height: 600%;
   animation: anim 1.5s ease infinite backwards 0s;
+}
+.tippy-box{
+  background-color: #0d72ea;
+  padding:0;
+  border-radius: 1vw;
+}
+.tippy-arrow::before{
+color: #0d72ea;
+left:10%;
+
+}
+.tippy-arrow{
+  left:8%;
 }
 
 /*<---Music Bar Styling--->*/
@@ -1657,7 +1654,6 @@ body {
   background-color: #2A2A2A;
 font-size:1.4vw;
   border:1px solid rgba(255, 255, 255,0);
-  cursor: pointer;
  
 }
 .mainSearchBarCont:hover #mainSearchBar{
@@ -1730,16 +1726,11 @@ display:none;
   height:7%;
   background-color: #15ff5b01;
   margin:0.5vw auto;
-  padding:1vw;
+  padding:0.5vw;
   border-radius :0.5vw;
-  cursor: pointer;
-  border:1px solid rgba(255, 255, 255, 0.199);
 }
 #search-songCardImg{
   height:100%; 
-}
-.mainwindow-search-results::-webkit-scrollbar {
-  display: none;
 }
 .searchSongImgCont{
   height:3vw;
@@ -1779,10 +1770,10 @@ display:none;
   display: flex;
   width: 93%;
   justify-content: space-between;
-  padding: 0.5vw 3%;
+  padding: 0.5vw;
   margin: 1vw auto;
   font-size: calc(1.6vw / 1.689);
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 0.747);
   background-color: #1D1D1D;
   border-bottom: solid rgba(255, 255, 255, 0.24) 1px;
   position: sticky;
@@ -1790,7 +1781,6 @@ display:none;
   z-index: 2;
 }
 .mainwindow-search-results{
-  display:none;
   position:relative;
   height:70vh;
   overflow:scroll;
@@ -1803,129 +1793,23 @@ display:none;
 .search-songCard:hover{
   background-color: #4e4c4c77;
 }
-.searchSongImgCont::before{
+.search-songCard:hover .searchSongImgCont::before{
   content:'';
   position:absolute ;
   height:100%;
   width:100%;
-  background-color:transparent;
+  background-color:rgba(0,0,0,0.5);
   z-index:1;
   border-radius:0.5vw;
   top:0;
   left:0;
 }
-.search-songCard:hover .searchSongImgCont::before{
-  background-color:rgba(0,0,0,0.5);
-}
- .searchSongImgContCrr::before{
-  background-color:rgba(0,0,0,0.5);
-}
-
 .search-songCard:hover #nowPlayingPlayIcon{
   opacity: 1;
   position: relative;
   z-index: 2;
 }
-.contForSongDetails{display: flex;width:33%;align-items: center;} 
-.songcontainer1::-webkit-scrollbar {
-  display: none;
-}
-.coverafter::before{
-  content: "";
-  right: 0;
-  top: 0;
-  background-image: linear-gradient(to left, #171717 -1%, transparent);
-  height: 100%;
-  width: 40%;
-  position: absolute;
-  z-index: 1;
-}
-.songDescriptionCont{
-  position: relative;
-  width: 9vw;
-  height:3vw;
-  overflow: hidden;
-}
-.songDescriptionCont::before{
-  content: "";
-  right: 0;
-  top: 0;
-  background-image: linear-gradient(to bottom, #171717 -1%, transparent);
-  height: 25%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  display:var(--display);
-}
-
-.songDescriptionCont::after{
-  content: "";
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(to top, #171717 -1%, transparent);
-  height: 25%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  display:var(--display);
-}
-@keyframes scroll {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-
-  51% {
-    opacity: 0;
-  }
-
-  55% {
-    transform: translate(0, 0);
-  }
-
-  58% {
-    opacity: 0;
-  }
-
-  70% {
-    opacity: 1;
-  }
-}
-@keyframes scrollInv {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translate(0, -50%);
-    opacity: 1;
-  }
-
-  51% {
-    opacity: 0;
-  }
-
-  55% {
-    transform: translate(0, 0);
-  }
-
-  58% {
-    opacity: 0;
-  }
-
-  70% {
-    opacity: 1;
-  }
-}
-.mainwindow .songcontainer1:last-child {
-  margin-bottom: 9vh;
-}
+.contForSongDetails{display: flex;width:33%;} 
 /*<---media queries-->*/
 @media (max-width: 740px) {
   * {
@@ -2035,7 +1919,7 @@ display:none;
     font-size: 6vw;
   }
 
-  .mainwindow .songcontainer1:last-child {
+  .mainwindow DIV:last-child {
     margin-bottom: 17vh;
   }
 
@@ -2050,12 +1934,37 @@ display:none;
     /* animation:scroll linear 5s infinite forwards ;  */
   }
 
-  
+  @keyframes scroll {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    51% {
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+    }
+
+    58% {
+      opacity: 0;
+    }
+
+    70% {
+      opacity: 1;
+    }
+  }
 
   .songDescriptionCont {
     position: relative;
   }
-  
 
   .songDescriptionContbefore::after {
     content: "";
@@ -2379,6 +2288,7 @@ display:none;
 
 #charts{
   padding-top:0;
+  padding-left:3.5vmin;
   margin-top:0;
 
 }
@@ -2387,9 +2297,9 @@ display:none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:0 3vmin;
 }
 #hamburger{
+  padding-right:4vmin;
   font-size:8vw;
   color:white;
 }
@@ -2466,9 +2376,6 @@ form{
 #searchicons-svg2:active {
   color: white;
 
-}
-.mainwindow-cont-wrapper{
-  margin-top:9vw;
 }
 
 .wrapperForlogo{
@@ -2562,126 +2469,7 @@ border-radius:50vw;
     padding-left:6.3vw;
     padding-top:1.5vh;
   }
-  
-  #mainSearchBar{
-    padding: 3vw 0;
-    width:50vw;
-    font-size:3.8vw;
-  }
-  #mainSearchBar::placeholder{
-    
-    font-size:3.8vw;
-  }
 
-  #mainSearchCancelBtn{
-    padding: 2.6vw;
-    font-size:5.2vw;
-  }
-  #mainSearchBtn{
-    padding: 3.2vw;
-    font-size:4vw;
-  }
-  .defaultCardRows{
-    justify-content: center;
-    gap:3vw;
-    margin-top:3vw;
-  }
-  .defaultCard{
-    height:30vw;
-    width:45vw;
-    border-radius: 4vw;
-  }
-  .defaultCard-img{
-    height: 20vw;
-    width: 20vw;
-    top: 41%;
-    right: -6%;
-
-    
-  }
-  .defaultCard-label{
-    font-size:5vw;
-    margin:2vw;
-  }
-  .result-songDur {
-    font-size: calc(6vw/1.689);
-margin-right: 0;
-width: 40%;
-text-align: right;
-}
-.searchSongImgCont{
-  aspect-ratio: 1;
-  height:15vw;
-  width:15vw;
-}
-.search-songCard{
-  height:17vw;
-}
-.contForSongDetails{
-  width:60%;
-  gap:2vw;
-}
-.search-songCardAlbum{
-  width:30%;
-}
-/* .search-songCardText{
-
-} */
-.result-songName{
-  font-size:5vw;
-  white-space: nowrap;
-  width: fit-content;
-  
-}
-.result-songNameWrapper{
-  overflow: hidden;
-  width:35vw;
-  position: relative;
-}
-.result-songNameWrapperOnScrolling::before{
-  position:absolute;
-  content:" ";
-  top:0;
-  right:0;
-  height: 100%;
-  width:25%;
-  z-index:2;
-  background-image:linear-gradient(to left, hsl(0 0% 10% / 1) 10%, transparent);
-}
-.result-songNameWrapperOnScrollingSel::before{
-  background-image: linear-gradient(to left, hsl(0 4% 15% / 1) 10%, transparent);
-
-}
-
-.result-songArtists {
-  font-size: calc(5vw/1.689);
-  width:125%;
-}
-.search-songCardAlbum {
-  display: none;
-}
-.search-songCard{
-  margin: 3vw auto;
-  width: 83%;
-padding: 3vw;
-border-color: rgba(255, 255, 255, 0.281);
-border-radius: 4.5vw;
-}
-.labelsForResultsCont{
-  display: none;
-}
-.mainwindow-search-results{position: relative;}
-.mainwindow-search-resultsEnableBef::before{
-position: sticky;
-content: "";
-top:-1px;
-display: block;
-left:0;
-z-index:2;
-height:10%;
-width:100%;
-background-image: linear-gradient(to bottom,#1F1F1F 10%, transparent);
-}
 }
 
 .defaultlistings::before {
@@ -2731,4 +2519,5 @@ background-image: linear-gradient(to bottom,#1F1F1F 10%, transparent);
 .defaultlistings:hover::-webkit-scrollbar {
   display: initial;
 }
+
 
