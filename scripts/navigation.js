@@ -135,4 +135,3 @@ function navIconUpdate() {
 }
 
 //<-----fix the push state and navigation functionality----->
-
