@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".thumbnaillabel").innerText=`Playlist • ${playlist.length} songs`;
       document.getElementById("defaultsongs").addEventListener("click",()=>{
         tabUpdateForSearch();
-      if (window,history.state == null || window,history.state.page == "home") {
+      if (window.history.state == null || window.history.state.page == "home") {
         history.pushState({ page: "search" }, null, "/search");
         navIconUpdate();
       }
@@ -686,9 +686,8 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingVeiwBtn.classList.add("NowPlayingVeiwBtn");
     if(document.querySelector(".tippy-arrow")){
       tooltip.hide();
-      
     }
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
     if(isSidebarCollapsed=="false"){
     mainWindow.style.width="48vw";
   }
@@ -701,7 +700,7 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingOpened = !nowPlayingOpened;
     nowPlayingVeiwBtn.style.color = "#ffffff";
     nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
     if(isSidebarCollapsed=="false"){
     mainWindow.style.width="73vw";
   }
@@ -733,7 +732,7 @@ document.getElementById("nowPlayingClose").addEventListener("click", () => {
   nowPlayingOpened = !nowPlayingOpened;
   nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
   if(!openedInMobile){
-    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):false;
+    let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
 
     if(isSidebarCollapsed=="false"){
       mainWindow.style.width="73vw";
