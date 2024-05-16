@@ -1415,20 +1415,21 @@ body {
   position: absolute;
   background-color: #121212;
   height: 100vh;
-  width: 22vw;
+  width: 20vw;
   right: 0;
   z-index: 3;
   padding: 1.5vw 1.5vw;
   color: #ffffff;
-  overflow-y: scroll;
+  overflow-y: hidden;
   transform: translate(0, 100%);
   transition: 0.2s ease all;
+  text-align: center;
 }
 
 .nowPlayingVeiw img {
   width: 100%;
   border-radius: 1vw;
-  height: 21.2vw;
+  height: 19.4vw;
   object-fit: cover;
 }
 
@@ -1438,17 +1439,21 @@ body {
   white-space: nowrap;
   overflow: hidden;
   position: relative;
+  text-align: left;
 }
 
 .nowPlayingSongArtist {
   color: rgb(170, 170, 170);
   font-size: 1vw;
   font-weight: 700;
+  text-align: left;
+
   position: relative;
 }
 
 .nowPlayingVeiw h3 {
   margin-bottom: 1vw;
+
 }
 
 .textForSong {
@@ -1458,6 +1463,12 @@ body {
 .inQueueSongs {
   margin-top: 4vh;
   margin-bottom: 15vh;
+  height:31%;
+  text-align: left;
+  overflow: scroll;
+}
+.inQueueSongs::-webkit-scrollbar {
+  display: none;
 }
 
 .inQueueSong1 {
@@ -1786,7 +1797,7 @@ display:none;
   background-color: #1D1D1D;
   border-bottom: solid rgba(255, 255, 255, 0.24) 1px;
   position: sticky;
-  top: 0;
+  top: -1%;
   z-index: 2;
 }
 .mainwindow-search-results{
@@ -2315,6 +2326,7 @@ left:10%;
     width:100vw;
     font-size:4vw;
     padding:0;
+    overflow-y: scroll;
   }
   .nowplayingHeader{
    
@@ -2345,7 +2357,10 @@ left:10%;
      padding:0;
      margin:0;
      border-radius: 3vw;
-     background-size: 20% 20%;
+     background-size: 20% 20%;}
+  .inQueueSongs {
+     height:fit-content;
+    
   }
   .nowPlayingSongName{
     font-size:6vw;  

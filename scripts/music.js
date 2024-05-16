@@ -689,10 +689,10 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     }
     let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
     if(isSidebarCollapsed=="false"){
-    mainWindow.style.width="48vw";
+    mainWindow.style.width="50vw";
   }
   else{
-    mainWindow.style.width="70vw";
+    mainWindow.style.width="72vw";
   }
   } else if (nowPlayingOpened) {
     nowPlayingWindow.style.transform = "translate(0 ,100%)";
@@ -702,10 +702,10 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
     let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
     if(isSidebarCollapsed=="false"){
-    mainWindow.style.width="73vw";
+    mainWindow.style.width="75vw";
   }
   else{
-    mainWindow.style.width="95vw";
+    mainWindow.style.width="97vw";
   }
   }
 });

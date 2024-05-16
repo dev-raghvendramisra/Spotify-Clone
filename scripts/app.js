@@ -288,10 +288,10 @@ function sidebarOpenClose() {
       localStorage.setItem("isSidebarCollapsed", true);
          
       if(nowPlayingOpened){
-        mainWindow.style.width="70vw";
+        mainWindow.style.width="72vw";
       }
       else{
-        mainWindow.style.width="95vw";
+        mainWindow.style.width="97vw";
       }
     
 
@@ -302,10 +302,10 @@ function sidebarOpenClose() {
       document.querySelector(".logo").src = "meta/logo.png";
       localStorage.setItem("isSidebarCollapsed", false);
       if(nowPlayingOpened){
-        mainWindow.style.width="48vw";
+        mainWindow.style.width="50vw";
       }
       else{
-        mainWindow.style.width="73vw";
+        mainWindow.style.width="75vw";
       }
     }
   }
@@ -515,3 +515,15 @@ var tootltipcontent=document.querySelector(".tooltipwr").innerHTML;
 }
 }
 let tooltip=tippyload();
+
+const evObj={
+  bubbles:true,
+  cancelable:true
+}
+let myEvt=new Event("click",evObj);
+
+document.querySelector(".currentSong").addEventListener("click",()=>{
+  if(!openedInMobile){
+    document.querySelector("#sideControls-veiw").dispatchEvent(myEvt);
+  }
+})
