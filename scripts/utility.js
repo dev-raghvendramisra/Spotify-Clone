@@ -495,8 +495,8 @@ function artistArrayGenerate(){
     
   songDetails.forEach((songData)=>{
     let comparableArr=songData.description.split(", ");
-    comparableArr.forEach(crrEl => {
-     if( artistArray.includes(crrEl)){return;}else artistArray.push(crrEl);
+    comparableArr.forEach((crrEl) => {
+     if( artistArray.includes(crrEl)){return;}else {artistArray.push(crrEl)};
     });
   });
 
@@ -510,6 +510,8 @@ function createArtistCard(){
     artistCard.innerHTML=artistCardhtml;
     artistCard.querySelector("img").src=profilePictureUrls[idx];
     artistCard.querySelector(".artistname").innerText=artistName;
+    console.log(profilePictureUrls[idx],idx,    artistCard.querySelector(".artistname").innerText)
+
     let sidebarFaliure=document.querySelector(".failedtosearch");
     document.querySelector(".defaultlistings").append(artistCard,sidebarFaliure);
     

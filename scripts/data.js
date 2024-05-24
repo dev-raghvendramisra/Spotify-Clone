@@ -568,6 +568,13 @@ const playlist = [
   "tracks/tereNainoMein.mp3",
   "tracks/bulleya.mp3",
   "tracks/wohBaarishein.mp3",
+  "tracks/jugJugJugJeeve.mp3",
+  "tracks/tereMastMastDoNain.mp3",
+  "tracks/traaPraa.mp3",
+  "tracks/zindagiEkSafar.mp3",
+  "tracks/charka.mp3",
+  "tracks/wishlist.mp3",
+  "tracks/akhiyaUdeekDiyan.mp3",
 ];
 
 let songDetails =[
@@ -850,8 +857,63 @@ let songDetails =[
     fullName: "Woh Baarishein",
     name: "Woh Baarishein",
     src: "https://i.scdn.co/image/ab67616d00001e02aa94e9741ecf418b89d5c339"
-  }
-
+  },
+  {
+    name: "Jug Jug Jeeve",
+    album: "Shiddat",
+    description: "Manan Bharadwaj",
+    duration: "04:24",
+    fullName: "Jug Jug Jeeve from \"Shiddat\"",
+    src: "https://i.scdn.co/image/ab67616d00001e02e4c77dc1b6c85c754f7f136c"
+  },
+  {
+    name: "Tere Mast Mast Do Nain",
+    album: "Dabangg",
+    description: "Rahat Fateh Ali Khan, Shreya Ghoshal",
+    duration: "05:58",
+    fullName: "Tere Mast Mast Do Nain from \"Dabangg\"",
+    src: "https://i.scdn.co/image/ab67616d00001e026e28d74c8eddc32542ce8924"
+  },
+  {
+    name: "Traa Praa",
+    album: "Praa",
+    description: "Raftaar, Prabh Deep",
+    duration: "03:11",
+    fullName: "Traa Praa (From \"Praa\")",
+    src: "https://i.scdn.co/image/ab67616d00001e0291eaa29b4a6d906062159dca"
+  },
+  {
+    name: "Zindagi Ek Safar",
+    album: "Andaz",
+    description: "Kishore Kumar",
+    duration: "03:30",
+    fullName: "Zindagi Ek Safar from \"Andaz\"",
+    src: "https://i.scdn.co/image/ab67616d00001e02d5839b701ba214a45a28a2f7"
+  },
+  {
+    name: "Charka",
+    album: "Charka",
+    description: "Wadali Brothers",
+    duration: "05:40",
+    fullName: "Charkha from \"Charka\"",
+    src: "https://i.scdn.co/image/ab67616d00001e02c37fad084d7a29488a44a92c"
+  },
+  {
+    name: "Wishlist",
+    album: "Wishlist",
+    description: "Dino James",
+    duration: "04:08",
+    fullName: "Wishlist from \"Wishlist\"",
+    src: "https://i.scdn.co/image/ab67616d00001e02e98e528e204c9ce06547fbfb"
+  },
+  {
+    name: "Akhiyan Udeek Diyan",
+    album: "Shiddat",
+    description: "Master Saleem",
+    duration: "04:39",
+    fullName: "Akhiyan Udeek Diyan from \"Shiddat\"",
+    src: "https://i.scdn.co/image/ab67616d00001e02e4c77dc1b6c85c754f7f136c"
+  },
 ];
 
 let profilePictureUrls = [
@@ -903,7 +965,13 @@ let profilePictureUrls = [
   "https://i.scdn.co/image/ab6761610000e5eb90b6c3d093f9b02aad628eaf",
   "https://i.scdn.co/image/ab6761610000e5eb0dd274246ecf6019bfac1aef",
   "https://i.scdn.co/image/ab6761610000e5eb47b943824370b9eb2fb9607f",
-  "https://i.scdn.co/image/ab676161000051749b3f033df7aee564e1e8b95b"
+  "https://i.scdn.co/image/ab676161000051749b3f033df7aee564e1e8b95b",
+  "https://i.scdn.co/image/ab6761610000e5ebac45eaf028dc58810df0f382",
+  "https://i.scdn.co/image/ab6761610000e5eb36a7262247318ff0f1ad00da",
+  "https://i.scdn.co/image/ab6761610000e5ebb766c003524f517d7e482ce3",
+  "https://i.scdn.co/image/ab6761610000e5ebc9ac92d87de28795c1c49730",
+  "https://i.scdn.co/image/ab6761610000e5eb9dab6a0d08fb7081e029f8b0",
+  "https://i.scdn.co/image/ab6761610000f178c52ca40e86390b9091f5a618",
 ];
 
 
