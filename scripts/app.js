@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if(openedInMobile){
     document.querySelector(".musicBar").style.display="initial";
     setTimeout(()=>{    document.querySelector(".musicBar").style.opacity="1";
-  },100);
+  },10);
   
   }
 });
