@@ -457,6 +457,7 @@ form {
   margin-top: 1vh;
   height: 99vh;
   border-top-left-radius: 1.5vmin;
+  border-top-right-radius: 1.5vmin;
   padding-bottom: 3vh;
 }
 
@@ -1424,6 +1425,8 @@ body {
   transform: translate(0, 100%);
   transition: 0.2s ease all;
   text-align: center;
+  margin-top: 1vh;
+    border-top-left-radius: 1.5vmin;
 }
 
 .nowPlayingVeiw img {
@@ -2104,7 +2107,7 @@ left:10%;
   }
 
   .musicBar {
-    display: initial;
+    opacity: 0;
     width: 94vw;
     position: static;
     border-radius: 1vh;
@@ -2112,6 +2115,7 @@ left:10%;
     box-sizing: border-box;
     box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.144);
     overflow: hidden;
+    transition:all 0.5s ease ;
   }
 
   .currentSong {

@@ -894,7 +894,7 @@ let songDetails =[
     name: "Charka",
     album: "Charka",
     description: "Wadali Brothers",
-    duration: "05:40",
+    duration: "05:43",
     fullName: "Charkha from \"Charka\"",
     src: "https://i.scdn.co/image/ab67616d00001e02c37fad084d7a29488a44a92c"
   },
@@ -910,7 +910,7 @@ let songDetails =[
     name: "Akhiyan Udeek Diyan",
     album: "Shiddat",
     description: "Master Saleem",
-    duration: "04:39",
+    duration: "04:33",
     fullName: "Akhiyan Udeek Diyan from \"Shiddat\"",
     src: "https://i.scdn.co/image/ab67616d00001e02e4c77dc1b6c85c754f7f136c"
   },

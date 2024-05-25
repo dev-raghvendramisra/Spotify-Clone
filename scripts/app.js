@@ -378,6 +378,12 @@ upperCardList.forEach((value, idx) => {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("domloaded");
   navBgSet();
+  if(openedInMobile){
+    document.querySelector(".musicBar").style.display="initial";
+    setTimeout(()=>{    document.querySelector(".musicBar").style.opacity="1";
+  },100);
+  
+  }
 });
 
 mainWindow.addEventListener("scroll", navBgSet);
