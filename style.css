@@ -2115,7 +2115,7 @@ left:10%;
     box-sizing: border-box;
     box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.144);
     overflow: hidden;
-    transition:all 0.5s ease ;
+    transition:opacity 0.5s ease ;
   }
 
   .currentSong {
