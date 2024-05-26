@@ -5,6 +5,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/search/(.*)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
