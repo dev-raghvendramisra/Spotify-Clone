@@ -101,9 +101,13 @@ window.addEventListener("popstate", (evt) => {
   }
  else if(history.state.page=="searchquery" ){
     tabUpdateForSearch();
+   document.querySelector(".mainwindow-search-results").style.display="block";
+   document.querySelector(".mainwindow-search-default").style.display="none";
   }
    else if(evt.state.page == "search") {
     tabUpdateForSearch();
+     document.querySelector(".mainwindow-search-results").style.display="none";
+   document.querySelector(".mainwindow-search-default").style.display="block";
   }
   navIconUpdate();
  
