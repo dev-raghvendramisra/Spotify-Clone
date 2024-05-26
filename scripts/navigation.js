@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
       let  paramsObj = new URLSearchParams(params);
       mainWindowSearchBar.value = paramsObj.get("song");
       displayArtistSongs(mainWindowSearchBar.value);
+    statesCovered=window.window.history.length-2;
+    navIconUpdate();
   }
    else {
     tabUpdateForHome();
