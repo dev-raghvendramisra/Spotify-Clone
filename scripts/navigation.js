@@ -103,6 +103,7 @@ window.addEventListener("popstate", (evt) => {
     tabUpdateForSearch();
    document.querySelector(".mainwindow-search-results").style.display="block";
    document.querySelector(".mainwindow-search-default").style.display="none";
+     let params=window.location.search;
     let  paramsObj = new URLSearchParams(params);
       mainWindowSearchBar.value = paramsObj.get("song");
       displayArtistSongs(mainWindowSearchBar.value);
