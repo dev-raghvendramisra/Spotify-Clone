@@ -526,7 +526,7 @@ createArtistCard();
 function displayArtistSongs(searchValue){
   history.pushState({ page: "searchquery" }, null, `/search?song=${searchValue}`);
   statesCovered=window.window.history.length-2;
-  navIconsUpdate();
+  navIconUpdate();
     let allSearchCards = document.querySelectorAll(".search-songCard");
   allSearchCards.forEach((card)=>{
     let condition;
