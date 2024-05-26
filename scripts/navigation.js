@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.history.state && window.history.state.page === "search") {
      tabUpdateForSearch();
   } 
-  else if(location.pathname=="/search") {
+  else if(location.search!=="") {
     let params=window.location.search;
     tabUpdateForSearch();
     history.pushState({ page: "search" }, null, `/search${params}`);
@@ -143,4 +143,7 @@ function navIconUpdate() {
 }
 
 //<-----fix the push state and navigation functionality----->
+
+
+
 
