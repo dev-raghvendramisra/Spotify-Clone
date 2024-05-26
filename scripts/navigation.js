@@ -66,6 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let params=window.location.search;
     tabUpdateForSearch();
     history.pushState({ page: "search" }, null, `/search${params}`);
+      let  paramsObj = new URLSearchParams(params);
+      mainWindowSearchBar.value = paramsObj.get("song");
+      displayArtistSongs(mainWindowSearchBar.value);
   }
    else {
     tabUpdateForHome();
