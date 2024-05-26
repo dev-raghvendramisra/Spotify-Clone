@@ -65,10 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
   else if(location.search!=="") {
     let params=window.location.search;
     tabUpdateForSearch();
-    history.pushState({ page: "search" }, null, `/search${params}`);
+    history.pushState({ page: "searchquery" }, null, `/search${params}`);
       let  paramsObj = new URLSearchParams(params);
       mainWindowSearchBar.value = paramsObj.get("song");
       displayArtistSongs(mainWindowSearchBar.value);
+      statesCovered=window.window.history.length-2;
+      }
+  else if(location.pathname=="/search") {
+    tabUpdateForSearch();
+    history.pushState({ page: "search" }, null, `/search`);
+     statesCovered=window.window.history.length-2;
       }
    else {
     tabUpdateForHome();
@@ -143,7 +149,4 @@ function navIconUpdate() {
 }
 
 //<-----fix the push state and navigation functionality----->
-
-
-
 
