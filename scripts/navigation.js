@@ -103,11 +103,15 @@ window.addEventListener("popstate", (evt) => {
     tabUpdateForSearch();
    document.querySelector(".mainwindow-search-results").style.display="block";
    document.querySelector(".mainwindow-search-default").style.display="none";
+    let  paramsObj = new URLSearchParams(params);
+      mainWindowSearchBar.value = paramsObj.get("song");
+      displayArtistSongs(mainWindowSearchBar.value);
   }
    else if(evt.state.page == "search") {
     tabUpdateForSearch();
      document.querySelector(".mainwindow-search-results").style.display="none";
    document.querySelector(".mainwindow-search-default").style.display="block";
+      
   }
   navIconUpdate();
  
