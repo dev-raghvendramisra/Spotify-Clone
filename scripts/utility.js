@@ -525,7 +525,8 @@ createArtistCard();
 
 function displayArtistSongs(searchValue){
   history.pushState({ page: "searchquery" }, null, `/search?song=${searchValue}`);
-
+  statesCovered=window.window.history.length-2;
+  navIconsUpdate();
     let allSearchCards = document.querySelectorAll(".search-songCard");
   allSearchCards.forEach((card)=>{
     let condition;
@@ -558,6 +559,8 @@ mainWindowSearchBar.addEventListener("blur",()=>{
   mainSearchBarFocus=false;
   
   history.pushState({ page: "searchquery" }, null, `/search?song=${mainWindowSearchBar.value}`);
+  statesCovered=window.window.history.length-2;
+  navIconsUpdate();
 }
 )
 
