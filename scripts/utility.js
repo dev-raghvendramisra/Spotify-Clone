@@ -560,7 +560,7 @@ mainWindowSearchBar.addEventListener("blur",()=>{
   
   history.pushState({ page: "searchquery" }, null, `/search?song=${mainWindowSearchBar.value}`);
   statesCovered=window.window.history.length-2;
-  navIconsUpdate();
+  navIconUpdate();
 }
 )
 
