@@ -69,9 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let  paramsObj = new URLSearchParams(params);
       mainWindowSearchBar.value = paramsObj.get("song");
       displayArtistSongs(mainWindowSearchBar.value);
-    statesCovered=window.window.history.length-2;
-    navIconUpdate();
-  }
+      }
    else {
     tabUpdateForHome();
   }
@@ -94,7 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("popstate", (evt) => {
   if (evt.state == null || evt.state.page == "home") {
     tabUpdateForHome();
-  } else if(evt.state.page == "search") {
+  }
+ else if(history.state.page=="searchquery" ){
+    tabUpdateForSearch();
+  }
+   else if(evt.state.page == "search") {
     tabUpdateForSearch();
   }
   navIconUpdate();
