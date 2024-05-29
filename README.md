@@ -75,6 +75,9 @@ My project is an improved version of a Spotify clone, with the vision of making 
 
 Working on **Backend Integration** to make it end to end functional !
 
+Version: <code>1.1.0</code>
+<br></br>
+
 
 ## Why Vanilla JavaScript?
 
