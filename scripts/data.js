@@ -575,6 +575,12 @@ const playlist = [
   "tracks/charka.mp3",
   "tracks/wishlist.mp3",
   "tracks/akhiyaUdeekDiyan.mp3",
+  "tracks/ishq.mp3",
+  "tracks/wakeMeUp.mp3", 
+    "tracks/proveThemWrong.mp3",
+    "tracks/humblePoet.mp3",
+    "tracks/52Bar.mp3",
+    "tracks/chaarLog.mp3"
 ];
 
 let songDetails =[
