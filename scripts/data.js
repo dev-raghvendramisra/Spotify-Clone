@@ -924,7 +924,7 @@ let songDetails =[
   },
   {
     "name": "WAKE ME UP",
-    "album": " Wake Me Up",
+    "album": "Wake Me Up",
     "description": "aleemrk, Jokhay",
     "duration": "04:07",
     "fullName": "WAKE ME UP from \" Wake Me Up\"",
@@ -932,15 +932,15 @@ let songDetails =[
   },
   {
     "name": "PROVE THEM WRONG",
-    "album": " Prove Them Wrong",
-    "description": " Abhi Kesla, Bella",
+    "album": "Prove Them Wrong",
+    "description": "Abhi Kesla, Bella",
     "duration": "03:55",
     "fullName": "PROVE THEM WRONG from \" Prove Them Wrong\"",
     "src": "https://i.scdn.co/image/ab67616d0000b273bbe944d012720fc2d661c1d9"
   },
   {
     "name": "Humble poet",
-    "album": " Humble Poet",
+    "album": "Humble Poet",
     "description": "M-ZEE BELLA",
     "duration": "03:50",
     "fullName": "humble poet from \" Humble Poet\"",
