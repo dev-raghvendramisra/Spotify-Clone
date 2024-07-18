@@ -510,8 +510,6 @@ function createArtistCard(){
     artistCard.innerHTML=artistCardhtml;
     artistCard.querySelector("img").src=profilePictureUrls[idx];
     artistCard.querySelector(".artistname").innerText=artistName;
-    console.log(profilePictureUrls[idx],idx,    artistCard.querySelector(".artistname").innerText)
-
     let sidebarFaliure=document.querySelector(".failedtosearch");
     document.querySelector(".defaultlistings").append(artistCard,sidebarFaliure);
     
