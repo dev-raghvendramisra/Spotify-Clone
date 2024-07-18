@@ -914,6 +914,54 @@ let songDetails =[
     fullName: "Akhiyan Udeek Diyan from \"Shiddat\"",
     src: "https://i.scdn.co/image/ab67616d00001e02e4c77dc1b6c85c754f7f136c"
   },
+    {
+    "name": "ISHQ",
+    "album": "Lost;Found",
+    "description": "Faheem Abdullah, Rauhan Malik, Amir Ameer",
+    "duration": "03:45",
+    "fullName": "ISHQ from \"Lost;Found\"",
+    "src": "https://i.scdn.co/image/ab67616d0000b2739e3495a35db3c1e374ce09b5"
+  },
+  {
+    "name": "WAKE ME UP",
+    "album": " Wake Me Up",
+    "description": "aleemrk, Jokhay",
+    "duration": "04:07",
+    "fullName": "WAKE ME UP from \" Wake Me Up\"",
+    "src": "https://i.scdn.co/image/ab67616d0000b273d7bf0bf26378891c79862cc1"
+  },
+  {
+    "name": "PROVE THEM WRONG",
+    "album": " Prove Them Wrong",
+    "description": " Abhi Kesla, Bella",
+    "duration": "03:55",
+    "fullName": "PROVE THEM WRONG from \" Prove Them Wrong\"",
+    "src": "https://i.scdn.co/image/ab67616d0000b273bbe944d012720fc2d661c1d9"
+  },
+  {
+    "name": "Humble poet",
+    "album": " Humble Poet",
+    "description": "M-ZEE BELLA",
+    "duration": "03:50",
+    "fullName": "humble poet from \" Humble Poet\"",
+    "src": "https://i.scdn.co/image/ab67616d0000b2736d1bfd60d4bea3dedf520e2b"
+  },
+  {
+    "name": "52 bar",
+    "album": "52 bar",
+    "description": "karan aujila, ikky",
+    "duration": "04:02",
+    "fullName": "52 bar from \"Four You\"",
+    "src": "https://i.scdn.co/image/ab67616d00001e02d036158f4b83af10de8d2443"
+  },
+  {
+    "name": "Chaar log",
+    "album": "Charr log",
+    "description": "HYKE",
+    "duration": "03:58",
+    "fullName": "chaar log from \"HYKE\"",
+    "src": "https://i.scdn.co/image/ab67616d0000b273167a9bd80d17c88a76187bde"
+  }
 ];
 
 let profilePictureUrls = [
