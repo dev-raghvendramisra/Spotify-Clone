@@ -933,7 +933,7 @@ let songDetails =[
   {
     "name": "PROVE THEM WRONG",
     "album": "Prove Them Wrong",
-    "description": "Abhi Kesla, Bella",
+    "description": "Abhi Kesla, M-ZEE BELLA",
     "duration": "03:55",
     "fullName": "PROVE THEM WRONG from \" Prove Them Wrong\"",
     "src": "https://i.scdn.co/image/ab67616d0000b273bbe944d012720fc2d661c1d9"
@@ -1020,6 +1020,16 @@ let profilePictureUrls = [
   "https://i.scdn.co/image/ab6761610000e5ebc9ac92d87de28795c1c49730",
   "https://i.scdn.co/image/ab6761610000e5eb9dab6a0d08fb7081e029f8b0",
   "https://i.scdn.co/image/ab6761610000f178c52ca40e86390b9091f5a618",
+   "https://i.scdn.co/image/ab676161000051741a9a1558501e78aa4343c67f",
+    "https://i.scdn.co/image/ab676161000051742dda02f35e185dbfdd97f331",
+    "https://i.scdn.co/image/ab67616d00001e029e3495a35db3c1e374ce09b5",
+    "https://i2o.scdn.co/image/ab67706c0000cfa35bdc042238fb806e5f9452aa",
+    "https://i.scdn.co/image/ab6761610000e5ebefd8edc35ed9ae05b22fa625",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcfi7oHEZt65RlAV4tROiRZjFyCNMgvmwCdw&s",
+    "https://i.scdn.co/image/ab6761610000e5eb1cca42a20f3aa647cfdf8939",
+    "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da846822c3d67b53c0627fb88fc3",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE-ekTqQKpIGy1J6VpgeODZYY4wxmTZaMP1A&s",
+    "https://i.scdn.co/image/ab6761610000e5ebee0120084c7389b888adfe77"
 ];
 
 
