@@ -579,7 +579,7 @@ const playlist = [
   "tracks/wakeMeUp.mp3", 
     "tracks/proveThemWrong.mp3",
     "tracks/humblePoet.mp3",
-    "tracks/52Bar.mp3",
+    "tracks/52Bars.mp3",
     "tracks/chaarLog.mp3"
 ];
 
