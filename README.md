@@ -101,7 +101,5 @@ With the vision of making it the best of all, my Spotify clone aims to offer a c
 <br></br>
 ## Contact
 
-Your Name - [@raghvendra_001](https://twitter.com/raghvendra_001) - itsraghav12@gmail.com
-
-Project Link: [https://github.com/dev-raghvendramisra/Spotify-CLone](https://github.com/dev-raghvendramisra/Spotify-Clone)
+Raghvendra Misra - [@raghvendra_001](https://twitter.com/raghvendra_001) - itsraghav12@gmail.com
 
