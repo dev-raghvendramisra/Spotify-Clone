@@ -580,7 +580,8 @@ const playlist = [
     "tracks/proveThemWrong.mp3",
     "tracks/humblePoet.mp3",
     "tracks/52Bars.mp3",
-    "tracks/chaarLog.mp3"
+    "tracks/chaarLog.mp3",
+    "tracks/afsanay.mp3"
 ];
 
 let songDetails =[
@@ -967,6 +968,14 @@ let songDetails =[
     "duration": "03:58",
     "fullName": "chaar log from \"HYKE\"",
     "src": "https://i.scdn.co/image/ab67616d0000b273167a9bd80d17c88a76187bde"
+  },
+  {
+       "name": "Afsanay",
+    "album": "Afsanay",
+    "description": "Young Stunners, Talha Anjum, Talha Yunus",
+    "duration": "05:43",
+    "fullName": "Afsanay from \"Young Stunners\"",
+    "src": "https://i.scdn.co/image/ab67616d00001e028cf8d45d1fe3659185028e38"
   }
 ];
 
@@ -1035,7 +1044,10 @@ let profilePictureUrls = [
     "https://i.scdn.co/image/ab6761610000e5eb1cca42a20f3aa647cfdf8939",
     "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da846822c3d67b53c0627fb88fc3",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE-ekTqQKpIGy1J6VpgeODZYY4wxmTZaMP1A&s",
-    "https://i.scdn.co/image/ab6761610000e5ebee0120084c7389b888adfe77"
+    "https://i.scdn.co/image/ab6761610000e5ebee0120084c7389b888adfe77",
+    "https://i.scdn.co/image/ab676161000051744cadf1146501aaaf5d416018",
+    "https://i.scdn.co/image/ab6761610000517456dbabf4922bb49ee790c3b1",
+    "https://i.scdn.co/image/ab6761610000517412ee42a62a8a38517a81a691"
 ];
 
 
