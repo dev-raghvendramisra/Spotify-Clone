@@ -3,14 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/dev-raghvendramisra/Spotify-Clone">
-    <img src="icon/logo1.png" alt="Logo" width="200" height="200">
-  </a>
-
-  <h3 align="center">Spotify Clone-by Raghvendra Misra</h3>
-
  <p align="center">
-    Best one you'll ever find!
     <br />
     <a href="https://spotifyclonebyrv.vercel.app"><strong>Veiw Live Project»</strong></a>
     <br />
