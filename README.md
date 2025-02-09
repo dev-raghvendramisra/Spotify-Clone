@@ -26,17 +26,17 @@ My project is an improved version of a **Spotify clone**, focusing on enhancing 
 ## 🚀 Key Features:
 
 - 🔥 **Real-time Song Updates** → Instantly updates song details, ensuring a seamless experience.
-- 📱 **Responsive Design** → Adapts to various screen sizes for a consistent UI.
-- 🎵 **Dynamic Song Cards** → Generates song cards based on viewport size.
-- 🎛 **Full Playback Controls** → Includes loop, skip, previous, pause, and play buttons.
-- ⏳ **Progress Bar** → Shows real-time song progress.
-- 🎚 **Volume Control** → Allows precise audio adjustments.
-- 🔄 **Real-time Duration Updates** → Displays accurate playback progress.
-- ⚡ **Automated Content Management** → Instantly updates song arrays throughout the app.
+- 🔥 **Responsive Design** → Adapts to various screen sizes for a consistent UI.
+- 🔥 **Dynamic Song Cards** → Generates song cards based on viewport size.
+- 🔥 **Full Playback Controls** → Includes loop, skip, previous, pause, and play buttons.
+- 🔥 **Progress Bar** → Shows real-time song progress.
+- 🔥 **Volume Control** → Allows precise audio adjustments.
+- 🔥 **Real-time Duration Updates** → Displays accurate playback progress.
+- 🔥 **Automated Content Management** → Instantly updates song arrays throughout the app.
 
 ---
 
-## 🛠 Current Progress
+## Current Progress
 
 Currently working on **Backend Integration** to make the app fully functional! 🎯  
 
